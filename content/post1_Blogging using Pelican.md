@@ -1,6 +1,5 @@
 title: How-to 1:  Blogging using Pelican.
 date: 2020-03-21 22:22
-Category: Howto
 Tags: Pelican, static site, markdown
 Authors: Alex
 Summary: Steps to follow in order to publish the first page on my blog using static site generator -Pelican.

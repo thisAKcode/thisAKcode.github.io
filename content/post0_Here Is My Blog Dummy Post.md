@@ -1,10 +1,10 @@
 title: Hello World
 date: 2020-03-21 22:22
 author: Alex
-category: Python
+category: misc
 tags: Python, Pelican
 slug: dummy_post
-summary: This is the tiral post written for my Pelican blog.
+summary: This is the trial post written for my Pelican blog.
 
 ## Here Is My First Blog Post
 
