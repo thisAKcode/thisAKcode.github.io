@@ -10,23 +10,22 @@ This post continues the theme of the previous post on that topic.
 ```bash
 cd C:\blog_depend\venv\Scripts
 activate
-# cd out of pwd back to your project folder e.g. to blog  directory
-$ cd c:\thisAKcode.github.io\content
+cd c:\thisAKcode.github.io\content
 ```
 ## Edit existing file 
-If I am interested in editin published post I do it as follows:
+If I am interested in editing published post I do it as follows:
 I had post_number_n.md in content folder, then I opened it using some editor and rewrited some of the content.  
 
 ```bash
 pelican content -o output -s publishconf.py
-ghp-import -m "Generate Pelican site" --no-jekyll -b master output
-git push origin master
+ghp-import -m "Generate Pelican site" --no-jekyll -b main output
+git push origin main
 
 git add content
-$ git commit -m "added a post"
-$ git push origin content
+git commit -m "added a post"
+git push origin content
 ```
-
+## Convert Jupyter Notebook to md and publish that as an article
 Alternative for writing from scratch can be converting of an ipynb file into markdown file. Read HOWTO below to understand how to work with that stuff.
 
 HOWTO
@@ -35,7 +34,6 @@ from within cmder I run this:
 
 ```bash
 jupyter nbconvert --to markdown notebook.ipynb
-
 ```
 
 # Edit Site Configuration
