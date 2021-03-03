@@ -43,22 +43,22 @@
 <a href="https://thisakcode.github.io/how-to-1-blogging-using-pelican.html">https://thisakcode.github.io/how-to-1-blogging-using-pelican.html</a></p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> C:<span class="se">\b</span>log_depend<span class="se">\v</span>env<span class="se">\S</span>cripts
 activate
-<span class="c1"># cd out of pwd back to your project folder e.g. to blog  directory</span>
-$ <span class="nb">cd</span> c:<span class="se">\t</span>hisAKcode.github.io<span class="se">\c</span>ontent
+<span class="nb">cd</span> c:<span class="se">\t</span>hisAKcode.github.io<span class="se">\c</span>ontent
 </code></pre></div>
 
 <h2>Edit existing file</h2>
-<p>If I am interested in editin published post I do it as follows:
+<p>If I am interested in editing published post I do it as follows:
 I had post_number_n.md in content folder, then I opened it using some editor and rewrited some of the content.  </p>
 <div class="highlight"><pre><span></span><code>pelican content -o output -s publishconf.py
-ghp-import -m <span class="s2">&quot;Generate Pelican site&quot;</span> --no-jekyll -b master output
-git push origin master
+ghp-import -m <span class="s2">&quot;Generate Pelican site&quot;</span> --no-jekyll -b main output
+git push origin main
 
 git add content
-$ git commit -m <span class="s2">&quot;added a post&quot;</span>
-$ git push origin content
+git commit -m <span class="s2">&quot;added a post&quot;</span>
+git push origin content
 </code></pre></div>
 
+<h2>Convert Jupyter Notebook to md and publish that as an article</h2>
 <p>Alternative for writing from scratch can be converting of an ipynb file into markdown file. Read HOWTO below to understand how to work with that stuff.</p>
 <p>HOWTO
 <a href="https://github.com/jupyter/nbconvert">https://github.com/jupyter/nbconvert</a>
