@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Pretty Lagom</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2021-03-03T15:00:00+01:00</updated><entry><title>crash repair</title><link href="/crash-repair.html" rel="alternate"></link><published>2021-03-03T15:00:00+01:00</published><updated>2021-03-03T15:00:00+01:00</updated><author><name>Alex</name></author><id>tag:None,2021-03-03:/crash-repair.html</id><content type="html">&lt;h1&gt;try to repair&lt;/h1&gt;</content><category term="misc"></category></entry><entry><title>Configure Custom Domain</title><link href="/configure-custom-domain.html" rel="alternate"></link><published>2021-03-01T11:09:00+01:00</published><updated>2021-03-01T11:09:00+01:00</updated><author><name>Alex</name></author><id>tag:None,2021-03-01:/configure-custom-domain.html</id><summary type="html">&lt;h1&gt;Set a custom domain for my GitHub Pages site&lt;/h1&gt;
+&lt;p&gt;I have pelican powered static site and world can acces it at my github pages : &lt;code&gt;thisAKcode.github.io&lt;/code&gt;.&lt;br&gt;
+What if I want to be a fancy and get my own custom domain name and assign it to my GitHub Pages website …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Set a custom domain for my GitHub Pages site&lt;/h1&gt;
+&lt;p&gt;I have pelican powered static site and world can acces it at my github pages : &lt;code&gt;thisAKcode.github.io&lt;/code&gt;.&lt;br&gt;
+What if I want to be a fancy and get my own custom domain name and assign it to my GitHub Pages website.&lt;/p&gt;
+&lt;p&gt;I purchased a domain name from Route 53 by aws and gave it name: &lt;code&gt;www.prettylagom.me&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;I followed those steps to set it up properly:
+&lt;steps_to_setup_custom_domain&gt;&lt;/p&gt;
+&lt;p&gt;Go to your-user-name.github.io.
+&lt;code&gt;cd C:\thisAKcode.github.io&lt;/code&gt;
+Create file there you want to hold CNAME (Canonical Name).
+&lt;code&gt;touch CNAME&lt;/code&gt;
+ Open CNAME in editor.
+&lt;code&gt;vi CNAME&lt;/code&gt;
+Add your custom domain inside CNAME
+&lt;code&gt;www.prettylagom.me&lt;/code&gt;
+Run git commands to push this file to remote. &lt;/p&gt;</content><category term="misc"></category></entry><entry><title>Change Pelican Theme</title><link href="/change-pelican-theme.html" rel="alternate"></link><published>2021-02-12T22:24:00+01:00</published><updated>2021-02-12T22:24:00+01:00</updated><author><name>Alex</name></author><id>tag:None,2021-02-12:/change-pelican-theme.html</id><summary type="html">&lt;h2&gt;Choose theme&lt;/h2&gt;
+&lt;p&gt;html5-dopetrope is theme I like. 
+To choose theme for your blog add cloned theme repo to your pelican installation...
+&lt;code&gt;\venv\Lib\site-packages\pelican\themes&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;bash&lt;/span&gt;
+&lt;span class="err"&gt;cd \pelican themes&lt;/span&gt;
+&lt;span class="err"&gt;cp html5-dopetrope C:\blog_depend\venv\Lib\site-packages\pelican\themes&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;how to apply theme&lt;/h2&gt;
+&lt;p&gt;....
+ ...&lt;/p&gt;
+&lt;h2&gt;Plugins&lt;/h2&gt;
+&lt;p&gt;You have to check whether your …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;Choose theme&lt;/h2&gt;
+&lt;p&gt;html5-dopetrope is theme I like. 
+To choose theme for your blog add cloned theme repo to your pelican installation...
+&lt;code&gt;\venv\Lib\site-packages\pelican\themes&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;bash&lt;/span&gt;
+&lt;span class="err"&gt;cd \pelican themes&lt;/span&gt;
+&lt;span class="err"&gt;cp html5-dopetrope C:\blog_depend\venv\Lib\site-packages\pelican\themes&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;how to apply theme&lt;/h2&gt;
+&lt;p&gt;....
+ ...&lt;/p&gt;
+&lt;h2&gt;Plugins&lt;/h2&gt;
+&lt;p&gt;You have to check whether your plug in is compatible with your theme.&lt;/p&gt;</content><category term="misc"></category></entry><entry><title>How-to 1.2: Editing blog post using Pelican.</title><link href="/how-to-12-editing-blog-post-using-pelican.html" rel="alternate"></link><published>2020-12-19T22:30:00+01:00</published><updated>2020-12-19T22:30:00+01:00</updated><author><name>Alex</name></author><id>tag:None,2020-12-19:/how-to-12-editing-blog-post-using-pelican.html</id><summary type="html">&lt;h1&gt;Instructions about editing blog using Pelican&lt;/h1&gt;
+&lt;p&gt;This post continues the theme of the previous post on that topic. 
+&lt;a href="https://thisakcode.github.io/how-to-1-blogging-using-pelican.html"&gt;https://thisakcode.github.io/how-to-1-blogging-using-pelican.html&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; C:&lt;span class="se"&gt;\b&lt;/span&gt;log_depend&lt;span class="se"&gt;\v&lt;/span&gt;env&lt;span class="se"&gt;\S&lt;/span&gt;cripts
+activate
+&lt;span class="nb"&gt;cd&lt;/span&gt; c:&lt;span class="se"&gt;\t&lt;/span&gt;hisAKcode.github.io&lt;span class="se"&gt;\c&lt;/span&gt;ontent
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Edit existing file&lt;/h2&gt;
+&lt;p&gt;If I am interested in editing …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Instructions about editing blog using Pelican&lt;/h1&gt;
+&lt;p&gt;This post continues the theme of the previous post on that topic. 
+&lt;a href="https://thisakcode.github.io/how-to-1-blogging-using-pelican.html"&gt;https://thisakcode.github.io/how-to-1-blogging-using-pelican.html&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; C:&lt;span class="se"&gt;\b&lt;/span&gt;log_depend&lt;span class="se"&gt;\v&lt;/span&gt;env&lt;span class="se"&gt;\S&lt;/span&gt;cripts
+activate
+&lt;span class="nb"&gt;cd&lt;/span&gt; c:&lt;span class="se"&gt;\t&lt;/span&gt;hisAKcode.github.io&lt;span class="se"&gt;\c&lt;/span&gt;ontent
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Edit existing file&lt;/h2&gt;
+&lt;p&gt;If I am interested in editing published post I do it as follows:
+I had post_number_n.md in content folder, then I opened it using some editor and rewrited some of the content.  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pelican content -o output -s publishconf.py
+ghp-import -m &lt;span class="s2"&gt;&amp;quot;Generate Pelican site&amp;quot;&lt;/span&gt; --no-jekyll -b main output
+git push origin main
+
+git add content
+git commit -m &lt;span class="s2"&gt;&amp;quot;added a post&amp;quot;&lt;/span&gt;
+git push origin content
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Convert Jupyter Notebook to md and publish that as an article&lt;/h2&gt;
+&lt;p&gt;Alternative for writing from scratch can be converting of an ipynb file into markdown file. Read HOWTO below to understand how to work with that stuff.&lt;/p&gt;
+&lt;p&gt;HOWTO
+&lt;a href="https://github.com/jupyter/nbconvert"&gt;https://github.com/jupyter/nbconvert&lt;/a&gt;
+from within cmder I run this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;jupyter nbconvert --to markdown notebook.ipynb
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h1&gt;Edit Site Configuration&lt;/h1&gt;
+&lt;p&gt;To change some defaults from first setup you have to modify some of the variables in &lt;code&gt;pelicanconf.py&lt;/code&gt; file.  &lt;/p&gt;
+&lt;h1&gt;Modify site theme&lt;/h1&gt;
+&lt;p&gt;Create a new directory in &lt;code&gt;C:\thisAKcode.github.io&lt;/code&gt; named &lt;code&gt;theme&lt;/code&gt; in which you need to have &lt;code&gt;templates&lt;/code&gt; directory.  Here Jinja2 to be stored if your goal is to override the default theme.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Choose Pelican theme you like here: &lt;a href="http://www.pelicanthemes.com/"&gt;http://www.pelicanthemes.com/&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Clone the repo of your favorite theme e.g. &lt;code&gt;https://github.com/getpelican/pelican-themes/tree/master/basic&lt;/code&gt;
+Clone the into this location: &lt;code&gt;C:\blog_depend\venv\Lib\site-packages\pelican\themes&lt;/code&gt;
+otherwise use this tool &lt;code&gt;https://kinolien.github.io/gitzip/&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;and register it inside your pelicanconf.py
+&lt;code&gt;THEME = "elegant"&lt;/code&gt; 
+3. Now open pelicanconf.py file present in the Main Project folder and insert below line:
+&lt;code&gt;THEME=’&amp;lt;path to your Theme Folder&amp;gt;’&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Your Pelican is ready to use the theme.&lt;/p&gt;
+&lt;h1&gt;Add search engine and add a comment plugin.&lt;/h1&gt;
+&lt;p&gt;I found this great article &lt;a href="https://snipcart.com/blog/pelican-blog-tutorial-search-comments"&gt;https://snipcart.com/blog/pelican-blog-tutorial-search-comments&lt;/a&gt;. This walks through creating blog from scratch inclusive two features:
+1. adding search engine.
+2. adding comments.&lt;/p&gt;
+&lt;h1&gt;Adding a search engine.&lt;/h1&gt;
+&lt;h2&gt;Pelican-specific search plugin "Tipue search"&lt;/h2&gt;
+&lt;p&gt;Tipue-search is one of the plugins:
+&lt;a href="https://github.com/getpelican/pelican-plugins/tree/master/tipue_search"&gt;https://github.com/getpelican/pelican-plugins/tree/master/tipue_search&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Wasnt able to set it up. 
+Istall requirements &lt;code&gt;pip install beautifulsoup4&lt;/code&gt;.&lt;/p&gt;</content><category term="misc"></category></entry><entry><title>md converted thing.</title><link href="/md-converted-thing.html" rel="alternate"></link><published>2020-12-19T22:30:00+01:00</published><updated>2020-12-19T22:30:00+01:00</updated><author><name>Alex</name></author><id>tag:None,2020-12-19:/md-converted-thing.html</id><summary type="html">&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;warnings&lt;/span&gt;
+&lt;span class="n"&gt;warnings&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;filterwarnings&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ignore&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;matplotlib&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;math&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ceil&lt;/span&gt;
+
+&lt;span class="n"&gt;VNR&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;892&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;roundup&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="c1"&gt;#  round up ticks to next hundred&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ceil&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mf"&gt;100.0&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;
+
+&lt;span class="c1"&gt;# inject input data as pd dataframes&lt;/span&gt;
+&lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;VNR&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;_tsd_parameters.csv …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;warnings&lt;/span&gt;
+&lt;span class="n"&gt;warnings&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;filterwarnings&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ignore&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;matplotlib&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;math&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ceil&lt;/span&gt;
+
+&lt;span class="n"&gt;VNR&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;892&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;roundup&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="c1"&gt;#  round up ticks to next hundred&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ceil&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mf"&gt;100.0&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;
+
+&lt;span class="c1"&gt;# inject input data as pd dataframes&lt;/span&gt;
+&lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;VNR&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;_tsd_parameters.csv&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;df2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;marker_control_&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;VNR&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;.csv&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;df2_ac_pure&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;marker_pure_anticontrol_&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;VNR&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;.csv&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;df2_ac_mixed&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;marker_mixed_anticontrol_&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;VNR&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;.csv&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;df4&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;marker_&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;VNR&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;.csv&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# parameters&lt;/span&gt;
+&lt;span class="n"&gt;chainage&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Chainage&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;x_axis&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lop_lan_med&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;sci&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SCI300&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;bci&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;BCI&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;bdi&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;BDI&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# markers&lt;/span&gt;
+
+&lt;span class="c1"&gt;# test11&lt;/span&gt;
+&lt;span class="n"&gt;marker_chain&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Chainage_orig&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;# comment out temporarily&lt;/span&gt;
+&lt;span class="c1"&gt;#marker_chain = list(df2.lop_lan_med)&lt;/span&gt;
+&lt;span class="n"&gt;height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;# comment out temporarily&lt;/span&gt;
+&lt;span class="n"&gt;marker_chain_ac&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df2_ac_pure&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Chainage_orig&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;# marker_chain_ac = list(df2_ac_pure.lop_lan_med)&lt;/span&gt;
+&lt;span class="n"&gt;height_ac&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df2_ac_pure&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;# comment out temporarily&lt;/span&gt;
+&lt;span class="c1"&gt;#marker_chain_ac_mixed = list(df2_ac_mixed.lop_lan_med)&lt;/span&gt;
+&lt;span class="n"&gt;marker_chain_ac_mixed&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df2_ac_mixed&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Chainage_orig&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;height_acm&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df2_ac_mixed&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;size_slice&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;200&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Helper splits off the df&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;chunk&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;lst&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;Yield successive n-sized chunks from lst.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;lst&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;yield&lt;/span&gt; &lt;span class="n"&gt;lst&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;chunk_exec&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;iterator_toslice&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;size&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;item_1&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;item_1&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;chunk&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;iterator_toslice&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
+
+&lt;span class="c1"&gt;#  notice here start and end computed based on chainage&lt;/span&gt;
+&lt;span class="n"&gt;start_of_chain&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;end_of_chain&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;chainage&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;chainage&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;start_of_chain&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;end_of_chain&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;start_of_chain&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;end_of_chain&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;chainage&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;chainage&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;chainage_range&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;roundup&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;start_of_chain&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;roundup&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;end_of_chain&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;#  parameters decorated&lt;/span&gt;
+&lt;span class="n"&gt;chainage_sliced&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;chunk_exec&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;chainage&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;x_axis_sliced&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;chunk_exec&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x_axis&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;sci_sliced&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;chunk_exec&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sci&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;bci_sliced&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;chunk_exec&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;bci&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;bdi_sliced&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;chunk_exec&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;bdi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;marker_chain_sliced&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;chunk_exec&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;marker_chain&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;height_sliced&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;chunk_exec&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;marker_chain_ac_sliced&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;chunk_exec&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;marker_chain_ac&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;height_ac_sliced&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;chunk_exec&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;height_ac&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;marker_chain_ac_mixed_sliced&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;chunk_exec&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;marker_chain_ac_mixed&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;height_acm_sliced&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;chunk_exec&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;height_acm&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;#  set heigth ratio using gridspec_kw&lt;/span&gt;
+&lt;span class="n"&gt;width&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;heights&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;gs_kw&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;width_ratios&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;width&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;height_ratios&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;heights&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# {&amp;#39;width_ratios&amp;#39;: [1], &amp;#39;height_ratios&amp;#39;: [5, 1]}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;zipped_slices&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;zip&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;chainage_sliced&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x_axis_sliced&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sci_sliced&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; 
+             &lt;span class="n"&gt;bci_sliced&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;bdi_sliced&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;marker_chain_sliced&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; 
+             &lt;span class="n"&gt;height_sliced&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;marker_chain_ac_sliced&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;height_ac_sliced&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+             &lt;span class="n"&gt;marker_chain_ac_mixed_sliced&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;height_acm_sliced&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;the_plotter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;num_figures&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;value_collection&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;     
+    &lt;span class="c1"&gt;# chainage, x_axis, sci, bci, bdi, marker_chain, height, &lt;/span&gt;
+    &lt;span class="c1"&gt;# marker_chain_ac, height_ac, marker_chain_ac_mixed, height_acm&lt;/span&gt;
+
+    &lt;span class="n"&gt;chainage&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;value_collection&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="c1"&gt;#x_axis = value_collection[1]&lt;/span&gt;
+    &lt;span class="c1"&gt;#chainage = value_collection[1]  #  put chainage in place of x_axis&lt;/span&gt;
+    &lt;span class="n"&gt;sci&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;value_collection&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="n"&gt;bci&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;value_collection&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="n"&gt;bdi&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;value_collection&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="n"&gt;marker_chain&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;value_collection&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="n"&gt;height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;value_collection&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="n"&gt;marker_chain_ac&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;value_collection&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="n"&gt;height_ac&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;value_collection&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="n"&gt;marker_chain_ac_mixed&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;value_collection&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; 
+    &lt;span class="n"&gt;height_acm&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;  &lt;span class="n"&gt;value_collection&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+    &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subplots&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;constrained_layout&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; 
+                                 &lt;span class="n"&gt;sharey&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;40&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; 
+                                 &lt;span class="n"&gt;gridspec_kw&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;gs_kw&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;chainage&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sci&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;black&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;linewidth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;2.0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;chainage&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;bci&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;magenta&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;chainage&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;bdi&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;dodgerblue&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# indigo&lt;/span&gt;
+    &lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ylim&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;top&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;legend&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;sci&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;bci&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;bdi&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;loc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;prop&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;size&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;  &lt;span class="c1"&gt;#  legend size set&lt;/span&gt;
+
+    &lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_xticks&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;chainage_range&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_xticklabels&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;chainage_range&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;14&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# list(xticks_computation(chainage_range)&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# ===================================================&lt;/span&gt;
+    &lt;span class="c1"&gt;# PLOT 2&lt;/span&gt;
+    &lt;span class="c1"&gt;# control &lt;/span&gt;
+    &lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;marker_chain&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;linestyle&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;None&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;limegreen&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;marker&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;s&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;markersize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="c1"&gt;# 2x factor match&lt;/span&gt;
+    &lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;marker_chain_ac&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;height_ac&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;linestyle&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;None&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;darkorange&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;marker&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;s&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;markersize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="c1"&gt;# is invent &amp;amp; any pms&lt;/span&gt;
+    &lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;marker_chain_ac_mixed&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;height_acm&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;linestyle&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;None&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;gold&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;marker&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;s&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;markersize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;yaxis&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ticks&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+    &lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_yticklabels&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;control&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;2x factor match&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;is invent &amp;amp; any/none pms&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;14&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;factor levels&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c1"&gt;#  =========================================================&lt;/span&gt;
+    &lt;span class="c1"&gt;# BARS&lt;/span&gt;
+    &lt;span class="c1"&gt;# add a bar chart to the upper subplot&lt;/span&gt;
+    &lt;span class="n"&gt;width&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;    &lt;span class="c1"&gt;#  the width of the bars, approx(end_of_chain - start_of_chain)/300&lt;/span&gt;
+    &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;marker_chain&lt;/span&gt;
+    &lt;span class="n"&gt;x2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;marker_chain_ac&lt;/span&gt;
+    &lt;span class="n"&gt;x3&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;marker_chain_ac_mixed&lt;/span&gt;
+    &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="mi"&gt;495&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="n"&gt;y2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="mi"&gt;250&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;height_ac&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="n"&gt;y3&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="mi"&gt;165&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;height_acm&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="c1"&gt;# control &lt;/span&gt;
+    &lt;span class="n"&gt;rects1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;bar&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;width&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;limegreen&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;alpha&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.6&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;    
+    &lt;span class="c1"&gt;#  is invent &amp;amp; any/none pms&lt;/span&gt;
+    &lt;span class="n"&gt;rects3&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;bar&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;width&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gold&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;alpha&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.6&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="c1"&gt;# 2x factor match&lt;/span&gt;
+    &lt;span class="n"&gt;rects2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;bar&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;width&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;red&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;alpha&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# navy&lt;/span&gt;
+
+    &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;savefig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;roadname&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;VNR&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;part&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;num_figures&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;_slice2000_v20200507.png&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+
+&lt;span class="c1"&gt;# TO DO refactor as main&lt;/span&gt;
+&lt;span class="n"&gt;counter1&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;num_cnt_main&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;chunk_element&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;reversed&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;enumerate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;zipped_slices&lt;/span&gt;&lt;span class="p"&gt;))):&lt;/span&gt;
+    &lt;span class="n"&gt;counter1&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+    &lt;span class="n"&gt;the_plotter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;counter1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;chunk_element&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img alt="png" src="tsd892_main_files/tsd892_main_2_0.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="png" src="tsd892_main_files/tsd892_main_2_1.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="png" src="tsd892_main_files/tsd892_main_2_2.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="png" src="tsd892_main_files/tsd892_main_2_3.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="png" src="tsd892_main_files/tsd892_main_2_4.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="png" src="tsd892_main_files/tsd892_main_2_5.png"&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# 2x factor match = type of anti ktrl, where  pms = true and sweco invent = true. (deprecated name &amp;#39;factor pure&amp;#39;).&lt;/span&gt;
+&lt;span class="c1"&gt;# is invent &amp;amp; any pms. Points where invent = true regardless of whether pms true or false (it means pms can both be true and false), (deprecated name &amp;#39;factor mix&amp;#39;).&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="misc"></category></entry><entry><title>FME &amp; PythonCaller combo</title><link href="/fme-pythoncaller-combo.html" rel="alternate"></link><published>2020-04-07T21:50:00+02:00</published><updated>2020-04-07T21:50:00+02:00</updated><author><name>Alex</name></author><id>tag:None,2020-04-07:/fme-pythoncaller-combo.html</id><summary type="html">&lt;h1&gt;FME &amp;amp; PythonCaller combo.&lt;/h1&gt;
+&lt;p&gt;The main goal with that article is justify my use of FME as valuable experience for becoming a Python developer. &lt;/p&gt;
+&lt;h2&gt;Shortly about FME (Feature Manipulation Engine)&lt;/h2&gt;
+&lt;p&gt;The main desktop application of Safe Software is FME Workbench. The inteface consist of, among other, canvas. Here user Alex graphically …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;FME &amp;amp; PythonCaller combo.&lt;/h1&gt;
+&lt;p&gt;The main goal with that article is justify my use of FME as valuable experience for becoming a Python developer. &lt;/p&gt;
+&lt;h2&gt;Shortly about FME (Feature Manipulation Engine)&lt;/h2&gt;
+&lt;p&gt;The main desktop application of Safe Software is FME Workbench. The inteface consist of, among other, canvas. Here user Alex graphically define a translation called a "workspace" wich can be saved for re-use later (fme workspace files on that regard are similar to script files).
+&lt;a href="https://docs.safe.com/fme/html/FME_Desktop_Documentation/FME_Coordinate_Systems/!FME_Terminology/terminology.htm"&gt;https://docs.safe.com/fme/html/FME_Desktop_Documentation/FME_Coordinate_Systems/!FME_Terminology/terminology.htm&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;FME Desktop is like a mindmap: you are using canvas to graphically define a translation with transformers. Transformers are "the building blocks used in FME Workbench, each having a specific function. They can be used alone in a simple workspace, or combined to create complicated processes".&lt;/p&gt;
+&lt;p&gt;A classical simple workspace looks like that:
+picture1&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Create features (an individual item within the translation) OR read the source dataset (many formats accessible in FME).&lt;/li&gt;
+&lt;li&gt;Directing the items into individual port based on result of evaluation of 'if-elif-else' condition statement &amp;gt; you can then write the items to different files for each resulting port.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;PythonCaller&lt;/h2&gt;
+&lt;p&gt;PythonCaller transformer used to perform tasks within FME, which are not possible with standard FME transformers.
+Transformer PythonCaller executes a user-supplied Python script (3.7+) to manipulate features.
+&lt;a href="https://knowledge.safe.com/articles/60319/pythoncaller-transformer.html"&gt;https://knowledge.safe.com/articles/60319/pythoncaller-transformer.html&lt;/a&gt;
+PythonCaller can interface with a Python script in two different ways - by a function or by a class.&lt;/p&gt;
+&lt;h2&gt;Function&lt;/h2&gt;
+&lt;p&gt;Use the Function Interface when you intend to process a single feature at a time.&lt;/p&gt;
+&lt;h3&gt;usecase 1 collection.Counter()&lt;/h3&gt;
+&lt;p&gt;Prior to use of PythonCaller you need to accomplish the following:
+1. Create some dummy items to use as input for Python function.
+2. Add a PythoCaller Transfromer.
+3. Inside it make a count of items having some particular attribute value for 'attribute1'. 
+4. Output values containing in Counter() object as its own attribute called 'attribute2' counted values.&lt;/p&gt;
+&lt;p&gt;When you use function to process features, all features will enter the function one by one for processing.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# script uses an FME Objects method, collections module&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;fme&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;fmeobjects&lt;/span&gt; 
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;collections&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;count_list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;feature&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt; &lt;span class="c1"&gt;# function accepts FMEFeature objects as its only argument&lt;/span&gt;
+    &lt;span class="n"&gt;some_var&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;feature&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;_list{}&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;cnt_elmnts&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;collections&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Counter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;some_var&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;most_common&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;feature&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;result&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cnt_elmnts&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; 
+    &lt;span class="c1"&gt;# attribute is added to the feature with setAttribute() method on the feature&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Click OK to dismiss the code editor.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;In the same pane, set the Class or Function to Process Feature parameter to the name of the function: timestampFeature. Because we have added a new attribute we can expose it by entering its name in the Attributes to Expose parameter: type in the new attribute name in the Enter Values for Attributes to Expose window.&lt;/p&gt;
+&lt;h2&gt;Python Classes within PythonCaller.&lt;/h2&gt;
+&lt;p&gt;If you need to process all values of given attribute for a bunch of features then you may need use classes. &lt;/p&gt;
+&lt;p&gt;Use the Class Interface for more flexibility. The Class Interface is useful when you want to operate on a group of features together, such as collecting all the features received and then outputting them in a specific sort order. Another common use case is to accumulate all the features, perform an operation on the whole set, and then output all of the features with a calculated value as a new attribute.&lt;/p&gt;
+&lt;p&gt;You can use Python Classes to accumulate values between features (GIS items)
+PythonCaller will output one single feature containing a list attribute. 
+Code is from safe community &lt;a href="https://knowledge.safe.com/questions/52168/pythoncaller-all-values-for-each-attribute.html"&gt;https://knowledge.safe.com/questions/52168/pythoncaller-all-values-for-each-attribute.html&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;fme&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;fmeobjects&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;collections&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Counter&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;FeatureProcessor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;T1_values&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;feature&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="n"&gt;t1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;feature&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;T1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;T1_values&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;close&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;fmeobjects&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;FMEFeature&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="n"&gt;T1_duplicates&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;Counter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;T1_values&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+        &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;T1_duplicates&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;T1_duplicates&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pyoutput&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;If you wish to dig deep then you can find fun reads e.g.
+Maybe you can find this article useful. 
+&lt;a href="https://www.slideshare.net/DanielaPerri2/when-to-use-python-in-fme"&gt;https://www.slideshare.net/DanielaPerri2/when-to-use-python-in-fme&lt;/a&gt;&lt;/p&gt;</content><category term="misc"></category></entry><entry><title>Hello World</title><link href="/dummy_post.html" rel="alternate"></link><published>2020-03-21T22:22:00+01:00</published><updated>2020-03-21T22:22:00+01:00</updated><author><name>Alex</name></author><id>tag:None,2020-03-21:/dummy_post.html</id><summary type="html">&lt;p&gt;This is the trial post written for my Pelican blog.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;Here Is My First Blog Post&lt;/h2&gt;
+&lt;p&gt;This is my first post on my blog using &lt;strong&gt;Pelican&lt;/strong&gt;.
+If you have &lt;code&gt;Draft: True&lt;/code&gt; at the top of the post then it is &lt;em&gt;not&lt;/em&gt; shown up. &lt;/p&gt;</content><category term="misc"></category><category term="Python"></category><category term="Pelican"></category></entry><entry><title>How-to 1: Blogging using Pelican.</title><link href="/how-to-1-blogging-using-pelican.html" rel="alternate"></link><published>2020-03-21T22:22:00+01:00</published><updated>2020-03-21T22:22:00+01:00</updated><author><name>Alex</name></author><id>tag:None,2020-03-21:/how-to-1-blogging-using-pelican.html</id><summary type="html">&lt;p&gt;Steps to follow in order to publish the first page on my blog using static site generator -Pelican.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;Create a blog on GitHub Pages with Pelican&lt;/h2&gt;
+&lt;p&gt;This very first page took me many attempts and hours before I got this to work. The post you read is actually my second page on that blog and the second attempt to publish pages. If you are new to Pelican, that is for you. My post was inpsired by the great article by  Erik O'Shaughnessy. &lt;a href="https://opensource.com/article/19/5/run-your-blog-github-pages-python"&gt;Run your blog on GitHub Pages with Python&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Everything in that howto were done using Cmder &lt;a href="https://cmder.net/"&gt;https://cmder.net/&lt;/a&gt;&lt;/h2&gt;
+&lt;h1&gt;Steps:&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;venv setup &lt;/li&gt;
+&lt;li&gt;installing dependencies&lt;/li&gt;
+&lt;li&gt;creating github pages repo &lt;/li&gt;
+&lt;li&gt;pelican-quickstart&lt;/li&gt;
+&lt;li&gt;push pelican genereated files to repo&lt;/li&gt;
+&lt;li&gt;writing content on local machine&lt;/li&gt;
+&lt;li&gt;Run Pelican and ghp-import in order to format content as html&lt;/li&gt;
+&lt;li&gt;Publish&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;Step one: venv setup&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;# create venv&lt;/span&gt;
+&lt;span class="err"&gt;$ python -m virtualenv &amp;#39;c:\blog_depend&amp;#39;&lt;/span&gt;
+&lt;span class="err"&gt;# activate venv (notice &amp;#39;c&amp;#39;  lowercased in path)&lt;/span&gt;
+&lt;span class="err"&gt;$ cd &amp;#39;c:\blog_depend\venv\Scripts&amp;#39;&lt;/span&gt;
+&lt;span class="err"&gt;$. activate&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h1&gt;Step two: Installing pelican, Markdown and ghp-import into venv&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;pelican&lt;/span&gt; &lt;span class="n"&gt;ghp&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;Markdown&lt;/span&gt;
+&lt;span class="c1"&gt;# activate venv again&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;c:&lt;/span&gt;&lt;span class="se"&gt;\b&lt;/span&gt;&lt;span class="s1"&gt;log_depend&lt;/span&gt;&lt;span class="se"&gt;\v&lt;/span&gt;&lt;span class="s1"&gt;env\Scripts&amp;#39;&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;activate&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h1&gt;Step three: creating github pages repo&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;# create github repo on github.io&lt;/span&gt;
+&lt;span class="err"&gt;# go to github.com, click on create a repo, create a repo named username.github.io&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Github instructon apears. I ignore them. &lt;br /&gt;
+I left my repo empty, which is fine for that usecase. &lt;br /&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;# clone your empty Git repository to your local machine&lt;/span&gt;
+&lt;span class="err"&gt;$ git clone https://github.com/thisAKcode/thisAKcode.github.io &amp;#39;c:\blog_v2&amp;#39;&lt;/span&gt;
+&lt;span class="err"&gt;# cd out of pwd back to your project folder e.g. to blog  directory&lt;/span&gt;
+&lt;span class="err"&gt;$ cd &amp;#39;c:\blog_v2&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h1&gt;A tip from Erik O'Shaughnessy&lt;/h1&gt;
+&lt;p&gt;"...For user pages (pages hosted in repos named username.github.io), the content is 
+served from the master branch.
+I strongly prefer not to keep all the Pelican configuration files and raw Markdown 
+files in master, rather just the web content. So I keep the Pelican configuration 
+and the raw content in a separate branch I like to call content. (You can call it 
+whatever you want, but the following instructions will call it content.) I like 
+    this structure since I can throw away all the files in master and re-populate it 
+    with the content branch." &lt;a href="https://opensource.com/article/19/5/run-your-blog-github-pages-python"&gt;Run your blog on GitHub Pages with Python&lt;/a&gt;&lt;br /&gt;
+    &lt;a href="https://opensource.com/article/19/5/run-your-blog-github-pages-python"&gt;1&lt;/a&gt;: https://opensource.com/article/19/5/run-your-blog-github-pages-python&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;# Separate content from the output  &lt;/span&gt;
+&lt;span class="err"&gt;# Following command both creates the brach &amp;#39;content&amp;#39; and check out(goes) to that branch&lt;/span&gt;
+&lt;span class="err"&gt;$ git checkout -b content&lt;/span&gt;
+&lt;span class="err"&gt;# Switched to a new branch &amp;#39;content&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h1&gt;Step four : pelican-quickstart&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;# launch pelican-quickstart&lt;/span&gt;
+&lt;span class="err"&gt;$ pelican-quickstart&lt;/span&gt;
+&lt;span class="err"&gt;# After a set of questions, Pelican creates a bunch of files in current directory&lt;/span&gt;
+&lt;span class="err"&gt;# Of course you need to read the docs to understand that step... &amp;lt;https://docs.getpelican.com/en/stable/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h1&gt;Step five: add files to repo.&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;# Add all the Pelican-generated files to the content branch of the local Git repo.&lt;/span&gt;
+&lt;span class="err"&gt;# While on content branch, commit and push the local changes to the remote to content branch:&lt;/span&gt;
+&lt;span class="err"&gt;$ git add .&lt;/span&gt;
+&lt;span class="err"&gt;$ git commit -m &amp;#39;initial pelican commit to content&amp;#39;&lt;/span&gt;
+&lt;span class="err"&gt;$ git push origin content&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h1&gt;Step six: Writing about.md and first-post.md&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; content
+$ mkdir pages images
+&lt;span class="c1"&gt;# copy picture from location on \c\ into images&lt;/span&gt;
+$ cp &lt;span class="s1"&gt;&amp;#39;c:\Users\Aleks\Pictures\profile.jpg&amp;#39;&lt;/span&gt; images
+$ touch first-post.md
+$ touch pages/about.md
+&lt;span class="c1"&gt;# first-post.md and about.md  has been created. Open and edit files using your favorite code editor.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h1&gt;Step seven: Run Pelican and ghp-import&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;# change dir to one containing publishconf.py&lt;/span&gt;
+&lt;span class="err"&gt;$ cd &amp;#39;c:\blog_v2&amp;#39;&lt;/span&gt;
+&lt;span class="err"&gt;# Run Pelican to generate the static HTML files in output folder of project:&lt;/span&gt;
+&lt;span class="err"&gt;$ pelican content -o output -s publishconf.py&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;# Something happend while running Pelican. This was because Iforced it run script to convert &lt;br&gt;
+# unproperly formatted path inside first-post.md into html: &lt;br&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;tips&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;use&lt;/span&gt; \&lt;span class="n"&gt;blog_folder&lt;/span&gt;\&lt;span class="n"&gt;etcetera&lt;/span&gt; &lt;span class="n"&gt;formatting&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;format&lt;/span&gt; &lt;span class="n"&gt;path&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;files&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;otherwise&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;get&lt;/span&gt;
+&lt;span class="n"&gt;WARNING&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Cannot&lt;/span&gt; &lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;modification&lt;/span&gt; &lt;span class="n"&gt;stamp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;The&lt;/span&gt; &lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;directory&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ow"&gt;or&lt;/span&gt; &lt;span class="n"&gt;volume&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt; &lt;span class="n"&gt;syntax&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="n"&gt;incorrect&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="n"&gt;CRITICAL&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ne"&gt;OSError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;WinError&lt;/span&gt; &lt;span class="mi"&gt;123&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="n"&gt;The&lt;/span&gt; &lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;directory&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ow"&gt;or&lt;/span&gt; &lt;span class="n"&gt;volume&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt; &lt;span class="n"&gt;syntax&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="n"&gt;incorrect&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+
+&lt;span class="c1"&gt;# run ghp-import ( stands for GitHub-pages)&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;ghp&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Generate Pelican site&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;no&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;jekyll&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="n"&gt;master&lt;/span&gt; &lt;span class="n"&gt;output&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h1&gt;Step eight:Push Pelican-created html files to master branch of the repo&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ git push origin master
+
+&lt;span class="c1"&gt;# push content to the content branch&lt;/span&gt;
+$ git add content
+$ git commit -m &lt;span class="s1"&gt;&amp;#39;added a first post, a photo and an about page&amp;#39;&lt;/span&gt;
+$ git push origin content
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h1&gt;Your new project is available at &lt;code&gt;thisAKcode.github.io&lt;/code&gt;&lt;/h1&gt;
+&lt;h1&gt;Main Project folder file and directory tree.&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c"&gt;C:.&lt;/span&gt;
+&lt;span class="err"&gt;¦   Makefile&lt;/span&gt;
+&lt;span class="err"&gt;¦   pelicanconf.py&lt;/span&gt;
+&lt;span class="err"&gt;¦   publishconf.py&lt;/span&gt;
+&lt;span class="err"&gt;¦   README.md&lt;/span&gt;
+&lt;span class="err"&gt;¦   tasks.py&lt;/span&gt;
+&lt;span class="err"&gt;¦   &lt;/span&gt;
+&lt;span class="err"&gt;+---content&lt;/span&gt;
+&lt;span class="err"&gt;¦   ¦   d2_post.md&lt;/span&gt;
+&lt;span class="err"&gt;¦   ¦   fifth-post.md&lt;/span&gt;
+&lt;span class="err"&gt;¦   ¦   first-post.md&lt;/span&gt;
+&lt;span class="err"&gt;¦   ¦   second-post.md&lt;/span&gt;
+&lt;span class="err"&gt;¦   ¦   tsd892_main.ipynb&lt;/span&gt;
+&lt;span class="err"&gt;¦   ¦   tsd892_main.md&lt;/span&gt;
+&lt;span class="err"&gt;¦   ¦   &lt;/span&gt;
+&lt;span class="err"&gt;¦   +---images&lt;/span&gt;
+&lt;span class="err"&gt;¦   ¦       profile.jpg&lt;/span&gt;
+&lt;span class="err"&gt;¦   ¦       &lt;/span&gt;
+&lt;span class="err"&gt;¦   +---pages&lt;/span&gt;
+&lt;span class="err"&gt;¦   ¦       about.md&lt;/span&gt;
+&lt;span class="err"&gt;¦   ¦       &lt;/span&gt;
+&lt;span class="err"&gt;¦   +---tsd892_main_files&lt;/span&gt;
+&lt;span class="err"&gt;¦           tsd892_main_2_0.png&lt;/span&gt;
+&lt;span class="err"&gt;¦           tsd892_main_2_1.png&lt;/span&gt;
+&lt;span class="err"&gt;¦           tsd892_main_2_2.png&lt;/span&gt;
+&lt;span class="err"&gt;¦           tsd892_main_2_3.png&lt;/span&gt;
+&lt;span class="err"&gt;¦           tsd892_main_2_4.png&lt;/span&gt;
+&lt;span class="err"&gt;¦           tsd892_main_2_5.png&lt;/span&gt;
+&lt;span class="err"&gt;¦           &lt;/span&gt;
+&lt;span class="err"&gt;+---output&lt;/span&gt;
+&lt;span class="err"&gt;¦   ¦   archives.html&lt;/span&gt;
+&lt;span class="err"&gt;¦   ¦   authors.html&lt;/span&gt;
+&lt;span class="err"&gt;¦   ¦   categories.html&lt;/span&gt;
+&lt;span class="err"&gt;¦   ¦   fme-pythoncaller-combo.html&lt;/span&gt;
+&lt;span class="err"&gt;¦   ¦   hello-world.html&lt;/span&gt;
+&lt;span class="err"&gt;¦   ¦   how-to-1-blogging-using-pelican.html&lt;/span&gt;
+&lt;span class="err"&gt;¦   ¦   how-to-12-editing-blog-post-using-pelican.html&lt;/span&gt;
+&lt;span class="err"&gt;¦   ¦   index.html&lt;/span&gt;
+&lt;span class="err"&gt;¦   ¦   md-converted-thing.html&lt;/span&gt;
+&lt;span class="err"&gt;¦   ¦   tags.html&lt;/span&gt;
+&lt;span class="err"&gt;¦   ¦   &lt;/span&gt;
+&lt;span class="err"&gt;¦   +---author&lt;/span&gt;
+&lt;span class="err"&gt;¦   ¦       alex.html&lt;/span&gt;
+&lt;span class="err"&gt;¦   ¦       &lt;/span&gt;
+&lt;span class="err"&gt;¦   +---category&lt;/span&gt;
+&lt;span class="err"&gt;¦   ¦       misc.html&lt;/span&gt;
+&lt;span class="err"&gt;¦   ¦       &lt;/span&gt;
+&lt;span class="err"&gt;¦   +---feeds&lt;/span&gt;
+&lt;span class="err"&gt;¦   ¦       all.atom.xml&lt;/span&gt;
+&lt;span class="err"&gt;¦   ¦       misc.atom.xml&lt;/span&gt;
+&lt;span class="err"&gt;¦   ¦       &lt;/span&gt;
+&lt;span class="err"&gt;¦   +---images&lt;/span&gt;
+&lt;span class="err"&gt;¦   ¦       profile.jpg&lt;/span&gt;
+&lt;span class="err"&gt;¦   ¦       &lt;/span&gt;
+&lt;span class="err"&gt;¦   +---pages&lt;/span&gt;
+&lt;span class="err"&gt;¦   ¦       about.html&lt;/span&gt;
+&lt;span class="err"&gt;¦   ¦       &lt;/span&gt;
+&lt;span class="err"&gt;¦   +---theme&lt;/span&gt;
+&lt;span class="err"&gt;¦       +---css&lt;/span&gt;
+&lt;span class="err"&gt;¦       ¦       fonts.css&lt;/span&gt;
+&lt;span class="err"&gt;¦       ¦       main.css&lt;/span&gt;
+&lt;span class="err"&gt;¦       ¦       pygment.css&lt;/span&gt;
+&lt;span class="err"&gt;¦       ¦       reset.css&lt;/span&gt;
+&lt;span class="err"&gt;¦       ¦       typogrify.css&lt;/span&gt;
+&lt;span class="err"&gt;¦       ¦       wide.css&lt;/span&gt;
+&lt;span class="err"&gt;¦       ¦       &lt;/span&gt;
+&lt;span class="err"&gt;¦       +---fonts&lt;/span&gt;
+&lt;span class="err"&gt;¦       ¦       font.css&lt;/span&gt;
+&lt;span class="err"&gt;¦       ¦       Yanone_Kaffeesatz_400.eot&lt;/span&gt;
+&lt;span class="err"&gt;¦       ¦       Yanone_Kaffeesatz_400.svg&lt;/span&gt;
+&lt;span class="err"&gt;¦       ¦       Yanone_Kaffeesatz_400.ttf&lt;/span&gt;
+&lt;span class="err"&gt;¦       ¦       Yanone_Kaffeesatz_400.woff&lt;/span&gt;
+&lt;span class="err"&gt;¦       ¦       Yanone_Kaffeesatz_400.woff2&lt;/span&gt;
+&lt;span class="err"&gt;¦       ¦       &lt;/span&gt;
+&lt;span class="err"&gt;¦       +---images&lt;/span&gt;
+&lt;span class="err"&gt;¦           +---icons&lt;/span&gt;
+&lt;span class="err"&gt;¦                   aboutme.png&lt;/span&gt;
+&lt;span class="err"&gt;¦                   bitbucket.png&lt;/span&gt;
+&lt;span class="err"&gt;¦                   delicious.png&lt;/span&gt;
+&lt;span class="err"&gt;¦                   facebook.png&lt;/span&gt;
+&lt;span class="err"&gt;¦                   github.png&lt;/span&gt;
+&lt;span class="err"&gt;¦                   gitorious.png&lt;/span&gt;
+&lt;span class="err"&gt;¦                   gittip.png&lt;/span&gt;
+&lt;span class="err"&gt;¦                   google-groups.png&lt;/span&gt;
+&lt;span class="err"&gt;¦                   google-plus.png&lt;/span&gt;
+&lt;span class="err"&gt;¦                   hackernews.png&lt;/span&gt;
+&lt;span class="err"&gt;¦                   lastfm.png&lt;/span&gt;
+&lt;span class="err"&gt;¦                   linkedin.png&lt;/span&gt;
+&lt;span class="err"&gt;¦                   reddit.png&lt;/span&gt;
+&lt;span class="err"&gt;¦                   rss.png&lt;/span&gt;
+&lt;span class="err"&gt;¦                   slideshare.png&lt;/span&gt;
+&lt;span class="err"&gt;¦                   speakerdeck.png&lt;/span&gt;
+&lt;span class="err"&gt;¦                   stackoverflow.png&lt;/span&gt;
+&lt;span class="err"&gt;¦                   twitter.png&lt;/span&gt;
+&lt;span class="err"&gt;¦                   vimeo.png&lt;/span&gt;
+&lt;span class="err"&gt;¦                   youtube.png&lt;/span&gt;
+&lt;span class="err"&gt;¦                   &lt;/span&gt;
+&lt;span class="err"&gt;+---__pycache__&lt;/span&gt;
+&lt;span class="err"&gt;        pelicanconf.cpython-37.pyc&lt;/span&gt;
+&lt;span class="err"&gt;        publishconf.cpython-37.pyc&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h1&gt;Sources:&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://docs.getpelican.com/en/3.0/getting_started.html"&gt;https://docs.getpelican.com/en/3.0/getting_started.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://opensource.com/article/19/5/run-your-blog-github-pages-python"&gt;https://opensource.com/article/19/5/run-your-blog-github-pages-python&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="misc"></category><category term="Pelican"></category><category term="static site"></category><category term="markdown"></category></entry><entry><title>"Styling" My Pelican Blog</title><link href="/styling-my-pelican-blog.html" rel="alternate"></link><published>2020-03-21T22:22:00+01:00</published><updated>2020-03-21T22:22:00+01:00</updated><author><name>Alex</name></author><id>tag:None,2020-03-21:/styling-my-pelican-blog.html</id><content type="html">&lt;h1&gt;My Pelican Blog Redesign&lt;/h1&gt;
+&lt;h1&gt;Favicon Code&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;%&amp;gt; mv favicon.png favicon.ico&lt;/code&gt;&lt;/p&gt;
+&lt;h1&gt;Notes to me&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;change "structure" of your blog &lt;a href="https://stackoverflow.com/questions/23709113/in-pelican-how-to-create-a-page-dedicated-to-hosting-all-the-blog-articles"&gt;https://stackoverflow.com/questions/23709113/in-pelican-how-to-create-a-page-dedicated-to-hosting-all-the-blog-articles&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="misc"></category></entry></feed>

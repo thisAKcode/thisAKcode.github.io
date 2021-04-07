@@ -1,5 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Pretty Lagom</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2021-03-03T15:00:00+01:00</updated><entry><title>crash repair</title><link href="/crash-repair.html" rel="alternate"></link><published>2021-03-03T15:00:00+01:00</published><updated>2021-03-03T15:00:00+01:00</updated><author><name>Alex</name></author><id>tag:None,2021-03-03:/crash-repair.html</id><content type="html">&lt;h1&gt;try to repair&lt;/h1&gt;</content><category term="misc"></category></entry><entry><title>Configure Custom Domain</title><link href="/configure-custom-domain.html" rel="alternate"></link><published>2021-03-01T11:09:00+01:00</published><updated>2021-03-01T11:09:00+01:00</updated><author><name>Alex</name></author><id>tag:None,2021-03-01:/configure-custom-domain.html</id><summary type="html">&lt;h1&gt;Set a custom domain for my GitHub Pages site&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Pretty Lagom</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2021-04-06T23:00:00+02:00</updated><entry><title>Private Parameters Loading With Dotenv</title><link href="/private-parameters-loading-with-dotenv.html" rel="alternate"></link><published>2021-04-06T23:00:00+02:00</published><updated>2021-04-06T23:00:00+02:00</updated><author><name>Alex</name></author><id>tag:None,2021-04-06:/private-parameters-loading-with-dotenv.html</id><summary type="html">&lt;h1&gt;Setting Environment Variables&lt;/h1&gt;
+&lt;p&gt;Nice people from the Internet wrote here about how to use dotenv to pass around credentials that you want to keep private:  &lt;a href="https://help.pythonanywhere.com/pages/environment-variables-for-web-apps/"&gt;https://help.pythonanywhere.com/pages/environment-variables-for-web-apps/&lt;/a&gt;. So I feel that it make sense and for different projects from now on I used &lt;a href="https://pypi.org/project/python-dotenv/"&gt;python dotenv&lt;/a&gt;. &lt;/p&gt;
+&lt;h1&gt;Set …&lt;/h1&gt;</summary><content type="html">&lt;h1&gt;Setting Environment Variables&lt;/h1&gt;
+&lt;p&gt;Nice people from the Internet wrote here about how to use dotenv to pass around credentials that you want to keep private:  &lt;a href="https://help.pythonanywhere.com/pages/environment-variables-for-web-apps/"&gt;https://help.pythonanywhere.com/pages/environment-variables-for-web-apps/&lt;/a&gt;. So I feel that it make sense and for different projects from now on I used &lt;a href="https://pypi.org/project/python-dotenv/"&gt;python dotenv&lt;/a&gt;. &lt;/p&gt;
+&lt;h1&gt;Set of steps to follow&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;create venv in your project directory &lt;code&gt;python -m venv venv &amp;amp;&amp;amp; venv\Scripts\activate.bat&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Install python-dotenv into your virtualenv:
+&lt;code&gt;pip install python-dotenv&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Set my &lt;code&gt;PRIVATE_VARIABLE='test'&lt;/code&gt;:
+&lt;code&gt;vim .env&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Inside .env add a variable and assign the value 'test' to it:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;# myapp settings&lt;/span&gt;
+&lt;span class="err"&gt;PRIVATE_VARIABLE=&amp;#39;test&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;We populated this &lt;code&gt;PRIVATE_VARIABLE&lt;/code&gt; with &lt;code&gt;test&lt;/code&gt; which I consider to keep secret.
+This will be an environment variable to pass around within venv&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The variable inside &lt;code&gt;.dotenv&lt;/code&gt; retrieved in app.py as follows:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;dotenv&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;dotenv_values&lt;/span&gt;
+
+&lt;span class="n"&gt;DOTENV_CONFIG&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dotenv_values&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;.env&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# access dict object {&amp;quot;PRIVATE_VARIABLE&amp;quot;: &amp;quot;test&amp;quot;}&lt;/span&gt;
+&lt;span class="n"&gt;API_URL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;DOTENV_CONFIG&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;AWS_ENDPOINT&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Additional step to fix variable "privacy"&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;I want to keep it away from others but available for python within this particular venv. 
+I want to add .env to my .gitignore. This way when I post my code to Github I keep &lt;code&gt;.env&lt;/code&gt; private (away from vcs).
+In &lt;code&gt;.gitignore&lt;/code&gt; I add the following:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.env&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="misc"></category></entry><entry><title>Configure Custom Domain</title><link href="/configure-custom-domain.html" rel="alternate"></link><published>2021-03-01T11:09:00+01:00</published><updated>2021-03-01T11:09:00+01:00</updated><author><name>Alex</name></author><id>tag:None,2021-03-01:/configure-custom-domain.html</id><summary type="html">&lt;h1&gt;Set a custom domain for my GitHub Pages site&lt;/h1&gt;
 &lt;p&gt;I have pelican powered static site and world can acces it at my github pages : &lt;code&gt;thisAKcode.github.io&lt;/code&gt;.&lt;br&gt;
 What if I want to be a fancy and get my own custom domain name and assign it to my GitHub Pages website …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Set a custom domain for my GitHub Pages site&lt;/h1&gt;
 &lt;p&gt;I have pelican powered static site and world can acces it at my github pages : &lt;code&gt;thisAKcode.github.io&lt;/code&gt;.&lt;br&gt;
