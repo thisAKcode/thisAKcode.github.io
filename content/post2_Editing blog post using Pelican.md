@@ -20,11 +20,12 @@ I had post_number_n.md in content folder, then I opened it using some editor and
 pelican content -o output -s publishconf.py
 ghp-import -m "Generate Pelican site" --no-jekyll -b main output
 git push origin main
-
 git add content
 git commit -m "added a post"
 git push origin content
 ```
+[IMPORTANT] Sometimes I run into trouble that `git push origin main` is not working properly. 
+
 ## Convert Jupyter Notebook to md and publish that as an article
 Alternative for writing from scratch can be converting of an ipynb file into markdown file. Read HOWTO below to understand how to work with that stuff.
 
