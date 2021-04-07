@@ -99,12 +99,12 @@ I had post_number_n.md in content folder, then I opened it using some editor and
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pelican content -o output -s publishconf.py
 ghp-import -m &lt;span class="s2"&gt;&amp;quot;Generate Pelican site&amp;quot;&lt;/span&gt; --no-jekyll -b main output
 git push origin main
-
 git add content
 git commit -m &lt;span class="s2"&gt;&amp;quot;added a post&amp;quot;&lt;/span&gt;
 git push origin content
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
+&lt;p&gt;[IMPORTANT] Sometimes I run into trouble that &lt;code&gt;git push origin main&lt;/code&gt; is not working properly. &lt;/p&gt;
 &lt;h2&gt;Convert Jupyter Notebook to md and publish that as an article&lt;/h2&gt;
 &lt;p&gt;Alternative for writing from scratch can be converting of an ipynb file into markdown file. Read HOWTO below to understand how to work with that stuff.&lt;/p&gt;
 &lt;p&gt;HOWTO
