@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>md converted thing.</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="import warnings warnings.filterwarnings('ignore') import pandas as pd from matplotlib import pyplot as plt from math import ceil VNR = 892 def..." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">PrettyLagom</a></h1>
+                <nav><ul>
+                    <li><a href="/pages/about.html">About</a></li>
+                    <li class="active"><a href="/category/misc.html">misc</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/md-converted-thing.html" rel="bookmark"
+           title="Permalink to md converted thing.">md converted thing.</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2020-12-19T22:30:00+01:00">
+                Published: Sat 19 December 2020
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/alex.html">Alex</a>
+        </address>
+<p>In <a href="/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info -->      <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">ceil</span>
+
+<span class="n">VNR</span> <span class="o">=</span> <span class="mi">892</span>
+
+<span class="k">def</span> <span class="nf">roundup</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="c1">#  round up ticks to next hundred</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">ceil</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="mf">100.0</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="c1"># inject input data as pd dataframes</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">VNR</span><span class="si">}</span><span class="s2">_tsd_parameters.csv&quot;</span><span class="p">)</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;marker_control_</span><span class="si">{</span><span class="n">VNR</span><span class="si">}</span><span class="s2">.csv&quot;</span><span class="p">)</span>
+<span class="n">df2_ac_pure</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;marker_pure_anticontrol_</span><span class="si">{</span><span class="n">VNR</span><span class="si">}</span><span class="s2">.csv&quot;</span><span class="p">)</span>
+<span class="n">df2_ac_mixed</span>  <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;marker_mixed_anticontrol_</span><span class="si">{</span><span class="n">VNR</span><span class="si">}</span><span class="s2">.csv&quot;</span><span class="p">)</span>
+<span class="n">df4</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;marker_</span><span class="si">{</span><span class="n">VNR</span><span class="si">}</span><span class="s2">.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># parameters</span>
+<span class="n">chainage</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Chainage</span><span class="p">)</span>
+<span class="n">x_axis</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">lop_lan_med</span><span class="p">)</span>
+<span class="n">sci</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">SCI300</span><span class="p">)</span>
+<span class="n">bci</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">BCI</span><span class="p">)</span>
+<span class="n">bdi</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">BDI</span><span class="p">)</span>
+
+<span class="c1"># markers</span>
+
+<span class="c1"># test11</span>
+<span class="n">marker_chain</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">Chainage_orig</span><span class="p">)</span>
+<span class="c1"># comment out temporarily</span>
+<span class="c1">#marker_chain = list(df2.lop_lan_med)</span>
+<span class="n">height</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">height</span><span class="p">)</span>
+<span class="c1"># comment out temporarily</span>
+<span class="n">marker_chain_ac</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df2_ac_pure</span><span class="o">.</span><span class="n">Chainage_orig</span><span class="p">)</span>
+<span class="c1"># marker_chain_ac = list(df2_ac_pure.lop_lan_med)</span>
+<span class="n">height_ac</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df2_ac_pure</span><span class="o">.</span><span class="n">height</span><span class="p">)</span>
+<span class="c1"># comment out temporarily</span>
+<span class="c1">#marker_chain_ac_mixed = list(df2_ac_mixed.lop_lan_med)</span>
+<span class="n">marker_chain_ac_mixed</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df2_ac_mixed</span><span class="o">.</span><span class="n">Chainage_orig</span><span class="p">)</span>
+<span class="n">height_acm</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df2_ac_mixed</span><span class="o">.</span><span class="n">height</span><span class="p">)</span>
+
+<span class="n">size_slice</span> <span class="o">=</span> <span class="mi">200</span>
+
+<span class="c1"># Helper splits off the df</span>
+<span class="k">def</span> <span class="nf">chunk</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Yield successive n-sized chunks from lst.&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">),</span> <span class="n">n</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="n">lst</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">n</span><span class="p">]</span>
+<span class="k">def</span> <span class="nf">chunk_exec</span><span class="p">(</span><span class="n">iterator_toslice</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">200</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">item_1</span> <span class="k">for</span> <span class="n">item_1</span> <span class="ow">in</span> <span class="n">chunk</span><span class="p">(</span><span class="n">iterator_toslice</span><span class="p">,</span> <span class="n">size</span><span class="p">)]</span>
+
+<span class="c1">#  notice here start and end computed based on chainage</span>
+<span class="n">start_of_chain</span><span class="p">,</span> <span class="n">end_of_chain</span> <span class="o">=</span> <span class="n">chainage</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">chainage</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">if</span> <span class="n">start_of_chain</span> <span class="o">&gt;</span> <span class="n">end_of_chain</span><span class="p">:</span>
+    <span class="n">start_of_chain</span><span class="p">,</span> <span class="n">end_of_chain</span> <span class="o">=</span> <span class="n">chainage</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">chainage</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">chainage_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">roundup</span><span class="p">(</span><span class="n">start_of_chain</span><span class="p">),</span> <span class="n">roundup</span><span class="p">(</span><span class="n">end_of_chain</span><span class="p">),</span> <span class="mi">100</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1">#  parameters decorated</span>
+<span class="n">chainage_sliced</span> <span class="o">=</span> <span class="n">chunk_exec</span><span class="p">(</span><span class="n">chainage</span><span class="p">)</span>
+<span class="n">x_axis_sliced</span> <span class="o">=</span> <span class="n">chunk_exec</span><span class="p">(</span><span class="n">x_axis</span><span class="p">)</span>
+<span class="n">sci_sliced</span> <span class="o">=</span> <span class="n">chunk_exec</span><span class="p">(</span><span class="n">sci</span><span class="p">)</span>
+<span class="n">bci_sliced</span> <span class="o">=</span> <span class="n">chunk_exec</span><span class="p">(</span><span class="n">bci</span><span class="p">)</span>
+<span class="n">bdi_sliced</span> <span class="o">=</span> <span class="n">chunk_exec</span><span class="p">(</span><span class="n">bdi</span><span class="p">)</span>
+<span class="n">marker_chain_sliced</span> <span class="o">=</span> <span class="n">chunk_exec</span><span class="p">(</span><span class="n">marker_chain</span><span class="p">)</span>
+<span class="n">height_sliced</span> <span class="o">=</span> <span class="n">chunk_exec</span><span class="p">(</span><span class="n">height</span><span class="p">)</span>
+<span class="n">marker_chain_ac_sliced</span> <span class="o">=</span> <span class="n">chunk_exec</span><span class="p">(</span><span class="n">marker_chain_ac</span><span class="p">)</span>
+<span class="n">height_ac_sliced</span> <span class="o">=</span> <span class="n">chunk_exec</span><span class="p">(</span><span class="n">height_ac</span><span class="p">)</span>
+<span class="n">marker_chain_ac_mixed_sliced</span> <span class="o">=</span> <span class="n">chunk_exec</span><span class="p">(</span><span class="n">marker_chain_ac_mixed</span><span class="p">)</span>
+<span class="n">height_acm_sliced</span> <span class="o">=</span> <span class="n">chunk_exec</span><span class="p">(</span><span class="n">height_acm</span><span class="p">)</span>
+
+<span class="c1">#  set heigth ratio using gridspec_kw</span>
+<span class="n">width</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">heights</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">gs_kw</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">width_ratios</span><span class="o">=</span><span class="n">width</span><span class="p">,</span> <span class="n">height_ratios</span><span class="o">=</span><span class="n">heights</span><span class="p">)</span>  <span class="c1"># {&#39;width_ratios&#39;: [1], &#39;height_ratios&#39;: [5, 1]}</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">zipped_slices</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">chainage_sliced</span><span class="p">,</span> <span class="n">x_axis_sliced</span><span class="p">,</span> <span class="n">sci_sliced</span><span class="p">,</span> 
+             <span class="n">bci_sliced</span><span class="p">,</span> <span class="n">bdi_sliced</span><span class="p">,</span> <span class="n">marker_chain_sliced</span><span class="p">,</span> 
+             <span class="n">height_sliced</span><span class="p">,</span> <span class="n">marker_chain_ac_sliced</span><span class="p">,</span> <span class="n">height_ac_sliced</span><span class="p">,</span>
+             <span class="n">marker_chain_ac_mixed_sliced</span><span class="p">,</span> <span class="n">height_acm_sliced</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">the_plotter</span><span class="p">(</span><span class="n">num_figures</span><span class="p">,</span> <span class="n">value_collection</span><span class="p">):</span>     
+    <span class="c1"># chainage, x_axis, sci, bci, bdi, marker_chain, height, </span>
+    <span class="c1"># marker_chain_ac, height_ac, marker_chain_ac_mixed, height_acm</span>
+
+    <span class="n">chainage</span> <span class="o">=</span> <span class="n">value_collection</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="c1">#x_axis = value_collection[1]</span>
+    <span class="c1">#chainage = value_collection[1]  #  put chainage in place of x_axis</span>
+    <span class="n">sci</span> <span class="o">=</span> <span class="n">value_collection</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">bci</span> <span class="o">=</span> <span class="n">value_collection</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">bdi</span> <span class="o">=</span> <span class="n">value_collection</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+    <span class="n">marker_chain</span> <span class="o">=</span> <span class="n">value_collection</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+    <span class="n">height</span> <span class="o">=</span> <span class="n">value_collection</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
+    <span class="n">marker_chain_ac</span> <span class="o">=</span> <span class="n">value_collection</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span>
+    <span class="n">height_ac</span> <span class="o">=</span> <span class="n">value_collection</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span>
+    <span class="n">marker_chain_ac_mixed</span> <span class="o">=</span> <span class="n">value_collection</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> 
+    <span class="n">height_acm</span> <span class="o">=</span>  <span class="n">value_collection</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span>
+
+    <span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                                 <span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> 
+                                 <span class="n">gridspec_kw</span><span class="o">=</span><span class="n">gs_kw</span><span class="p">)</span>
+
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">chainage</span><span class="p">,</span> <span class="n">sci</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span> <span class="mf">2.0</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">chainage</span><span class="p">,</span> <span class="n">bci</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;magenta&quot;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">chainage</span><span class="p">,</span> <span class="n">bdi</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;dodgerblue&quot;</span><span class="p">)</span>  <span class="c1"># indigo</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">((</span><span class="s1">&#39;sci&#39;</span><span class="p">,</span> <span class="s1">&#39;bci&#39;</span><span class="p">,</span> <span class="s1">&#39;bdi&#39;</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">prop</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">})</span>  <span class="c1">#  legend size set</span>
+
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">chainage_range</span><span class="p">))</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">chainage_range</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>  <span class="c1"># list(xticks_computation(chainage_range)</span>
+
+    <span class="c1"># ===================================================</span>
+    <span class="c1"># PLOT 2</span>
+    <span class="c1"># control </span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">marker_chain</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;limegreen&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+    <span class="c1"># 2x factor match</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">marker_chain_ac</span><span class="p">,</span> <span class="n">height_ac</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkorange&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+    <span class="c1"># is invent &amp; any pms</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">marker_chain_ac_mixed</span><span class="p">,</span> <span class="n">height_acm</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gold&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_ticks</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([</span><span class="s1">&#39;control&#39;</span><span class="p">,</span><span class="s1">&#39;2x factor match&#39;</span><span class="p">,</span><span class="s1">&#39;is invent &amp; any/none pms&#39;</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;factor levels&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">16</span><span class="p">)</span>
+
+    <span class="c1">#  =========================================================</span>
+    <span class="c1"># BARS</span>
+    <span class="c1"># add a bar chart to the upper subplot</span>
+    <span class="n">width</span> <span class="o">=</span> <span class="mi">10</span>    <span class="c1">#  the width of the bars, approx(end_of_chain - start_of_chain)/300</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">marker_chain</span>
+    <span class="n">x2</span> <span class="o">=</span> <span class="n">marker_chain_ac</span>
+    <span class="n">x3</span> <span class="o">=</span> <span class="n">marker_chain_ac_mixed</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">495</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">height</span><span class="p">]</span>
+    <span class="n">y2</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">250</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">height_ac</span><span class="p">]</span>
+    <span class="n">y3</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">165</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">height_acm</span><span class="p">]</span>
+    <span class="c1"># control </span>
+    <span class="n">rects1</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;limegreen&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.6</span><span class="p">)</span>    
+    <span class="c1">#  is invent &amp; any/none pms</span>
+    <span class="n">rects3</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x3</span><span class="p">,</span> <span class="n">y3</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.6</span><span class="p">)</span>
+    <span class="c1"># 2x factor match</span>
+    <span class="n">rects2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">)</span>  <span class="c1"># navy</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;roadname</span><span class="si">{</span><span class="n">VNR</span><span class="si">}</span><span class="s2">part</span><span class="si">{</span><span class="n">num_figures</span><span class="si">}</span><span class="s2">_slice2000_v20200507.png&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># TO DO refactor as main</span>
+<span class="n">counter1</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">num_cnt_main</span><span class="p">,</span> <span class="n">chunk_element</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">zipped_slices</span><span class="p">))):</span>
+    <span class="n">counter1</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">the_plotter</span><span class="p">(</span><span class="n">counter1</span><span class="p">,</span> <span class="n">chunk_element</span><span class="p">)</span>
+</code></pre></div>
+
+<p><img alt="png" src="tsd892_main_files/tsd892_main_2_0.png"></p>
+<p><img alt="png" src="tsd892_main_files/tsd892_main_2_1.png"></p>
+<p><img alt="png" src="tsd892_main_files/tsd892_main_2_2.png"></p>
+<p><img alt="png" src="tsd892_main_files/tsd892_main_2_3.png"></p>
+<p><img alt="png" src="tsd892_main_files/tsd892_main_2_4.png"></p>
+<p><img alt="png" src="tsd892_main_files/tsd892_main_2_5.png"></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 2x factor match = type of anti ktrl, where  pms = true and sweco invent = true. (deprecated name &#39;factor pure&#39;).</span>
+<span class="c1"># is invent &amp; any pms. Points where invent = true regardless of whether pms true or false (it means pms can both be true and false), (deprecated name &#39;factor mix&#39;).</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://getpelican.com/">Pelican</a></li>
+                            <li><a href="https://www.python.org/">Python.org</a></li>
+                            <li><a href="https://palletsprojects.com/p/jinja/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

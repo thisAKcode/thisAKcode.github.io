@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>PrettyLagom - misc</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">PrettyLagom</a></h1>
+                <nav><ul>
+                    <li><a href="/pages/about.html">About</a></li>
+                    <li class="active"><a href="/category/misc.html">misc</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/debugging-it-all.html">Debugging it all</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2021-08-11T21:00:00+02:00">
+                Published: Wed 11 August 2021
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/alex.html">Alex</a>
+        </address>
+<p>In <a href="/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info --><h1>Setting Up for Python &gt;= 3.7</h1>
+<p><code>python -m pdb</code>
+or 
+<code>breakpoint()</code>
+when older python 
+<code>import pdb; pdb.set_trace()</code></p>
+<h2>Basic commands</h2>
+<p>l (ll) list lines around breakpoint
+p (pp) pretty print
+n (ext) statement 
+c (ontinue) program
+s (tep) into a function
+i (nteract) enter REPL
+!command (e.g. !help)</p>
+<h2>ressources to check</h2>
+<p>ipdb <a href="https://pypi.org/project/ipdb/">https://pypi.org/project/ipdb/</a>
+debugger commands <a href="https://docs.python.org/3/library/pdb.html#debugger-commands">https://docs.python.org/3/library/pdb.html#debugger-commands</a></p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/private-parameters-loading-with-dotenv.html" rel="bookmark"
+                           title="Permalink to Private Parameters Loading With Dotenv">Private Parameters Loading With Dotenv</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2021-04-06T23:00:00+02:00">
+                Published: Tue 06 April 2021
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/alex.html">Alex</a>
+        </address>
+<p>In <a href="/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info -->                <h1>Setting Environment Variables</h1>
+<p>Nice people from the Internet wrote here about how to use dotenv to pass around credentials that you want to keep private:  <a href="https://help.pythonanywhere.com/pages/environment-variables-for-web-apps/">https://help.pythonanywhere.com/pages/environment-variables-for-web-apps/</a>. So I feel that it make sense and for different projects from now on I used <a href="https://pypi.org/project/python-dotenv/">python dotenv</a>. </p>
+<h1>Set …</h1>
+                <a class="readmore" href="/private-parameters-loading-with-dotenv.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/configure-custom-domain.html" rel="bookmark"
+                           title="Permalink to Configure Custom Domain">Configure Custom Domain</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2021-03-01T11:09:00+01:00">
+                Published: Mon 01 March 2021
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/alex.html">Alex</a>
+        </address>
+<p>In <a href="/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info -->                <h1>Set a custom domain for my GitHub Pages site</h1>
+<p>I have pelican powered static site and world can acces it at my github pages : <code>thisAKcode.github.io</code>.<br>
+What if I want to be a fancy and get my own custom domain name and assign it to my GitHub Pages website …</p>
+                <a class="readmore" href="/configure-custom-domain.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/change-pelican-theme.html" rel="bookmark"
+                           title="Permalink to Change Pelican Theme">Change Pelican Theme</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2021-02-12T22:24:00+01:00">
+                Published: Fri 12 February 2021
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/alex.html">Alex</a>
+        </address>
+<p>In <a href="/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info -->                <h2>Choose theme</h2>
+<p>html5-dopetrope is theme I like. 
+To choose theme for your blog add cloned theme repo to your pelican installation...
+<code>\venv\Lib\site-packages\pelican\themes</code></p>
+<div class="highlight"><pre><span></span><code>bash
+cd \pelican themes
+cp html5-dopetrope C:\blog_depend\venv\Lib\site-packages\pelican\themes
+</code></pre></div>
+
+<h2>how to apply theme</h2>
+<p>....
+ ...</p>
+<h2>Plugins</h2>
+<p>You have to check whether your …</p>
+                <a class="readmore" href="/change-pelican-theme.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/how-to-12-editing-blog-post-using-pelican.html" rel="bookmark"
+                           title="Permalink to How-to 1.2: Editing blog post using Pelican.">How-to 1.2:  Editing blog post using Pelican.</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2020-12-19T22:30:00+01:00">
+                Published: Sat 19 December 2020
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/alex.html">Alex</a>
+        </address>
+<p>In <a href="/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info -->                <h1>Instructions about editing blog using Pelican</h1>
+<p>This post continues the theme of the previous post on that topic. 
+<a href="https://thisakcode.github.io/how-to-1-blogging-using-pelican.html">https://thisakcode.github.io/how-to-1-blogging-using-pelican.html</a></p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> C:<span class="se">\b</span>log_depend<span class="se">\v</span>env<span class="se">\S</span>cripts
+activate
+<span class="nb">cd</span> c:<span class="se">\t</span>hisAKcode.github.io<span class="se">\c</span>ontent
+</code></pre></div>
+
+<h2>Edit existing file</h2>
+<p>If I am interested in editing …</p>
+                <a class="readmore" href="/how-to-12-editing-blog-post-using-pelican.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/md-converted-thing.html" rel="bookmark"
+                           title="Permalink to md converted thing.">md converted thing.</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2020-12-19T22:30:00+01:00">
+                Published: Sat 19 December 2020
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/alex.html">Alex</a>
+        </address>
+<p>In <a href="/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">ceil</span>
+
+<span class="n">VNR</span> <span class="o">=</span> <span class="mi">892</span>
+
+<span class="k">def</span> <span class="nf">roundup</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="c1">#  round up ticks to next hundred</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">ceil</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="mf">100.0</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="c1"># inject input data as pd dataframes</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">VNR</span><span class="si">}</span><span class="s2">_tsd_parameters.csv …</span></code></pre></div>
+                <a class="readmore" href="/md-converted-thing.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/fme-pythoncaller-combo.html" rel="bookmark"
+                           title="Permalink to FME & PythonCaller combo">FME & PythonCaller combo</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2020-04-07T21:50:00+02:00">
+                Published: Tue 07 April 2020
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/alex.html">Alex</a>
+        </address>
+<p>In <a href="/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info -->                <h1>FME &amp; PythonCaller combo.</h1>
+<p>The main goal with that article is justify my use of FME as valuable experience for becoming a Python developer. </p>
+<h2>Shortly about FME (Feature Manipulation Engine)</h2>
+<p>The main desktop application of Safe Software is FME Workbench. The inteface consist of, among other, canvas. Here user Alex graphically …</p>
+                <a class="readmore" href="/fme-pythoncaller-combo.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/dummy_post.html" rel="bookmark"
+                           title="Permalink to Hello World">Hello World</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2020-03-21T22:22:00+01:00">
+                Published: Sat 21 March 2020
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/alex.html">Alex</a>
+        </address>
+<p>In <a href="/category/misc.html">misc</a>.</p>
+<p>tags: <a href="/tag/python.html">Python</a> <a href="/tag/pelican.html">Pelican</a> </p>
+</footer><!-- /.post-info -->                <p>This is the trial post written for my Pelican blog.</p>
+                <a class="readmore" href="/dummy_post.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/styling-my-pelican-blog.html" rel="bookmark"
+                           title="Permalink to "Styling" My Pelican Blog">"Styling" My Pelican Blog</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2020-03-21T22:22:00+01:00">
+                Published: Sat 21 March 2020
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/alex.html">Alex</a>
+        </address>
+<p>In <a href="/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info -->                <h1>My Pelican Blog Redesign</h1>
+<h1>Favicon Code</h1>
+<p><code>%&gt; mv favicon.png favicon.ico</code></p>
+<h1>Notes to me</h1>
+<ul>
+<li>change "structure" of your blog <a href="https://stackoverflow.com/questions/23709113/in-pelican-how-to-create-a-page-dedicated-to-hosting-all-the-blog-articles">https://stackoverflow.com/questions/23709113/in-pelican-how-to-create-a-page-dedicated-to-hosting-all-the-blog-articles</a></li>
+</ul>
+                <a class="readmore" href="/styling-my-pelican-blog.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+                </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://getpelican.com/">Pelican</a></li>
+                            <li><a href="https://www.python.org/">Python.org</a></li>
+                            <li><a href="https://palletsprojects.com/p/jinja/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

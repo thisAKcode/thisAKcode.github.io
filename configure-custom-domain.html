@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>Configure Custom Domain</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="Set a custom domain for my GitHub Pages site I have pelican powered static site and world can acces it at my github pages : thisAKcode.github.io...." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">PrettyLagom</a></h1>
+                <nav><ul>
+                    <li><a href="/pages/about.html">About</a></li>
+                    <li class="active"><a href="/category/misc.html">misc</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/configure-custom-domain.html" rel="bookmark"
+           title="Permalink to Configure Custom Domain">Configure Custom Domain</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2021-03-01T11:09:00+01:00">
+                Published: Mon 01 March 2021
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/alex.html">Alex</a>
+        </address>
+<p>In <a href="/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info -->      <h1>Set a custom domain for my GitHub Pages site</h1>
+<p>I have pelican powered static site and world can acces it at my github pages : <code>thisAKcode.github.io</code>.<br>
+What if I want to be a fancy and get my own custom domain name and assign it to my GitHub Pages website.</p>
+<p>I purchased a domain name from Route 53 by aws and gave it name: <code>www.prettylagom.me</code></p>
+<p>I followed those steps to set it up properly:
+<steps_to_setup_custom_domain></p>
+<p>Go to your-user-name.github.io.
+<code>cd C:\thisAKcode.github.io</code>
+Create file there you want to hold CNAME (Canonical Name).
+<code>touch CNAME</code>
+ Open CNAME in editor.
+<code>vi CNAME</code>
+Add your custom domain inside CNAME
+<code>www.prettylagom.me</code>
+Run git commands to push this file to remote. </p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://getpelican.com/">Pelican</a></li>
+                            <li><a href="https://www.python.org/">Python.org</a></li>
+                            <li><a href="https://palletsprojects.com/p/jinja/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
