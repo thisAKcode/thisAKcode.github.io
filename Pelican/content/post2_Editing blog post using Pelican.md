@@ -1,8 +1,8 @@
-title: How-to 1.2:  Editing blog post using Pelican.
+title: Edit blog post using Pelican.
 date: 2020-12-19 22:30
 author: Alex
 
-# Instructions about editing blog using Pelican
+### Instructions about editing blog using Pelican
 
 This post continues the theme of the previous post on that topic. 
 <https://thisakcode.github.io/how-to-1-blogging-using-pelican.html>

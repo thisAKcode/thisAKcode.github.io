@@ -1,12 +1,11 @@
 title: How-to 1:  Blogging using Pelican.
 date: 2020-03-21 22:22
-Tags: Pelican, static site, markdown
 Authors: Alex
-Summary: Steps to follow in order to publish the first page on my blog using static site generator - Pelican.
 
 
 
 ### Create a blog on GitHub Pages with Pelican
+Steps to follow in order to publish the first page on my blog using static site generator - Pelican.
 This very first page took me many attempts and hours before I got this to work. The post you read is actually my second page on that blog and the second attempt to publish pages. If you are new to Pelican, this article is for you.
 
 I use windows everything was done by typing commands in Cmder <https://cmder.net/>
