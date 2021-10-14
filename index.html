@@ -18,7 +18,64 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/debugging-it-all.html">Debugging it all</a></h1>
+                    <h1 class="entry-title"><a href="/namedtuple-can-become-a-json.html">Namedtuple Can Become a Json</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2021-10-14T22:27:00+02:00">
+                Published: Thu 14 October 2021
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/alex.html">Alex</a>
+        </address>
+<p>In <a href="/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info --><h1>How Once I Needed To Converte namedtuple</h1>
+<h3>Shrotly about problem</h3>
+<p>I once needed to make a json of following form from list of strings ["lorem", "ipsum"]</p>
+<div class="highlight"><pre><span></span><code><span class="err">lorem_</span><span class="kc">f</span><span class="err">ields</span> <span class="err">=</span> <span class="p">[{</span>
+  <span class="nt">&quot;tag&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;lorem&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;human_label&quot;</span><span class="p">:</span> <span class="s2">&quot;Lorem&quot;</span>
+<span class="p">},</span> <span class="p">{</span>
+  <span class="nt">&quot;tag&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;ipsum&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;human_label&quot;</span><span class="p">:</span> <span class="s2">&quot;ipsum&quot;</span>
+<span class="p">}]</span>
+</code></pre></div>
+
+<h3>Code:</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+
+<span class="n">LociFormNt</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;LociFormNt&quot;</span><span class="p">,(</span><span class="s2">&quot;tag&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="s2">&quot;human_label&quot;</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">field_populator</span><span class="p">(</span><span class="n">list_of_str</span><span class="p">):</span>
+
+    <span class="n">listofnt</span> <span class="o">=</span> <span class="p">[</span><span class="n">LociFormNt</span><span class="p">(</span><span class="s2">&quot;input&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">thing</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">thing</span><span class="si">}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">title</span><span class="p">())</span> <span class="k">for</span> <span class="n">thing</span> <span class="ow">in</span> <span class="n">list_of_str</span><span class="p">]</span>
+    <span class="c1"># json.dumps(fb._asdict())</span>
+    <span class="n">dict_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">_asdict</span><span class="p">())</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">listofnt</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">dict_list</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+
+    <span class="n">lista</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;Magnit&quot;</span><span class="p">,</span> <span class="s2">&quot;Rospechat&quot;</span><span class="p">,</span> <span class="s2">&quot;Over railroad bridge&quot;</span><span class="p">,</span> <span class="s2">&quot;Records booth&quot;</span><span class="p">,</span> <span class="s2">&quot;Buss station&quot;</span><span class="p">,</span> <span class="s2">&quot;Farm marknad&quot;</span><span class="p">,</span> <span class="s2">&quot;Household stuff store&quot;</span><span class="p">,</span> <span class="s2">&quot;Thousand little things&quot;</span><span class="p">,</span> <span class="s2">&quot;Clothing market&quot;</span><span class="p">,</span> <span class="s2">&quot;Fruit stall&quot;</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">field_populator</span><span class="p">(</span><span class="n">lista</span><span class="p">))</span>
+</code></pre></div>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/debugging-it-all.html" rel="bookmark"
+                           title="Permalink to Debugging it all">Debugging it all</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2021-08-11T21:00:00+02:00">
                 Published: Wed 11 August 2021
@@ -29,7 +86,7 @@
         </address>
 <p>In <a href="/category/misc.html">misc</a>.</p>
 
-</footer><!-- /.post-info --><h1>Setting Up for Python &gt;= 3.7</h1>
+</footer><!-- /.post-info -->                <h1>Setting Up for Python &gt;= 3.7</h1>
 <p><code>python -m pdb</code>
 or 
 <code>breakpoint()</code>
@@ -43,14 +100,10 @@ c (ontinue) program
 s (tep) into a function
 i (nteract) enter REPL
 !command (e.g. !help)</p>
-<h2>ressources to check</h2>
-<p>ipdb <a href="https://pypi.org/project/ipdb/">https://pypi.org/project/ipdb/</a>
-debugger commands <a href="https://docs.python.org/3/library/pdb.html#debugger-commands">https://docs.python.org/3/library/pdb.html#debugger-commands</a></p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+<h2>ressources …</h2>
+                <a class="readmore" href="/debugging-it-all.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -137,8 +190,8 @@ cp html5-dopetrope C:\blog_depend\venv\Lib\site-packages\pelican\themes
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/how-to-12-editing-blog-post-using-pelican.html" rel="bookmark"
-                           title="Permalink to How-to 1.2: Editing blog post using Pelican.">How-to 1.2:  Editing blog post using Pelican.</a></h1>
+                    <h1><a href="/edit-blog-post-using-pelican.html" rel="bookmark"
+                           title="Permalink to Edit blog post using Pelican.">Edit blog post using Pelican.</a></h1>
                 </header>
 
                 <div class="entry-content">
@@ -152,7 +205,7 @@ cp html5-dopetrope C:\blog_depend\venv\Lib\site-packages\pelican\themes
         </address>
 <p>In <a href="/category/misc.html">misc</a>.</p>
 
-</footer><!-- /.post-info -->                <h1>Instructions about editing blog using Pelican</h1>
+</footer><!-- /.post-info -->                <h3>Instructions about editing blog using Pelican</h3>
 <p>This post continues the theme of the previous post on that topic. 
 <a href="https://thisakcode.github.io/how-to-1-blogging-using-pelican.html">https://thisakcode.github.io/how-to-1-blogging-using-pelican.html</a></p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> C:<span class="se">\b</span>log_depend<span class="se">\v</span>env<span class="se">\S</span>cripts
@@ -162,7 +215,7 @@ activate
 
 <h2>Edit existing file</h2>
 <p>If I am interested in editing …</p>
-                <a class="readmore" href="/how-to-12-editing-blog-post-using-pelican.html">read more</a>
+                <a class="readmore" href="/edit-blog-post-using-pelican.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
@@ -264,40 +317,19 @@ activate
                 By                         <a class="url fn" href="/author/alex.html">Alex</a>
         </address>
 <p>In <a href="/category/misc.html">misc</a>.</p>
-<p>tags: <a href="/tag/pelican.html">Pelican</a> <a href="/tag/static-site.html">static site</a> <a href="/tag/markdown.html">markdown</a> </p>
-</footer><!-- /.post-info -->                <p>Steps to follow in order to publish the first page on my blog using static site generator - Pelican.</p>
+
+</footer><!-- /.post-info -->                <h3>Create a blog on GitHub Pages with Pelican</h3>
+<p>Steps to follow in order to publish the first page on my blog using static site generator - Pelican.
+This very first page took me many attempts and hours before I got this to work. The post you read is actually my second …</p>
                 <a class="readmore" href="/how-to-1-blogging-using-pelican.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/styling-my-pelican-blog.html" rel="bookmark"
-                           title="Permalink to "Styling" My Pelican Blog">"Styling" My Pelican Blog</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2020-03-21T22:22:00+01:00">
-                Published: Sat 21 March 2020
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/alex.html">Alex</a>
-        </address>
-<p>In <a href="/category/misc.html">misc</a>.</p>
-
-</footer><!-- /.post-info -->                <h1>My Pelican Blog Redesign</h1>
-<h1>Favicon Code</h1>
-<p><code>%&gt; mv favicon.png favicon.ico</code></p>
-<h1>Notes to me</h1>
-<ul>
-<li>change "structure" of your blog <a href="https://stackoverflow.com/questions/23709113/in-pelican-how-to-create-a-page-dedicated-to-hosting-all-the-blog-articles">https://stackoverflow.com/questions/23709113/in-pelican-how-to-create-a-page-dedicated-to-hosting-all-the-blog-articles</a></li>
-</ul>
-                <a class="readmore" href="/styling-my-pelican-blog.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
                 </ol><!-- /#posts-list -->
+<p class="paginator">
+    Page 1 / 2
+        <a href="/index2.html">&raquo;</a>
+        <a href="/index2.html">&#8649;</a>
+</p>
                 </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">

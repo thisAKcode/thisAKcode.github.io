@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>Edit blog post using Pelican.</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="Instructions about editing blog using Pelican This post continues the theme of the previous post on that topic...." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">PrettyLagom</a></h1>
+                <nav><ul>
+                    <li><a href="/pages/about.html">About</a></li>
+                    <li class="active"><a href="/category/misc.html">misc</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/edit-blog-post-using-pelican.html" rel="bookmark"
+           title="Permalink to Edit blog post using Pelican.">Edit blog post using Pelican.</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2020-12-19T22:30:00+01:00">
+                Published: Sat 19 December 2020
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/alex.html">Alex</a>
+        </address>
+<p>In <a href="/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info -->      <h3>Instructions about editing blog using Pelican</h3>
+<p>This post continues the theme of the previous post on that topic. 
+<a href="https://thisakcode.github.io/how-to-1-blogging-using-pelican.html">https://thisakcode.github.io/how-to-1-blogging-using-pelican.html</a></p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> C:<span class="se">\b</span>log_depend<span class="se">\v</span>env<span class="se">\S</span>cripts
+activate
+<span class="nb">cd</span> c:<span class="se">\t</span>hisAKcode.github.io<span class="se">\c</span>ontent
+</code></pre></div>
+
+<h2>Edit existing file</h2>
+<p>If I am interested in editing published post I do it as follows:
+I had post_number_n.md in content folder, then I opened it using some editor and rewrited some of the content.  </p>
+<div class="highlight"><pre><span></span><code>pelican content -o output -s publishconf.py
+ghp-import -m <span class="s2">&quot;Generate Pelican site&quot;</span> --no-jekyll -b main output
+git push origin main
+git add content
+git commit -m <span class="s2">&quot;added a post&quot;</span>
+git push origin content
+</code></pre></div>
+
+<p>[IMPORTANT] Sometimes I run into trouble that <code>git push origin main</code> is not working properly. </p>
+<h2>Convert Jupyter Notebook to md and publish that as an article</h2>
+<p>Alternative for writing from scratch can be converting of an ipynb file into markdown file. Read HOWTO below to understand how to work with that stuff.</p>
+<p>HOWTO
+<a href="https://github.com/jupyter/nbconvert">https://github.com/jupyter/nbconvert</a>
+from within cmder I run this:</p>
+<div class="highlight"><pre><span></span><code>jupyter nbconvert --to markdown notebook.ipynb
+</code></pre></div>
+
+<h1>Edit Site Configuration</h1>
+<p>To change some defaults from first setup you have to modify some of the variables in <code>pelicanconf.py</code> file.  </p>
+<h1>Modify site theme</h1>
+<p>Create a new directory in <code>C:\thisAKcode.github.io</code> named <code>theme</code> in which you need to have <code>templates</code> directory.  Here Jinja2 to be stored if your goal is to override the default theme.</p>
+<ol>
+<li>Choose Pelican theme you like here: <a href="http://www.pelicanthemes.com/">http://www.pelicanthemes.com/</a>.</li>
+<li>Clone the repo of your favorite theme e.g. <code>https://github.com/getpelican/pelican-themes/tree/master/basic</code>
+Clone the into this location: <code>C:\blog_depend\venv\Lib\site-packages\pelican\themes</code>
+otherwise use this tool <code>https://kinolien.github.io/gitzip/</code>.</li>
+</ol>
+<p>and register it inside your pelicanconf.py
+<code>THEME = "elegant"</code> 
+3. Now open pelicanconf.py file present in the Main Project folder and insert below line:
+<code>THEME=’&lt;path to your Theme Folder&gt;’</code></p>
+<p>Your Pelican is ready to use the theme.</p>
+<h1>Add search engine and add a comment plugin.</h1>
+<p>I found this great article <a href="https://snipcart.com/blog/pelican-blog-tutorial-search-comments">https://snipcart.com/blog/pelican-blog-tutorial-search-comments</a>. This walks through creating blog from scratch inclusive two features:
+1. adding search engine.
+2. adding comments.</p>
+<h1>Adding a search engine.</h1>
+<h2>Pelican-specific search plugin "Tipue search"</h2>
+<p>Tipue-search is one of the plugins:
+<a href="https://github.com/getpelican/pelican-plugins/tree/master/tipue_search">https://github.com/getpelican/pelican-plugins/tree/master/tipue_search</a></p>
+<p>Wasnt able to set it up. 
+Istall requirements <code>pip install beautifulsoup4</code>.</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://getpelican.com/">Pelican</a></li>
+                            <li><a href="https://www.python.org/">Python.org</a></li>
+                            <li><a href="https://palletsprojects.com/p/jinja/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
