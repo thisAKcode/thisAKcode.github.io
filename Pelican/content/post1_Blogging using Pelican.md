@@ -78,7 +78,7 @@ first-post.md and about.md  has been created. Open and edit files using your fav
 Once content of first article is written, run Pelican to generate the static HTML files in root folder of the project.
 
 ```bash
-cd Pelican\content
+cd Pelican
 pelican content -o .. -s pelicanconf.py
 ```
 ### Push Pelican-created html files to master branch of the repo
