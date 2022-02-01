@@ -50,18 +50,73 @@ While learning JS you often think about how this portion of JS code could be wri
 All iterator methods take a callback function, which can be a pre-defined function, a function expression, or an arrow function.
 '''</p>
 <h3>If you want to play with JS</h3>
-<p>Install node.js and enjoy this awesome tool which feels like Python interpreter but for JavaScript.</p>
-<h3>snippet 1:</h3>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">itertools</span>
+<p>Install node.js and enjoy this awesome tool which ressembles Python interpreter.</p>
+<h3>Filter out items from sequence based on condition</h3>
+<div class="highlight"><pre><span></span><code><span class="n">letter_sequence</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;g&#39;</span>
+<span class="p">]</span>
+<span class="n">unnecessary_letters</span> <span class="o">=</span>  <span class="p">[</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span> <span class="p">]</span>
+<span class="n">shorter_sequence</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">letter_sequence</span> 
+    <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">unnecessary_letters</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">shorter_sequence</span><span class="p">)</span>
 </code></pre></div>
 
-<p>same in js </p>
-<div class="highlight"><pre><span></span><code><span class="c1">// lala</span>
+<p>Same in js </p>
+<div class="highlight"><pre><span></span><code><span class="c1">//</span>
+<span class="nx">letterSequence</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;g&#39;</span>
+<span class="p">]</span>
+<span class="kd">let</span> <span class="nx">unnecessaryLetters</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span> <span class="p">];</span>
+<span class="kd">let</span> <span class="nx">shorterSequence</span> <span class="o">=</span> <span class="nx">letterSequence</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">letter</span> <span class="p">=&gt;</span> <span class="p">{</span><span class="k">return</span> <span class="o">!</span><span class="nx">unnecessaryLetters</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">letter</span><span class="p">)})</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">shorterSequence</span><span class="p">);</span> <span class="c1">// [ &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39; ]</span>
 </code></pre></div>
 
-<h3>f strings are like template literals</h3>
+<h3>create JavaScript object / Python dictionary to count words</h3>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">story</span> <span class="o">=</span> <span class="s1">&#39;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit. Volutpat odio facilisis mauris sit amet massa. Commodo odio aenean sed adipiscing diam donec adipiscing tristique. Mi eget mauris pharetra et. Non tellus orci ac auctor augue. Elit at imperdiet dui accumsan sit. Ornare arcu dui vivamus arcu felis. Egestas integer eget aliquet nibh praesent. In hac habitasse platea dictumst quisque sagittis purus. Pulvinar elementum integer enim neque volutpat ac.&#39;</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">loremWords</span> <span class="o">=</span> <span class="nx">story</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">overusedWords</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;lorem&#39;</span><span class="p">,</span> <span class="s1">&#39;ipsum&#39;</span><span class="p">,</span> <span class="s1">&#39;dolor&#39;</span><span class="p">];</span>
+
+<span class="kd">const</span> <span class="nx">getWordCount</span> <span class="o">=</span> <span class="p">(</span><span class="nx">loremWords</span><span class="p">,</span> <span class="nx">overusedWords</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span><span class="nx">word_cnt</span> <span class="o">=</span> <span class="p">{};</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span><span class="nx">overusedWords</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Word &#39;</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="nx">overusedWords</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+  <span class="kd">const</span> <span class="nx">occurences</span> <span class="o">=</span> <span class="nx">betterWords</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">word</span> <span class="p">=&gt;</span> <span class="nx">word</span> <span class="o">===</span> <span class="nx">overusedWords</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+  <span class="nx">word_cnt</span><span class="p">[</span><span class="nx">overusedWords</span><span class="p">[</span><span class="nx">i</span><span class="p">]]</span> <span class="o">=</span> <span class="nx">occurences</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+  <span class="p">};</span>
+  <span class="k">return</span> <span class="nx">word_cnt</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="kd">const</span> <span class="nx">wordCount</span> <span class="o">=</span> <span class="nx">getWordCount</span><span class="p">(</span><span class="nx">loremWords</span><span class="p">,</span> <span class="nx">overusedWords</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">wordCount</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Same result can be achived in Python as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="n">story</span> <span class="o">=</span> <span class="s1">&#39;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit. Volutpat odio facilisis mauris sit amet massa. Commodo odio aenean sed adipiscing diam donec adipiscing tristique. Mi eget mauris pharetra et. Non tellus orci ac auctor augue. Elit at imperdiet dui accumsan sit. Ornare arcu dui vivamus arcu felis. Egestas integer eget aliquet nibh praesent. In hac habitasse platea dictumst quisque sagittis purus. Pulvinar elementum integer enim neque volutpat ac.&#39;</span>
+<span class="n">overusedWords</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;lorem&#39;</span><span class="p">,</span> <span class="s1">&#39;ipsum&#39;</span><span class="p">,</span> <span class="s1">&#39;dolor&#39;</span><span class="p">]</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">story</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">))</span>
+<span class="n">word_count</span> <span class="o">=</span> <span class="p">{</span><span class="n">c</span><span class="p">[</span><span class="n">over_word</span><span class="p">]:</span> <span class="n">overword</span> 
+              <span class="k">for</span> <span class="n">over_word</span> <span class="ow">in</span> <span class="n">overusedWords</span><span class="p">}</span>
+</code></pre></div>
+
+<h3>Small pieces</h3>
+<ol>
+<li>f strings are like template literals</li>
+</ol>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;Alex Kupiakov&#39;</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">message</span> <span class="o">=</span> <span class="sb">`Hi </span><span class="si">${</span><span class="nx">name</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)[</span><span class="mf">0</span><span class="p">]</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+<span class="cm">/* python</span>
+<span class="cm">name = &#39;Alex Kupiakov&#39;</span>
+<span class="cm">message = f&quot;Hi {name.split(&#39; &#39;)[0]}&quot;</span>
+<span class="cm">*/</span>
+</code></pre></div>
+
+<ol>
+<li>indexing string </li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">lastChar</span> <span class="o">=</span> <span class="s1">&#39;Alex&#39;</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="o">-</span><span class="mf">1</span><span class="p">)</span>  <span class="c1">// python: last_char = &#39;Alex&#39;[-1]</span>
 </code></pre></div>
 
 <p>ressources 
