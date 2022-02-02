@@ -75,9 +75,22 @@ word_count = {c[over_word]: overword
               for over_word in overusedWords}
 
 ```
+### All or Any 
+In JavaScript to check wheter at least one element passes some condition `.some()` method is used on array.
 
+```js
+const lorem = ['lorem', 'ipsum', 'dolor', 'sit', 'amet'];
+let _every = lorem.every(token => token.length < 5);
+let _some = lorem.some(token => token.length < 5);
+```
+In python this might be achieved by using list comprehension with  `all()`, `any()`.
+```python 
+lorem = ['lorem', 'ipsum', 'dolor', 'sit', 'amet']
+_every = all([len(i) < 5 for i in lorem])
+_some = any([len(i) < 5 for i in lorem])
+```
 ### Small pieces 
-1. f strings are like template literals
+1. f strings are like template literals.
 ```js
 var name = 'Alex Kupiakov';
 var message = `Hi ${name.split(' ')[0]}`;

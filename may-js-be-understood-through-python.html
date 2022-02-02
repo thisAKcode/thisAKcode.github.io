@@ -101,9 +101,22 @@ All iterator methods take a callback function, which can be a pre-defined functi
               <span class="k">for</span> <span class="n">over_word</span> <span class="ow">in</span> <span class="n">overusedWords</span><span class="p">}</span>
 </code></pre></div>
 
+<h3>All or Any</h3>
+<p>In JavaScript to check wheter at least one element passes some condition <code>.some()</code> method is used on array.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">lorem</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;lorem&#39;</span><span class="p">,</span> <span class="s1">&#39;ipsum&#39;</span><span class="p">,</span> <span class="s1">&#39;dolor&#39;</span><span class="p">,</span> <span class="s1">&#39;sit&#39;</span><span class="p">,</span> <span class="s1">&#39;amet&#39;</span><span class="p">];</span>
+<span class="kd">let</span> <span class="nx">_every</span> <span class="o">=</span> <span class="nx">lorem</span><span class="p">.</span><span class="nx">every</span><span class="p">(</span><span class="nx">token</span> <span class="p">=&gt;</span> <span class="nx">token</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;</span> <span class="mf">5</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">_some</span> <span class="o">=</span> <span class="nx">lorem</span><span class="p">.</span><span class="nx">some</span><span class="p">(</span><span class="nx">token</span> <span class="p">=&gt;</span> <span class="nx">token</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;</span> <span class="mf">5</span><span class="p">);</span>
+</code></pre></div>
+
+<p>In python this might be achieved by using list comprehension with  <code>all()</code>, <code>any()</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">lorem</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;lorem&#39;</span><span class="p">,</span> <span class="s1">&#39;ipsum&#39;</span><span class="p">,</span> <span class="s1">&#39;dolor&#39;</span><span class="p">,</span> <span class="s1">&#39;sit&#39;</span><span class="p">,</span> <span class="s1">&#39;amet&#39;</span><span class="p">]</span>
+<span class="n">_every</span> <span class="o">=</span> <span class="nb">all</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">lorem</span><span class="p">])</span>
+<span class="n">_some</span> <span class="o">=</span> <span class="nb">any</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">lorem</span><span class="p">])</span>
+</code></pre></div>
+
 <h3>Small pieces</h3>
 <ol>
-<li>f strings are like template literals</li>
+<li>f strings are like template literals.</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;Alex Kupiakov&#39;</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">message</span> <span class="o">=</span> <span class="sb">`Hi </span><span class="si">${</span><span class="nx">name</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)[</span><span class="mf">0</span><span class="p">]</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
