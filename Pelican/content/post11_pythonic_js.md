@@ -89,6 +89,31 @@ lorem = ['lorem', 'ipsum', 'dolor', 'sit', 'amet']
 _every = all([len(i) < 5 for i in lorem])
 _some = any([len(i) < 5 for i in lorem])
 ```
+### Python dictionary compared to JS object
+While syntax differs, Python dict share some similarities with JS object.
+When assigning 
+```js 
+let dict0 = {
+  'x': 1,
+  'y':2,
+  'z':3
+}
+
+dict0['x'] = 999;  // reassign new val to 'x'
+delete dict0['z']; // delete item with key 'z'
+```
+Same thing in python is achived as follows:
+```python
+dict0 = {
+    'x': 1,
+    'y':2,
+    'z':3
+}
+
+dict0['x'] = 999
+del dict0['z']
+```
+
 ### Small pieces 
 1. f strings are like template literals.
 ```js
