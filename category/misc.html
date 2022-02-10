@@ -110,7 +110,8 @@ All iterator methods take a callback function, which can be a pre-defined functi
 
 <h3>Python dictionary compared to JS object</h3>
 <p>While syntax differs, Python dict share some similarities with JS object.
-When assigning </p>
+It is true when you are not storing function as value in JavaScript object.
+While you deal with simple items representing key:value pairs the similarity is big.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">dict0</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s1">&#39;x&#39;</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span>
   <span class="s1">&#39;y&#39;</span><span class="o">:</span><span class="mf">2</span><span class="p">,</span>
@@ -132,10 +133,54 @@ When assigning </p>
 <span class="k">del</span> <span class="n">dict0</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span>
 </code></pre></div>
 
+<h3>Looping Through Objects</h3>
+<p>Let's iterate through the band.members sample object simply printing some of it's properties.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">band</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">members</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s1">&#39;first guy&#39;</span><span class="o">:</span> <span class="p">{</span> 
+        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> 
+        <span class="nx">instrument</span><span class="o">:</span> <span class="s1">&#39;guitar&#39;</span><span class="p">,</span> 
+        <span class="nx">startSinging</span><span class="p">()</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Let it be, &#39;</span><span class="p">)</span> <span class="p">}</span> 
+        <span class="p">},</span>
+    <span class="s1">&#39;second guy&#39;</span><span class="o">:</span> <span class="p">{</span> 
+        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Paul&#39;</span><span class="p">,</span> 
+        <span class="nx">instrument</span><span class="o">:</span> <span class="s1">&#39;bass guitar&#39;</span><span class="p">,</span> 
+        <span class="nx">continueSinging</span><span class="p">()</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;let it be, let it be, &#39;</span><span class="p">)</span> <span class="p">}</span> 
+        <span class="p">},</span>
+    <span class="s1">&#39;third guy&#39;</span><span class="o">:</span> <span class="p">{</span> 
+        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;George&#39;</span><span class="p">,</span> 
+        <span class="nx">instrument</span><span class="o">:</span> <span class="s1">&#39;sitar&#39;</span><span class="p">,</span> 
+        <span class="nx">singingStill</span><span class="p">()</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`yeah, `</span><span class="p">)</span> <span class="p">}</span> <span class="p">},</span>
+    <span class="s1">&#39;fourth guy&#39;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Ringo&#39;</span><span class="p">,</span> 
+        <span class="nx">instrument</span><span class="o">:</span> <span class="s1">&#39;drums&#39;</span><span class="p">,</span> 
+        <span class="nx">alsoSing</span><span class="p">()</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;let it be!&#39;</span><span class="p">)</span> <span class="p">}</span> 
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">};</span> 
+</code></pre></div>
+
+<p>for (let bandMember in band.members) {
+  console.log(<code>${band.members[bandMember].name}: ${band.members[bandMember].instrument}</code>)
+};</p>
+<h3>Functions</h3>
+<p>Simple function with default arguments is defined as follows in js:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">remindMe</span><span class="p">(</span><span class="nx">i1</span><span class="o">=</span><span class="s1">&#39;Python&#39;</span><span class="p">,</span> <span class="nx">i2</span><span class="o">=</span><span class="s1">&#39;JavaScript&#39;</span><span class="p">,</span> <span class="nx">i3</span><span class="o">=</span><span class="s1">&#39;SQL&#39;</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Remember to learn </span><span class="si">${</span><span class="nx">i1</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Remember to learn </span><span class="si">${</span><span class="nx">i2</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Remember to learn </span><span class="si">${</span><span class="nx">i3</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Same thing in Python looks like that:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">remind_me</span><span class="p">(</span><span class="n">i1</span> <span class="o">=</span> <span class="s2">&quot;Python&quot;</span><span class="p">,</span> <span class="n">i2</span> <span class="o">=</span> <span class="s2">&quot;JavaScript&quot;</span><span class="p">,</span> <span class="n">i3</span> <span class="o">=</span> <span class="s2">&quot;SQL&quot;</span><span class="p">):</span>
+   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Remember to learn </span><span class="si">{</span><span class="n">i1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Remember to learn </span><span class="si">{</span><span class="n">i2</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Remember to learn </span><span class="si">{</span><span class="n">i3</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</code></pre></div>
+
 <h3>Small pieces</h3>
-<ol>
-<li>f strings are like template literals.</li>
-</ol>
+<p>F strings are like template literals.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;Alex Kupiakov&#39;</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">message</span> <span class="o">=</span> <span class="sb">`Hi </span><span class="si">${</span><span class="nx">name</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)[</span><span class="mf">0</span><span class="p">]</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
 <span class="cm">/* python</span>
@@ -144,9 +189,7 @@ When assigning </p>
 <span class="cm">*/</span>
 </code></pre></div>
 
-<ol>
-<li>indexing string </li>
-</ol>
+<p>Indexing string </p>
 <div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">lastChar</span> <span class="o">=</span> <span class="s1">&#39;Alex&#39;</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="o">-</span><span class="mf">1</span><span class="p">)</span>  <span class="c1">// python: last_char = &#39;Alex&#39;[-1]</span>
 </code></pre></div>
 

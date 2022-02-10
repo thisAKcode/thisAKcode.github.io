@@ -91,7 +91,8 @@ _some = any([len(i) < 5 for i in lorem])
 ```
 ### Python dictionary compared to JS object
 While syntax differs, Python dict share some similarities with JS object.
-When assigning 
+It is true when you are not storing function as value in JavaScript object.
+While you deal with simple items representing key:value pairs the similarity is big.
 ```js 
 let dict0 = {
   'x': 1,
@@ -114,8 +115,57 @@ dict0['x'] = 999
 del dict0['z']
 ```
 
+### Looping Through Objects 
+Let's iterate through the band.members sample object simply printing some of it's properties.
+```javascript
+let band = {
+    members: {
+    'first guy': { 
+        name: 'John', 
+        instrument: 'guitar', 
+        startSinging() { console.log('Let it be, ') } 
+        },
+    'second guy': { 
+        name: 'Paul', 
+        instrument: 'bass guitar', 
+        continueSinging() { console.log('let it be, let it be, ') } 
+        },
+    'third guy': { 
+        name: 'George', 
+        instrument: 'sitar', 
+        singingStill() { console.log(`yeah, `) } },
+    'fourth guy': {
+        name: 'Ringo', 
+        instrument: 'drums', 
+        alsoSing() { console.log('let it be!') } 
+        }
+    }
+}; 
+```
+
+for (let bandMember in band.members) {
+  console.log(`${band.members[bandMember].name}: ${band.members[bandMember].instrument}`)
+};
+
+### Functions 
+Simple function with default arguments is defined as follows in js:
+```js
+function remindMe(i1='Python', i2='JavaScript', i3='SQL'){
+  console.log(`Remember to learn ${i1}`);
+  console.log(`Remember to learn ${i2}`);
+  console.log(`Remember to learn ${i3}`);
+}
+```
+Same thing in Python looks like that:
+
+```python
+def remind_me(i1 = "Python", i2 = "JavaScript", i3 = "SQL"):
+   print(f'Remember to learn {i1}')
+   print(f'Remember to learn {i2}')
+   print(f'Remember to learn {i3}')
+```
 ### Small pieces 
-1. f strings are like template literals.
+F strings are like template literals.
 ```js
 var name = 'Alex Kupiakov';
 var message = `Hi ${name.split(' ')[0]}`;
@@ -124,7 +174,7 @@ name = 'Alex Kupiakov'
 message = f"Hi {name.split(' ')[0]}"
 */
 ```
-2. indexing string 
+Indexing string 
 ```js 
 let lastChar = 'Alex'.slice(-1)  // python: last_char = 'Alex'[-1]
 ```
