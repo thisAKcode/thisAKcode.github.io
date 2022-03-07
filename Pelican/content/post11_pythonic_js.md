@@ -3,16 +3,17 @@ date: 2022-01-29 23:00
 author: Alex
 
 #  How I Learn JS 
+* codecademy.com
+* 100 days of web with Python
 
 ### Shrotly about problem
 
 I once read a great article about JavaScript on realpython.com 
 While learning JS you often think about how this portion of JS code could be written in Python. So I decided to white chunks that are comparable.
-
 ### some focus on itertools among others
 [IMPORTANT!] BEWARE THE FOLLOWING LINES IN QUOTES ARE CUT FROM CODECADEMY.COM!!!
 '''
-.forEach() is used to execute the same code on every element in an array but does not change the array and returns undefined.
+>.forEach() is used to execute the same code on every element in an array but does not change the array and returns undefined.
 .map() executes the same code on every element in an array and returns a new array with the updated elements.
 .filter() checks every element in an array to see if it meets certain criteria and returns a new array with the elements that return truthy for the criteria.
 .findIndex() returns the index of the first element of an array that satisfies a condition in the callback function. It returns -1 if none of the elements in the array satisfies the condition.
@@ -89,28 +90,35 @@ lorem = ['lorem', 'ipsum', 'dolor', 'sit', 'amet']
 _every = all([len(i) < 5 for i in lorem])
 _some = any([len(i) < 5 for i in lorem])
 ```
-### Python dictionary compared to JS object
-While syntax differs, Python dict share some similarities with JS object.
-It is true when you are not storing function as value in JavaScript object.
-While you deal with simple items representing key:value pairs the similarity is big.
+### Python dictionary compared to non-advanced JS object
+Python dict share some similarities with JS object. It is true when javascript objects key-value pair is not a function but simple items representing key-value pairs separated by comma and being surrounded by curly braces.
 ```js 
 let dict0 = {
   'x': 1,
-  'y':2,
-  'z':3
+  'y': 2,
+  'z': 3
 }
-
+for (const [key, value] of Object.entries(dict0)) {
+  console.log(`${key}: ${value}`);
+}
+// Grab all entries as array of [key, value] pairs
+const dict0Entries = Object.entries(robot);
+// Grab property names
+const dict0Keys = Object.keys(dict0);
 dict0['x'] = 999;  // reassign new val to 'x'
 delete dict0['z']; // delete item with key 'z'
 ```
-Same thing in python is achived as follows:
+Same functionality in python is achieved as follows:
 ```python
 dict0 = {
     'x': 1,
     'y':2,
     'z':3
 }
-
+for key, value in dicto.items():
+    print(f'{key}: {value}')
+dict0_entries = dict0.items()
+dict0_keys = dict0.keys()
 dict0['x'] = 999
 del dict0['z']
 ```

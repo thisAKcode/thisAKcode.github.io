@@ -4,6 +4,14 @@
 AUTHOR = 'Alex'
 SITENAME = 'PrettyLagom'
 SITEURL = ''
+MARKUP = ("md", "ipynb")
+
+
+from pelican_jupyter import markup as nb_markup
+PLUGINS = [nb_markup]
+IPYNB_MARKUP_USE_FIRST_CELL = True
+
+IGNORE_FILES = [".ipynb_checkpoints"]
 
 STATIC_PATHS = ['images', 'extra/CNAME']
 EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}
