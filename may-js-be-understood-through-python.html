@@ -5,7 +5,7 @@
         <meta name="generator" content="Pelican" />
         <title>May JS be understood through Python</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
-        <meta name="description" content="How I Learn JS Shrotly about problem I once read a great article about JavaScript on realpython.com While learning JS you often think about how..." />
+        <meta name="description" content="How I Learn JS codecademy.com 100 days of web with Python Shrotly about problem I once read a great article about JavaScript on realpython.com..." />
 </head>
 
 <body id="index" class="home">
@@ -14,6 +14,7 @@
                 <nav><ul>
                     <li><a href="/pages/about.html">About</a></li>
                     <li class="active"><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/python.html">python</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 <section id="content" class="body">
@@ -36,19 +37,25 @@
 <p>In <a href="/category/misc.html">misc</a>.</p>
 
 </footer><!-- /.post-info -->      <h1>How I Learn JS</h1>
+<ul>
+<li>codecademy.com</li>
+<li>100 days of web with Python</li>
+</ul>
 <h3>Shrotly about problem</h3>
 <p>I once read a great article about JavaScript on realpython.com 
 While learning JS you often think about how this portion of JS code could be written in Python. So I decided to white chunks that are comparable.</p>
 <h3>some focus on itertools among others</h3>
 <p>[IMPORTANT!] BEWARE THE FOLLOWING LINES IN QUOTES ARE CUT FROM CODECADEMY.COM!!!
-'''
-.forEach() is used to execute the same code on every element in an array but does not change the array and returns undefined.
+'''</p>
+<blockquote>
+<p>.forEach() is used to execute the same code on every element in an array but does not change the array and returns undefined.
 .map() executes the same code on every element in an array and returns a new array with the updated elements.
 .filter() checks every element in an array to see if it meets certain criteria and returns a new array with the elements that return truthy for the criteria.
 .findIndex() returns the index of the first element of an array that satisfies a condition in the callback function. It returns -1 if none of the elements in the array satisfies the condition.
 .reduce() iterates through an array and takes the values of the elements and returns a single value.
 All iterator methods take a callback function, which can be a pre-defined function, a function expression, or an arrow function.
 '''</p>
+</blockquote>
 <h3>If you want to play with JS</h3>
 <p>Install node.js and enjoy this awesome tool which ressembles Python interpreter.</p>
 <h3>Filter out items from sequence based on condition</h3>
@@ -114,27 +121,34 @@ All iterator methods take a callback function, which can be a pre-defined functi
 <span class="n">_some</span> <span class="o">=</span> <span class="nb">any</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">lorem</span><span class="p">])</span>
 </code></pre></div>
 
-<h3>Python dictionary compared to JS object</h3>
-<p>While syntax differs, Python dict share some similarities with JS object.
-It is true when you are not storing function as value in JavaScript object.
-While you deal with simple items representing key:value pairs the similarity is big.</p>
+<h3>Python dictionary compared to non-advanced JS object</h3>
+<p>Python dict share some similarities with JS object. It is true when javascript objects key-value pair is not a function but simple items representing key-value pairs separated by comma and being surrounded by curly braces.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">dict0</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s1">&#39;x&#39;</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span>
-  <span class="s1">&#39;y&#39;</span><span class="o">:</span><span class="mf">2</span><span class="p">,</span>
-  <span class="s1">&#39;z&#39;</span><span class="o">:</span><span class="mf">3</span>
+  <span class="s1">&#39;y&#39;</span><span class="o">:</span> <span class="mf">2</span><span class="p">,</span>
+  <span class="s1">&#39;z&#39;</span><span class="o">:</span> <span class="mf">3</span>
 <span class="p">}</span>
-
+<span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="p">[</span><span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">]</span> <span class="k">of</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">entries</span><span class="p">(</span><span class="nx">dict0</span><span class="p">))</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">key</span><span class="si">}</span><span class="sb">: </span><span class="si">${</span><span class="nx">value</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">// Grab all entries as array of [key, value] pairs</span>
+<span class="kd">const</span> <span class="nx">dict0Entries</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">entries</span><span class="p">(</span><span class="nx">robot</span><span class="p">);</span>
+<span class="c1">// Grab property names</span>
+<span class="kd">const</span> <span class="nx">dict0Keys</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">dict0</span><span class="p">);</span>
 <span class="nx">dict0</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">999</span><span class="p">;</span>  <span class="c1">// reassign new val to &#39;x&#39;</span>
 <span class="ow">delete</span> <span class="nx">dict0</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">];</span> <span class="c1">// delete item with key &#39;z&#39;</span>
 </code></pre></div>
 
-<p>Same thing in python is achived as follows:</p>
+<p>Same functionality in python is achieved as follows:</p>
 <div class="highlight"><pre><span></span><code><span class="n">dict0</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s1">&#39;y&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
     <span class="s1">&#39;z&#39;</span><span class="p">:</span><span class="mi">3</span>
 <span class="p">}</span>
-
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">dicto</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">dict0_entries</span> <span class="o">=</span> <span class="n">dict0</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+<span class="n">dict0_keys</span> <span class="o">=</span> <span class="n">dict0</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
 <span class="n">dict0</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">999</span>
 <span class="k">del</span> <span class="n">dict0</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span>
 </code></pre></div>
