@@ -186,6 +186,43 @@ Indexing string
 ```js 
 let lastChar = 'Alex'.slice(-1)  // python: last_char = 'Alex'[-1]
 ```
+Random numbers in JS.
+There are a few ways to get a random value using random().
+
+```js
+random() //  a value between 0 and 1.
+random(max) //  a value between 0 and max value (excluding the max).
+random(min, max) //  a value between min value and max value (excluding the max).
+```
+In python you random() function should be imported from built-ins.
+``` pyhton
+import random
+
+random.random() # generate a float random number less than 1 and greater or equal to 0.
+random.uniform(5,10) #  random floating number in range
+```
+### Pandas equivalent in JS
+Danfo.js is a library that was inpired by pandas
+
+
+### .map() in JS and in Python
+Map is the function applied to each item of given iterable returnin another processed iterator. 
+```python
+
+numbers = (1, 2, 3)
+
+# using function
+def x_plus_x():
+    return x + x
+
+result = map(x_plus_x, numbers)
+
+# using lambda 
+result = map(lambda x: x + x, numbers)
+
+```
+
+
 ressources 
 <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array>
 <https://realpython.com/python-vs-javascript/>

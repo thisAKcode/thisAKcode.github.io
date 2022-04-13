@@ -213,6 +213,36 @@ All iterator methods take a callback function, which can be a pre-defined functi
 <div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">lastChar</span> <span class="o">=</span> <span class="s1">&#39;Alex&#39;</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="o">-</span><span class="mf">1</span><span class="p">)</span>  <span class="c1">// python: last_char = &#39;Alex&#39;[-1]</span>
 </code></pre></div>
 
+<p>Random numbers in JS.
+There are a few ways to get a random value using random().</p>
+<div class="highlight"><pre><span></span><code><span class="nx">random</span><span class="p">()</span> <span class="c1">//  a value between 0 and 1.</span>
+<span class="nx">random</span><span class="p">(</span><span class="nx">max</span><span class="p">)</span> <span class="c1">//  a value between 0 and max value (excluding the max).</span>
+<span class="nx">random</span><span class="p">(</span><span class="nx">min</span><span class="p">,</span> <span class="nx">max</span><span class="p">)</span> <span class="c1">//  a value between min value and max value (excluding the max).</span>
+</code></pre></div>
+
+<p>In python you random() function should be imported from built-ins.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="c1"># generate a float random number less than 1 and greater or equal to 0.</span>
+<span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span> <span class="c1">#  random floating number in range</span>
+</code></pre></div>
+
+<h3>Pandas equivalent in JS</h3>
+<p>Danfo.js is a library that was inpired by pandas</p>
+<h3>.map() in JS and in Python</h3>
+<p>Map is the function applied to each item of given iterable returnin another processed iterator. </p>
+<div class="highlight"><pre><span></span><code><span class="n">numbers</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># using function</span>
+<span class="k">def</span> <span class="nf">x_plus_x</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">x</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">x_plus_x</span><span class="p">,</span> <span class="n">numbers</span><span class="p">)</span>
+
+<span class="c1"># using lambda </span>
+<span class="n">result</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">x</span><span class="p">,</span> <span class="n">numbers</span><span class="p">)</span>
+</code></pre></div>
+
 <p>ressources 
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array</a>
 <a href="https://realpython.com/python-vs-javascript/">https://realpython.com/python-vs-javascript/</a></p>
