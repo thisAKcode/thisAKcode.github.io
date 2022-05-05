@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>Namedtuple Can Become a Json</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="How Once I Needed To Converte namedtuple Shrotly about problem I once needed to make a json of following form from list of strings ["lorem",..." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">PrettyLagom</a></h1>
+                <nav><ul>
+                    <li><a href="/pages/about.html">About</a></li>
+                    <li class="active"><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/python.html">python</a></li>
+                    <li><a href="/category/stats.html">stats</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/namedtuple-can-become-a-json.html" rel="bookmark"
+           title="Permalink to Namedtuple Can Become a Json">Namedtuple Can Become a Json</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2021-10-14T22:27:00+02:00">
+                Published: Thu 14 October 2021
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/alex.html">Alex</a>
+        </address>
+<p>In <a href="/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info -->      <h1>How Once I Needed To Converte namedtuple</h1>
+<h3>Shrotly about problem</h3>
+<p>I once needed to make a json of following form from list of strings ["lorem", "ipsum"]</p>
+<div class="highlight"><pre><span></span><code><span class="err">lorem_</span><span class="kc">f</span><span class="err">ields</span> <span class="err">=</span> <span class="p">[{</span>
+  <span class="nt">&quot;tag&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;lorem&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;human_label&quot;</span><span class="p">:</span> <span class="s2">&quot;Lorem&quot;</span>
+<span class="p">},</span> <span class="p">{</span>
+  <span class="nt">&quot;tag&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;ipsum&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;human_label&quot;</span><span class="p">:</span> <span class="s2">&quot;ipsum&quot;</span>
+<span class="p">}]</span>
+</code></pre></div>
+
+<h3>Code:</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+
+<span class="n">LociFormNt</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;LociFormNt&quot;</span><span class="p">,(</span><span class="s2">&quot;tag&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="s2">&quot;human_label&quot;</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">field_populator</span><span class="p">(</span><span class="n">list_of_str</span><span class="p">):</span>
+
+    <span class="n">listofnt</span> <span class="o">=</span> <span class="p">[</span><span class="n">LociFormNt</span><span class="p">(</span><span class="s2">&quot;input&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">thing</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">thing</span><span class="si">}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">title</span><span class="p">())</span> <span class="k">for</span> <span class="n">thing</span> <span class="ow">in</span> <span class="n">list_of_str</span><span class="p">]</span>
+    <span class="c1"># json.dumps(fb._asdict())</span>
+    <span class="n">dict_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">_asdict</span><span class="p">())</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">listofnt</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">dict_list</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+
+    <span class="n">lista</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;Magnit&quot;</span><span class="p">,</span> <span class="s2">&quot;Rospechat&quot;</span><span class="p">,</span> <span class="s2">&quot;Over railroad bridge&quot;</span><span class="p">,</span> <span class="s2">&quot;Records booth&quot;</span><span class="p">,</span> <span class="s2">&quot;Buss station&quot;</span><span class="p">,</span> <span class="s2">&quot;Farm marknad&quot;</span><span class="p">,</span> <span class="s2">&quot;Household stuff store&quot;</span><span class="p">,</span> <span class="s2">&quot;Thousand little things&quot;</span><span class="p">,</span> <span class="s2">&quot;Clothing market&quot;</span><span class="p">,</span> <span class="s2">&quot;Fruit stall&quot;</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">field_populator</span><span class="p">(</span><span class="n">lista</span><span class="p">))</span>
+</code></pre></div>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://getpelican.com/">Pelican</a></li>
+                            <li><a href="https://www.python.org/">Python.org</a></li>
+                            <li><a href="https://palletsprojects.com/p/jinja/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

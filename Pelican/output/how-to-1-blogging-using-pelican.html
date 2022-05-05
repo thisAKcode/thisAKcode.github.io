@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>How-to 1: Blogging using Pelican.</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="Create a blog on GitHub Pages with Pelican Steps to follow in order to publish the first page on my blog using static site generator - Pelican...." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">PrettyLagom</a></h1>
+                <nav><ul>
+                    <li><a href="/pages/about.html">About</a></li>
+                    <li class="active"><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/python.html">python</a></li>
+                    <li><a href="/category/stats.html">stats</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/how-to-1-blogging-using-pelican.html" rel="bookmark"
+           title="Permalink to How-to 1: Blogging using Pelican.">How-to 1:  Blogging using Pelican.</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2020-03-21T22:22:00+01:00">
+                Published: Sat 21 March 2020
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/alex.html">Alex</a>
+        </address>
+<p>In <a href="/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info -->      <h3>Create a blog on GitHub Pages with Pelican</h3>
+<p>Steps to follow in order to publish the first page on my blog using static site generator - Pelican.
+This very first page took me many attempts and hours before I got this to work. The post you read is actually my second page on that blog and the second attempt to publish pages. If you are new to Pelican, this article is for you.</p>
+<p>I use windows everything was done by typing commands in Cmder <a href="https://cmder.net/">https://cmder.net/</a></p>
+<h3>Steps:</h3>
+<ul>
+<li>venv setup </li>
+<li>installing dependencies</li>
+<li>creating github pages repo </li>
+<li>pelican-quickstart</li>
+<li>push pelican genereated files to repo</li>
+<li>writing content on local machine</li>
+<li>Run Pelican and ghp-import in order to format content as html</li>
+<li>Publish</li>
+</ul>
+<h3>Venv Setup</h3>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> c:<span class="se">\b</span>log_depend
+python -m venv venv
+venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
+</code></pre></div>
+
+<h3>Installing pelican, Markdown and ghp-import</h3>
+<div class="highlight"><pre><span></span><code>$ pip install pelican ghp-import Markdown
+</code></pre></div>
+
+<h3>Create github pages repo</h3>
+<p>Sign in to github.com, click create a repo, give it a name thisAKcode.github.io
+I left this repo empty, which is fine for that usecase.
+Clone your empty Git repository to your local macine</p>
+<div class="highlight"><pre><span></span><code>$ git clone https://github.com/thisAKcode/thisAKcode.github.io c:<span class="se">\</span>
+</code></pre></div>
+
+<h3>Run <code>pelican-quickstart</code>.</h3>
+<p>While venv activates launch pelican-quickstart</p>
+<div class="highlight"><pre><span></span><code>pelican-quickstart
+</code></pre></div>
+
+<p>After a set of questions, Pelican creates a bunch of files in current directory. Pelican documentation is well written. Of course you need to read the docs to understand that step... <a href="https://docs.getpelican.com/en/stable/">https://docs.getpelican.com/en/stable/</a></p>
+<h3>Add Pelican setup files to repo.</h3>
+<p>Add all the Pelican-generated files to master branch of the local Git repo.
+Commit and push the local changes to the remote by default master branch.</p>
+<div class="highlight"><pre><span></span><code>git add .
+git commit -m <span class="s1">&#39;initial pelican commit to content&#39;</span>
+git push origin content
+</code></pre></div>
+
+<h5>Note on User pages</h5>
+<p>For user pages (pages hosted in repos named username.github.io), the content is served from the master branch.
+I found it very convenient to go with the following approach as per tip from official documentation. <a href="https://docs.getpelican.com/en/latest/tips.html#user-pages">https://docs.getpelican.com/en/latest/tips.html#user-pages</a></p>
+<blockquote>
+<p>"For example, your main project folder is thisAKcode.github.io and you can create the Pelican project in a subdirectory called Pelican. Then from inside the Pelican folder you can run: <code>$ pelican content -o .. -s pelicanconf.py</code>"</p>
+</blockquote>
+<p>So now you just execute the following:</p>
+<div class="highlight"><pre><span></span><code>mkdir Pelican<span class="se">\c</span>ontent
+<span class="nb">cd</span> Pelican<span class="se">\c</span>ontent
+mkdir pages images
+cp <span class="s1">&#39;c:\Users\Aleks\Pictures\profile.jpg&#39;</span> images
+touch first-post.md
+touch pages/about.md
+</code></pre></div>
+
+<h3>Writing content 'about.md' and 'first-post.md'</h3>
+<p>first-post.md and about.md  has been created. Open and edit files using your favorite code editor which is done using markdown syntax.</p>
+<h3>Run Pelican</h3>
+<p>Once content of first article is written, run Pelican to generate the static HTML files in root folder of the project.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> Pelican
+pelican content -o .. -s pelicanconf.py
+</code></pre></div>
+
+<h3>Push Pelican-created html files to master branch of the repo</h3>
+<p>Push content to remote.</p>
+<div class="highlight"><pre><span></span><code>git add
+git commit -m &quot;ok&quot;                                                    
+git push origin master
+</code></pre></div>
+
+<p>Your very own blog is available at <code>thisAKcode.github.io</code>! </p>
+<h1>Sources:</h1>
+<ul>
+<li><a href="https://docs.getpelican.com/en/3.0/getting_started.html">https://docs.getpelican.com/en/3.0/getting_started.html</a></li>
+<li><a href="https://opensource.com/article/19/5/run-your-blog-github-pages-python">https://opensource.com/article/19/5/run-your-blog-github-pages-python</a></li>
+</ul>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://getpelican.com/">Pelican</a></li>
+                            <li><a href="https://www.python.org/">Python.org</a></li>
+                            <li><a href="https://palletsprojects.com/p/jinja/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

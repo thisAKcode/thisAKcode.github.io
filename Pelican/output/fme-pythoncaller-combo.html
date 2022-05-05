@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>FME & PythonCaller combo</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="FME & PythonCaller combo. The main goal with that article is justify my use of FME as valuable experience for becoming a Python developer. Shortly..." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">PrettyLagom</a></h1>
+                <nav><ul>
+                    <li><a href="/pages/about.html">About</a></li>
+                    <li class="active"><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/python.html">python</a></li>
+                    <li><a href="/category/stats.html">stats</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/fme-pythoncaller-combo.html" rel="bookmark"
+           title="Permalink to FME & PythonCaller combo">FME & PythonCaller combo</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2020-04-07T21:50:00+02:00">
+                Published: Tue 07 April 2020
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/alex.html">Alex</a>
+        </address>
+<p>In <a href="/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info -->      <h1>FME &amp; PythonCaller combo.</h1>
+<p>The main goal with that article is justify my use of FME as valuable experience for becoming a Python developer. </p>
+<h2>Shortly about FME (Feature Manipulation Engine)</h2>
+<p>The main desktop application of Safe Software is FME Workbench. The inteface consist of, among other, canvas. Here user Alex graphically define a translation called a "workspace" wich can be saved for re-use later (fme workspace files on that regard are similar to script files).
+<a href="https://docs.safe.com/fme/html/FME_Desktop_Documentation/FME_Coordinate_Systems/!FME_Terminology/terminology.htm">https://docs.safe.com/fme/html/FME_Desktop_Documentation/FME_Coordinate_Systems/!FME_Terminology/terminology.htm</a></p>
+<p>FME Desktop is like a mindmap: you are using canvas to graphically define a translation with transformers. Transformers are "the building blocks used in FME Workbench, each having a specific function. They can be used alone in a simple workspace, or combined to create complicated processes".</p>
+<p>A classical simple workspace looks like that:
+picture1</p>
+<ol>
+<li>Create features (an individual item within the translation) OR read the source dataset (many formats accessible in FME).</li>
+<li>Directing the items into individual port based on result of evaluation of 'if-elif-else' condition statement &gt; you can then write the items to different files for each resulting port.</li>
+</ol>
+<h2>PythonCaller</h2>
+<p>PythonCaller transformer used to perform tasks within FME, which are not possible with standard FME transformers.
+Transformer PythonCaller executes a user-supplied Python script (3.7+) to manipulate features.
+<a href="https://knowledge.safe.com/articles/60319/pythoncaller-transformer.html">https://knowledge.safe.com/articles/60319/pythoncaller-transformer.html</a>
+PythonCaller can interface with a Python script in two different ways - by a function or by a class.</p>
+<h2>Function</h2>
+<p>Use the Function Interface when you intend to process a single feature at a time.</p>
+<h3>usecase 1 collection.Counter()</h3>
+<p>Prior to use of PythonCaller you need to accomplish the following:
+1. Create some dummy items to use as input for Python function.
+2. Add a PythoCaller Transfromer.
+3. Inside it make a count of items having some particular attribute value for 'attribute1'. 
+4. Output values containing in Counter() object as its own attribute called 'attribute2' counted values.</p>
+<p>When you use function to process features, all features will enter the function one by one for processing.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># script uses an FME Objects method, collections module</span>
+<span class="kn">import</span> <span class="nn">fme</span>
+<span class="kn">import</span> <span class="nn">fmeobjects</span> 
+<span class="kn">import</span> <span class="nn">collections</span>
+
+<span class="k">def</span> <span class="nf">count_list</span><span class="p">(</span><span class="n">feature</span><span class="p">):</span> <span class="c1"># function accepts FMEFeature objects as its only argument</span>
+    <span class="n">some_var</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">getAttribute</span><span class="p">(</span><span class="s1">&#39;_list</span><span class="si">{}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">cnt_elmnts</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">(</span><span class="n">some_var</span><span class="p">)</span><span class="o">.</span><span class="n">most_common</span><span class="p">()</span>
+    <span class="n">feature</span><span class="o">.</span><span class="n">setAttribute</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">cnt_elmnts</span><span class="p">))</span> 
+    <span class="c1"># attribute is added to the feature with setAttribute() method on the feature</span>
+</code></pre></div>
+
+<ol>
+<li>Click OK to dismiss the code editor.</li>
+</ol>
+<p>In the same pane, set the Class or Function to Process Feature parameter to the name of the function: timestampFeature. Because we have added a new attribute we can expose it by entering its name in the Attributes to Expose parameter: type in the new attribute name in the Enter Values for Attributes to Expose window.</p>
+<h2>Python Classes within PythonCaller.</h2>
+<p>If you need to process all values of given attribute for a bunch of features then you may need use classes. </p>
+<p>Use the Class Interface for more flexibility. The Class Interface is useful when you want to operate on a group of features together, such as collecting all the features received and then outputting them in a specific sort order. Another common use case is to accumulate all the features, perform an operation on the whole set, and then output all of the features with a calculated value as a new attribute.</p>
+<p>You can use Python Classes to accumulate values between features (GIS items)
+PythonCaller will output one single feature containing a list attribute. 
+Code is from safe community <a href="https://knowledge.safe.com/questions/52168/pythoncaller-all-values-for-each-attribute.html">https://knowledge.safe.com/questions/52168/pythoncaller-all-values-for-each-attribute.html</a></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">fme</span>
+<span class="kn">import</span> <span class="nn">fmeobjects</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="k">class</span> <span class="nc">FeatureProcessor</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">T1_values</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">input</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">feature</span><span class="p">):</span>
+        <span class="n">t1</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">getAttribute</span><span class="p">(</span><span class="s1">&#39;T1&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">T1_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">fmeobjects</span><span class="o">.</span><span class="n">FMEFeature</span><span class="p">()</span>
+        <span class="n">T1_duplicates</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">Counter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">T1_values</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">v</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">setAttribute</span><span class="p">(</span><span class="s1">&#39;T1_duplicates&#39;</span><span class="p">,</span> <span class="n">T1_duplicates</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pyoutput</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</code></pre></div>
+
+<p>If you wish to dig deep then you can find fun reads e.g.
+Maybe you can find this article useful. 
+<a href="https://www.slideshare.net/DanielaPerri2/when-to-use-python-in-fme">https://www.slideshare.net/DanielaPerri2/when-to-use-python-in-fme</a></p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://getpelican.com/">Pelican</a></li>
+                            <li><a href="https://www.python.org/">Python.org</a></li>
+                            <li><a href="https://palletsprojects.com/p/jinja/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

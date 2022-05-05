@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>Setup a PostgreSQL db</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="Install PostgreSQL I donwnloaded installer from EDB and followed instructions from PostgreSQL Setup Wizard. Wizard suggest to install some..." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">PrettyLagom</a></h1>
+                <nav><ul>
+                    <li><a href="/pages/about.html">About</a></li>
+                    <li class="active"><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/python.html">python</a></li>
+                    <li><a href="/category/stats.html">stats</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/setup-a-postgresql-db.html" rel="bookmark"
+           title="Permalink to Setup a PostgreSQL db">Setup a PostgreSQL db</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2022-04-12T12:00:00+02:00">
+                Published: Tue 12 April 2022
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/alex.html">Alex</a>
+        </address>
+<p>In <a href="/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info -->      <h3>Install PostgreSQL</h3>
+<p>I donwnloaded installer from EDB and followed instructions from PostgreSQL Setup Wizard. 
+Wizard suggest to install some additional applications (pgAdmin etc.), let you choose directory, suggest the port number to listen 5432 or to use something else for security or if you are running multiple PostgreSQL services on the same server. 
+During the installation you also create a password for superadmin called <strong>postgres</strong>.</p>
+<h3>Creating database</h3>
+<p>Okay when I launched Stack Builder I opted for installing some additional extensions included in PostGIS bundle. Then I also choosed to create a spatial database option from Stack Builder Wizard.</p>
+<h3>Creating Login Roles</h3>
+<p>After PostgreSQL installation and initial setup, a data cluster with a single login role called postgres is initialized, and database is also called postgres.
+pgAdmin has a gui for creating user roles. Otherwise write following code:</p>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span> <span class="k">ROLE</span> <span class="n">alex</span> <span class="n">LOGIN</span> <span class="n">PASSWORD</span> <span class="s1">&#39;usesafeone&#39;</span> <span class="k">CREATEDB</span><span class="p">;</span>
+</code></pre></div>
+
+<h3>Creating User, Managing Authentication</h3>
+<h3>Schemas</h3>
+<p>Schemas is attribute of Postgresql where one schema may be shared by multiple tables.
+That way several tables may be grouped into schemas. Schemas are nice cause otherwise you are froced to alwaya rely on public schema and run the risk of name clashes since objects within schema must be unique.
+Schemas can be toherwise organized by roles.</p>
+<h3>Doing via psql</h3>
+<h3>Sources</h3>
+<ol>
+<li>Obe, Regina O.; Hsu, Leo S.. PostgreSQL: Up and Running. O'Reilly Media. Kindle Edition. </li>
+<li>https://medium.com/coding-blocks/creating-user-database-and-adding-access-on-postgresql-8bfcd2f4a9e3. https://towardsdatascience.com/sending-data-from-a-flask-app-to-postgresql-database-889304964bf2</li>
+</ol>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://getpelican.com/">Pelican</a></li>
+                            <li><a href="https://www.python.org/">Python.org</a></li>
+                            <li><a href="https://palletsprojects.com/p/jinja/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
