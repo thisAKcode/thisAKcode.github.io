@@ -5,7 +5,7 @@
         <meta name="generator" content="Pelican" />
         <title>Chi-Square Test</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
-        <meta name="description" content="" />
+        <meta name="description" content="Chi-Square Test¶When to use Chi-Squared test: 1. n discrete classes Sal Khan’s video https://www.youtube.com/watch?v=hpWdDmgsIRE&t=20s..." />
 </head>
 
 <body id="index" class="home">
@@ -1153,22 +1153,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
  .highlight pre  .vg { color: #19177C } /* Name.Variable.Global */
  .highlight pre  .vi { color: #19177C } /* Name.Variable.Instance */
  .highlight pre  .vm { color: #19177C } /* Name.Variable.Magic */
- .highlight pre  .il { color: #666666 } /* Literal.Number.Integer.Long */</style><body><div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">reload</span><span class="p">(</span><span class="n">sys</span><span class="p">)</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">setdefaultencoding</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+ .highlight pre  .il { color: #666666 } /* Literal.Number.Integer.Long */</style><body><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Chi-Square-Test">Chi-Square Test<a class="anchor-link" href="#Chi-Square-Test">&#182;</a></h3><p>When to use Chi-Squared test:</p>
@@ -1273,10 +1258,70 @@ $$\chi^2 = \sum \frac {(O - E)^2}{E}$$
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>François</p>
+<p>François Husson takes a particular example to approach using chi-squared test.</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">femin_in</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">13</span><span class="p">,</span> <span class="mi">142</span><span class="p">,</span> <span class="mi">106</span><span class="p">],</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">408</span><span class="p">,</span> <span class="mi">117</span><span class="p">],</span> <span class="p">[</span><span class="mi">241</span><span class="p">,</span> <span class="mi">573</span><span class="p">,</span> <span class="mi">94</span><span class="p">]],</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+<span class="n">gt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">femin_in</span><span class="p">)</span>
+<span class="n">corresp_mtx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">femin_in</span><span class="p">,</span><span class="n">gt</span><span class="p">)</span>
+<span class="n">row_tot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">corresp_mtx</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># right marginal</span>
+<span class="n">column_tot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">corresp_mtx</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># left marginal</span>
+<span class="n">independence_model</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">row_tot</span><span class="p">,</span> <span class="n">column_tot</span><span class="p">)</span>  <span class="c1"># out[i, j] = a[i] * b[j]</span>
+<span class="c1"># [a[i]* b[j]]</span>
+<span class="n">inde_dot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">gt</span><span class="p">,</span> <span class="n">independence_model</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">decimals</span> <span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">femin_in</span><span class="p">,</span> <span class="s1">&#39;corr matrix &#39;</span><span class="p">,</span> <span class="n">corresp_mtx</span><span class="p">,</span> <span class="s1">&#39;rowtot&#39;</span><span class="p">,</span> <span class="n">row_tot</span><span class="p">,</span> <span class="s1">&#39;col_Tot&#39;</span><span class="p">,</span> <span class="n">column_tot</span><span class="p">,</span> <span class="s1">&#39;inde_model&#39;</span><span class="p">,</span> <span class="n">independence_model</span><span class="p">,</span> <span class="s1">&#39;indedot&#39;</span><span class="p">,</span> <span class="n">inde_dot</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[3]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(array([[ 13, 142, 106],
+        [ 30, 408, 117],
+        [241, 573,  94]]),
+ &#39;corr matrix &#39;,
+ array([[0.0075406 , 0.08236659, 0.06148492],
+        [0.01740139, 0.23665893, 0.06786543],
+        [0.13979118, 0.33236659, 0.05452436]]),
+ &#39;rowtot&#39;,
+ array([0.15139211, 0.32192575, 0.52668213]),
+ &#39;col_Tot&#39;,
+ array([0.16473318, 0.65139211, 0.18387471]),
+ &#39;inde_model&#39;,
+ array([[0.0249393 , 0.09861563, 0.02783718],
+        [0.05303185, 0.2096999 , 0.059194  ],
+        [0.08676202, 0.34307659, 0.09684352]]),
+ &#39;indedot&#39;,
+ array([[ 43. , 170. ,  48. ],
+        [ 91.4, 361.5, 102.1],
+        [149.6, 591.5, 167. ]]))</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">

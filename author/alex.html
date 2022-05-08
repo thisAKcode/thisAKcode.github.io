@@ -1147,22 +1147,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
  .highlight pre  .vg { color: #19177C } /* Name.Variable.Global */
  .highlight pre  .vi { color: #19177C } /* Name.Variable.Instance */
  .highlight pre  .vm { color: #19177C } /* Name.Variable.Magic */
- .highlight pre  .il { color: #666666 } /* Literal.Number.Integer.Long */</style><body><div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">reload</span><span class="p">(</span><span class="n">sys</span><span class="p">)</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">setdefaultencoding</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+ .highlight pre  .il { color: #666666 } /* Literal.Number.Integer.Long */</style><body><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Chi-Square-Test">Chi-Square Test<a class="anchor-link" href="#Chi-Square-Test">&#182;</a></h3><p>When to use Chi-Squared test:</p>
@@ -1267,10 +1252,70 @@ $$\chi^2 = \sum \frac {(O - E)^2}{E}$$
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>François</p>
+<p>François Husson takes a particular example to approach using chi-squared test.</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">femin_in</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">13</span><span class="p">,</span> <span class="mi">142</span><span class="p">,</span> <span class="mi">106</span><span class="p">],</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">408</span><span class="p">,</span> <span class="mi">117</span><span class="p">],</span> <span class="p">[</span><span class="mi">241</span><span class="p">,</span> <span class="mi">573</span><span class="p">,</span> <span class="mi">94</span><span class="p">]],</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+<span class="n">gt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">femin_in</span><span class="p">)</span>
+<span class="n">corresp_mtx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">femin_in</span><span class="p">,</span><span class="n">gt</span><span class="p">)</span>
+<span class="n">row_tot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">corresp_mtx</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># right marginal</span>
+<span class="n">column_tot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">corresp_mtx</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># left marginal</span>
+<span class="n">independence_model</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">row_tot</span><span class="p">,</span> <span class="n">column_tot</span><span class="p">)</span>  <span class="c1"># out[i, j] = a[i] * b[j]</span>
+<span class="c1"># [a[i]* b[j]]</span>
+<span class="n">inde_dot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">gt</span><span class="p">,</span> <span class="n">independence_model</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">decimals</span> <span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">femin_in</span><span class="p">,</span> <span class="s1">&#39;corr matrix &#39;</span><span class="p">,</span> <span class="n">corresp_mtx</span><span class="p">,</span> <span class="s1">&#39;rowtot&#39;</span><span class="p">,</span> <span class="n">row_tot</span><span class="p">,</span> <span class="s1">&#39;col_Tot&#39;</span><span class="p">,</span> <span class="n">column_tot</span><span class="p">,</span> <span class="s1">&#39;inde_model&#39;</span><span class="p">,</span> <span class="n">independence_model</span><span class="p">,</span> <span class="s1">&#39;indedot&#39;</span><span class="p">,</span> <span class="n">inde_dot</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[3]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(array([[ 13, 142, 106],
+        [ 30, 408, 117],
+        [241, 573,  94]]),
+ &#39;corr matrix &#39;,
+ array([[0.0075406 , 0.08236659, 0.06148492],
+        [0.01740139, 0.23665893, 0.06786543],
+        [0.13979118, 0.33236659, 0.05452436]]),
+ &#39;rowtot&#39;,
+ array([0.15139211, 0.32192575, 0.52668213]),
+ &#39;col_Tot&#39;,
+ array([0.16473318, 0.65139211, 0.18387471]),
+ &#39;inde_model&#39;,
+ array([[0.0249393 , 0.09861563, 0.02783718],
+        [0.05303185, 0.2096999 , 0.059194  ],
+        [0.08676202, 0.34307659, 0.09684352]]),
+ &#39;indedot&#39;,
+ array([[ 43. , 170. ,  48. ],
+        [ 91.4, 361.5, 102.1],
+        [149.6, 591.5, 167. ]]))</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -1320,6 +1365,39 @@ $$\chi^2 = \sum \frac {(O - E)^2}{E}$$
                     <h1>Other articles</h1>
                     <hr />
                     <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/correspondence-analysis.html" rel="bookmark"
+                           title="Permalink to Correspondence Analysis">Correspondence Analysis</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2022-04-24T00:00:00+02:00">
+                Published: Sun 24 April 2022
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/alex.html">Alex</a>
+        </address>
+<p>In <a href="/category/python.html">python</a>.</p>
+<p>tags: <a href="/tag/jupyter.html">jupyter</a> </p>
+</footer><!-- /.post-info -->                <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Correspondence-Analysis">Correspondence Analysis<a class="anchor-link" href="#Correspondence-Analysis">&#182;</a></h3><h3 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h3><p>An introduction to correspondence analysis in a book "Exploratory Multivariate Analysis by Example Using R" by François Husson is worth to read. Along with the <a href="https://www.youtube.com/playlist?list=PLnZgp6epRBbTgO-l-6hLAKTstW7WSGh8A">tutorial series on YouTube</a> it is great source that can make basics about Correspondence Analysis clear for you.</p>
+<p>If you prefer Python then <a href="https://codefying.com/2018/12/21/introduction-to-correspondence-analysis/">Introduction to Correspondence Analysis</a>
+                <a class="readmore" href="/correspondence-analysis.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -1552,41 +1630,6 @@ i (nteract) enter REPL
 <p>I have pelican powered static site and world can acces it at my github pages : <code>thisAKcode.github.io</code>.<br>
 What if I want to be a fancy and get my own custom domain name and assign it to my GitHub Pages website …</p>
                 <a class="readmore" href="/configure-custom-domain.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/change-pelican-theme.html" rel="bookmark"
-                           title="Permalink to Change Pelican Theme">Change Pelican Theme</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2021-02-12T22:24:00+01:00">
-                Published: Fri 12 February 2021
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/alex.html">Alex</a>
-        </address>
-<p>In <a href="/category/misc.html">misc</a>.</p>
-
-</footer><!-- /.post-info -->                <h2>Choose theme</h2>
-<p>html5-dopetrope is theme I like. 
-To choose theme for your blog add cloned theme repo to your pelican installation...
-<code>\venv\Lib\site-packages\pelican\themes</code></p>
-<div class="highlight"><pre><span></span><code>bash
-cd \pelican themes
-cp html5-dopetrope C:\blog_depend\venv\Lib\site-packages\pelican\themes
-</code></pre></div>
-
-<h2>how to apply theme</h2>
-<p>....
- ...</p>
-<h2>Plugins</h2>
-<p>You have to check whether your …</p>
-                <a class="readmore" href="/change-pelican-theme.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->
