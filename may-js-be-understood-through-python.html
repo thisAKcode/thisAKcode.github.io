@@ -184,6 +184,20 @@ All iterator methods take a callback function, which can be a pre-defined functi
 <p>for (let bandMember in band.members) {
   console.log(<code>${band.members[bandMember].name}: ${band.members[bandMember].instrument}</code>)
 };</p>
+<h3>Looping pairwise</h3>
+<p>Here you can compare js and Python solution which both rely on quotient of division between item and 2:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">arr1</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">1</span><span class="p">,</span> <span class="mf">2</span><span class="p">,</span> <span class="mf">3</span><span class="p">,</span> <span class="mf">4</span><span class="p">,</span> <span class="mf">5</span><span class="p">,</span> <span class="mf">6</span><span class="p">,</span> <span class="mf">7</span><span class="p">,</span> <span class="mf">8</span><span class="p">]</span>
+<span class="kd">let</span> <span class="nx">arr2</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span><span class="o">=</span><span class="mf">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">arr1</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+      <span class="nx">arr2</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">((</span><span class="nx">arr1</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="o">-</span><span class="mf">1</span><span class="p">)</span><span class="o">/</span><span class="mf">2</span><span class="p">))}</span>
+<span class="c1">// [0, 0, 1, 1, 2, 2, 3, 3]</span>
+</code></pre></div>
+
+<p>Python</p>
+<div class="highlight"><pre><span></span><code><span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]</span>
+<span class="n">yy</span> <span class="o">=</span> <span class="p">[(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span>  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">y</span><span class="p">]</span>
+</code></pre></div>
+
 <h3>Functions</h3>
 <p>Simple function with default arguments is defined as follows in js:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">remindMe</span><span class="p">(</span><span class="nx">i1</span><span class="o">=</span><span class="s1">&#39;Python&#39;</span><span class="p">,</span> <span class="nx">i2</span><span class="o">=</span><span class="s1">&#39;JavaScript&#39;</span><span class="p">,</span> <span class="nx">i3</span><span class="o">=</span><span class="s1">&#39;SQL&#39;</span><span class="p">){</span>

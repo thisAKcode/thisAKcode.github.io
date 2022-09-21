@@ -155,6 +155,20 @@ for (let bandMember in band.members) {
   console.log(`${band.members[bandMember].name}: ${band.members[bandMember].instrument}`)
 };
 
+### Looping pairwise
+Here you can compare js and Python solution which both rely on quotient of division between item and 2:
+```js
+let arr1 = [ 1, 2, 3, 4, 5, 6, 7, 8]
+let arr2 = []
+for (let i=0; i<arr1.length; i++){
+      arr2.push(Math.floor((arr1[i]-1)/2))}
+// [0, 0, 1, 1, 2, 2, 3, 3]
+```
+Python
+```python
+y = [1,2,3,4,5,6,7,8]
+yy = [(i-1)//2  for i in y]
+```
 ### Functions 
 Simple function with default arguments is defined as follows in js:
 ```js
