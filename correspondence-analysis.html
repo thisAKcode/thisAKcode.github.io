@@ -1165,6 +1165,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Correspondence-Analysis">Correspondence Analysis<a class="anchor-link" href="#Correspondence-Analysis">&#182;</a></h3><h3 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h3><p>An introduction to correspondence analysis in a book "Exploratory Multivariate Analysis by Example Using R" by François Husson is worth to read. Along with the <a href="https://www.youtube.com/playlist?list=PLnZgp6epRBbTgO-l-6hLAKTstW7WSGh8A">tutorial series on YouTube</a> it is great source that can make basics about Correspondence Analysis clear for you.</p>
 <p>If you prefer Python then <a href="https://codefying.com/2018/12/21/introduction-to-correspondence-analysis/">Introduction to Correspondence Analysis</a> and <a href="https://github.com/MaxHalford/prince">Prince - Python factor analysis library</a>  are two sources to start with CA.</p>
+<p>When working with dataset of n items described using two categorical variables <code>V_1</code> and <code>V_2</code> you need to find their interconnectedness. Technically you need to caculate how far away relationship between <code>V_1</code> and <code>V_2</code> is from independence.</p>
 
 </div>
 </div>
@@ -1172,8 +1173,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="Examples-of-input-data">Examples of input data<a class="anchor-link" href="#Examples-of-input-data">&#182;</a></h5><p>When working with dataset of n items described using two categorical variables <code>V_1</code> and <code>V_2</code> you need to find their interconnectedness. Technically you need to caculate how far away relationship between <code>V_1</code> and <code>V_2</code> is from independence.</p>
-<p>The data for this analysis is prepared as a "contingency table" including sum of therms for each row (column margin) and sum of terms for each column (row margin). Each cell contains frequencies for particular combinations of values of two variables <code>V_1</code> and <code>V_2</code> and each combination is mutually exclusive. "Correspondence analysis" (CA) result from the fact that tables are analysed by linking two corresponding sets: those by rows and by columns.</p>
+<h5 id="Examples-of-input-data">Examples of input data<a class="anchor-link" href="#Examples-of-input-data">&#182;</a></h5><p>The data for this analysis is prepared as a "contingency table" including sum of therms for each row (column margin) and sum of terms for each column (row margin). Each cell contains frequencies for particular combinations of values of two variables <code>V_1</code> and <code>V_2</code> and each combination is mutually exclusive. "Correspondence analysis" (CA) result from the fact that tables are analysed by linking two corresponding sets: those by rows and by columns.</p>
 <p>A few examples of contingency tables that you can use for applying correspondence analysis on may be found here.</p>
 <ul>
 <li>1 <a href="https://programminghistorian.org/en/lessons/correspondence-analysis-in-R">article by programminghistorian.org section "The Data"</a></li>
@@ -1679,7 +1679,7 @@ If we start from the absence of relationship then we satisfy criterion for indep
 <p>$P[A and B]=P[A]P[B] $ 
 or same in another notation: 
 $P(A, B) = P(A)P(B) $.</p>
-<p>Independence model is applicable to the categorical variables in contingency table. Two events are independent if the probability that they both happen is the product of the probabilities that each one happens.
+<p>Independence model is applicable to the categorical variables in a contingency table. Two events are independent if the probability that they both happen is the product of the probabilities that each one happens.
 Two categorical variables are considered independent if they verify:<br>
 $ ∀_{i,j}   f_{ij} = f_{i•}f_{•j} $</p>
 <p>In accordance to the independence model the joint probability  $f_{ij}$ is dependent on the marginal probabilities $ (f_{i•} and f_{•j}) $ alone:</p>
@@ -1700,7 +1700,7 @@ $ ∀_{i,j}   f_{ij} = f_{i•}f_{•j} $</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -1752,306 +1752,6 @@ $ ∀_{i,j}   f_{ij} = f_{i•}f_{•j} $</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Below you can see how the actual conditional probabilties looks like compared to probabilities calculated for independence model:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># independenceX.astype(int)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;conditional probabilties as per independence model&#39;</span><span class="p">)</span>
-<span class="n">independenceX</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>conditional probabilties as per independence model
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[28]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Chemistry</th>
-      <th>Economic sciences</th>
-      <th>Literature</th>
-      <th>Medicin</th>
-      <th>Peace</th>
-      <th>Physics</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Germany</th>
-      <td>0.029794</td>
-      <td>0.014774</td>
-      <td>0.012065</td>
-      <td>0.034472</td>
-      <td>0.012558</td>
-      <td>0.036688</td>
-    </tr>
-    <tr>
-      <th>Canada</th>
-      <td>0.006704</td>
-      <td>0.003324</td>
-      <td>0.002715</td>
-      <td>0.007756</td>
-      <td>0.002825</td>
-      <td>0.008255</td>
-    </tr>
-    <tr>
-      <th>France</th>
-      <td>0.019738</td>
-      <td>0.009788</td>
-      <td>0.007993</td>
-      <td>0.022838</td>
-      <td>0.008319</td>
-      <td>0.024306</td>
-    </tr>
-    <tr>
-      <th>UK</th>
-      <td>0.034635</td>
-      <td>0.017175</td>
-      <td>0.014026</td>
-      <td>0.040074</td>
-      <td>0.014598</td>
-      <td>0.042650</td>
-    </tr>
-    <tr>
-      <th>Italy</th>
-      <td>0.007076</td>
-      <td>0.003509</td>
-      <td>0.002865</td>
-      <td>0.008187</td>
-      <td>0.002982</td>
-      <td>0.008713</td>
-    </tr>
-    <tr>
-      <th>Japan</th>
-      <td>0.008566</td>
-      <td>0.004247</td>
-      <td>0.003469</td>
-      <td>0.009911</td>
-      <td>0.003610</td>
-      <td>0.010548</td>
-    </tr>
-    <tr>
-      <th>Russia</th>
-      <td>0.010055</td>
-      <td>0.004986</td>
-      <td>0.004072</td>
-      <td>0.011634</td>
-      <td>0.004238</td>
-      <td>0.012382</td>
-    </tr>
-    <tr>
-      <th>US</th>
-      <td>0.095713</td>
-      <td>0.047461</td>
-      <td>0.038760</td>
-      <td>0.110742</td>
-      <td>0.040342</td>
-      <td>0.117861</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># independenceX.astype(int)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;conditional probabilties&#39;</span><span class="p">)</span>
-<span class="n">proba_matrixX</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>conditional probabilties
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[29]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Chemistry</th>
-      <th>Economic sciences</th>
-      <th>Literature</th>
-      <th>Medicin</th>
-      <th>Peace</th>
-      <th>Physics</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Germany</th>
-      <td>0.042105</td>
-      <td>0.001754</td>
-      <td>0.014035</td>
-      <td>0.031579</td>
-      <td>0.008772</td>
-      <td>0.042105</td>
-    </tr>
-    <tr>
-      <th>Canada</th>
-      <td>0.007018</td>
-      <td>0.005263</td>
-      <td>0.003509</td>
-      <td>0.007018</td>
-      <td>0.001754</td>
-      <td>0.007018</td>
-    </tr>
-    <tr>
-      <th>France</th>
-      <td>0.014035</td>
-      <td>0.005263</td>
-      <td>0.019298</td>
-      <td>0.021053</td>
-      <td>0.017544</td>
-      <td>0.015789</td>
-    </tr>
-    <tr>
-      <th>UK</th>
-      <td>0.040351</td>
-      <td>0.010526</td>
-      <td>0.012281</td>
-      <td>0.045614</td>
-      <td>0.019298</td>
-      <td>0.035088</td>
-    </tr>
-    <tr>
-      <th>Italy</th>
-      <td>0.001754</td>
-      <td>0.001754</td>
-      <td>0.010526</td>
-      <td>0.008772</td>
-      <td>0.001754</td>
-      <td>0.008772</td>
-    </tr>
-    <tr>
-      <th>Japan</th>
-      <td>0.010526</td>
-      <td>0.000000</td>
-      <td>0.003509</td>
-      <td>0.005263</td>
-      <td>0.001754</td>
-      <td>0.019298</td>
-    </tr>
-    <tr>
-      <th>Russia</th>
-      <td>0.007018</td>
-      <td>0.005263</td>
-      <td>0.008772</td>
-      <td>0.003509</td>
-      <td>0.005263</td>
-      <td>0.017544</td>
-    </tr>
-    <tr>
-      <th>US</th>
-      <td>0.089474</td>
-      <td>0.075439</td>
-      <td>0.014035</td>
-      <td>0.122807</td>
-      <td>0.033333</td>
-      <td>0.115789</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Use-prince-to-do-CA">Use prince to do CA<a class="anchor-link" href="#Use-prince-to-do-CA">&#182;</a></h3><p>Prince is well known library to do factor analysis. <a href="https://pypi.org/project/prince/">https://pypi.org/project/prince/</a>. Below you can see how the Nobel Prize dataset analysed using prince.</p>
 
 </div>
@@ -2059,7 +1759,7 @@ $ ∀_{i,j}   f_{ij} = f_{i•}f_{•j} $</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -2087,12 +1787,21 @@ $ ∀_{i,j}   f_{ij} = f_{i•}f_{•j} $</p>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Below you can see how the actual values looks like compared to values calculated for independence model:
+First your can look at the actual input data.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -2105,7 +1814,157 @@ $ ∀_{i,j}   f_{ij} = f_{i•}f_{•j} $</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[31]:</div>
+    <div class="prompt output_prompt">Out[37]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Category</th>
+      <th>Chemistry</th>
+      <th>Economic sciences</th>
+      <th>Literature</th>
+      <th>Medicin</th>
+      <th>Peace</th>
+      <th>Physics</th>
+    </tr>
+    <tr>
+      <th>Country</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Germany</th>
+      <td>24</td>
+      <td>1</td>
+      <td>8</td>
+      <td>18</td>
+      <td>5</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <th>Canada</th>
+      <td>4</td>
+      <td>3</td>
+      <td>2</td>
+      <td>4</td>
+      <td>1</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>France</th>
+      <td>8</td>
+      <td>3</td>
+      <td>11</td>
+      <td>12</td>
+      <td>10</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>UK</th>
+      <td>23</td>
+      <td>6</td>
+      <td>7</td>
+      <td>26</td>
+      <td>11</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>Italy</th>
+      <td>1</td>
+      <td>1</td>
+      <td>6</td>
+      <td>5</td>
+      <td>1</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>Japan</th>
+      <td>6</td>
+      <td>0</td>
+      <td>2</td>
+      <td>3</td>
+      <td>1</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>Russia</th>
+      <td>4</td>
+      <td>3</td>
+      <td>5</td>
+      <td>2</td>
+      <td>3</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>US</th>
+      <td>51</td>
+      <td>43</td>
+      <td>8</td>
+      <td>70</td>
+      <td>19</td>
+      <td>66</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Below the hypothetical values as per independence model make it possible to see distribution of prizes that not differs from one country to another.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">independenceX</span><span class="o">*</span><span class="n">grand_total</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[38]:</div>
 
 
 
@@ -2139,75 +1998,75 @@ $ ∀_{i,j}   f_{ij} = f_{i•}f_{•j} $</p>
   <tbody>
     <tr>
       <th>Germany</th>
-      <td>24.000000</td>
-      <td>1.000000</td>
-      <td>8.000000</td>
-      <td>18.000000</td>
-      <td>5.000000</td>
-      <td>24.000000</td>
+      <td>16</td>
+      <td>8</td>
+      <td>6</td>
+      <td>19</td>
+      <td>7</td>
+      <td>20</td>
     </tr>
     <tr>
       <th>Canada</th>
-      <td>4.000000</td>
-      <td>3.000000</td>
-      <td>2.000000</td>
-      <td>4.000000</td>
-      <td>1.000000</td>
-      <td>4.000000</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+      <td>4</td>
     </tr>
     <tr>
       <th>France</th>
-      <td>8.000000</td>
-      <td>3.000000</td>
-      <td>11.000000</td>
-      <td>12.000000</td>
-      <td>10.000000</td>
-      <td>9.000000</td>
+      <td>11</td>
+      <td>5</td>
+      <td>4</td>
+      <td>13</td>
+      <td>4</td>
+      <td>13</td>
     </tr>
     <tr>
       <th>UK</th>
-      <td>23.000000</td>
-      <td>6.000000</td>
-      <td>7.000000</td>
-      <td>26.000000</td>
-      <td>11.000000</td>
-      <td>20.000000</td>
+      <td>19</td>
+      <td>9</td>
+      <td>7</td>
+      <td>22</td>
+      <td>8</td>
+      <td>24</td>
     </tr>
     <tr>
       <th>Italy</th>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>6.000000</td>
-      <td>5.000000</td>
-      <td>1.000000</td>
-      <td>5.000000</td>
+      <td>4</td>
+      <td>2</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+      <td>4</td>
     </tr>
     <tr>
       <th>Japan</th>
-      <td>6.000000</td>
-      <td>0.000000</td>
-      <td>2.000000</td>
-      <td>3.000000</td>
-      <td>1.000000</td>
-      <td>11.000000</td>
+      <td>4</td>
+      <td>2</td>
+      <td>1</td>
+      <td>5</td>
+      <td>2</td>
+      <td>6</td>
     </tr>
     <tr>
       <th>Russia</th>
-      <td>4.000000</td>
-      <td>3.000000</td>
-      <td>5.000000</td>
-      <td>2.000000</td>
-      <td>3.000000</td>
-      <td>10.000000</td>
+      <td>5</td>
+      <td>2</td>
+      <td>2</td>
+      <td>6</td>
+      <td>2</td>
+      <td>7</td>
     </tr>
     <tr>
       <th>US</th>
-      <td>51.000000</td>
-      <td>43.000000</td>
-      <td>8.000000</td>
-      <td>70.000000</td>
-      <td>19.000000</td>
-      <td>66.000000</td>
+      <td>54</td>
+      <td>27</td>
+      <td>22</td>
+      <td>63</td>
+      <td>22</td>
+      <td>67</td>
     </tr>
   </tbody>
 </table>
@@ -2222,7 +2081,7 @@ $ ∀_{i,j}   f_{ij} = f_{i•}f_{•j} $</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ca</span> <span class="o">=</span> <span class="n">prince</span><span class="o">.</span><span class="n">CA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
@@ -2244,7 +2103,7 @@ $ ∀_{i,j}   f_{ij} = f_{i•}f_{•j} $</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ca</span><span class="o">.</span><span class="n">row_coordinates</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
@@ -2260,7 +2119,7 @@ $ ∀_{i,j}   f_{ij} = f_{i•}f_{•j} $</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[33]:</div>
+    <div class="prompt output_prompt">Out[24]:</div>
 
 
 
@@ -2341,7 +2200,7 @@ $ ∀_{i,j}   f_{ij} = f_{i•}f_{•j} $</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ca</span><span class="o">.</span><span class="n">column_coordinates</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
@@ -2357,7 +2216,7 @@ $ ∀_{i,j}   f_{ij} = f_{i•}f_{•j} $</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[34]:</div>
+    <div class="prompt output_prompt">Out[21]:</div>
 
 
 
@@ -2428,7 +2287,7 @@ $ ∀_{i,j}   f_{ij} = f_{i•}f_{•j} $</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">plot_coordinates</span><span class="p">(</span>
@@ -2471,7 +2330,7 @@ $ ∀_{i,j}   f_{ij} = f_{i•}f_{•j} $</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ca</span><span class="o">.</span><span class="n">eigenvalues_</span>
@@ -2492,7 +2351,7 @@ $ ∀_{i,j}   f_{ij} = f_{i•}f_{•j} $</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[11]:</div>
+    <div class="prompt output_prompt">Out[12]:</div>
 
 
 
@@ -2509,7 +2368,20 @@ $ ∀_{i,j}   f_{ij} = f_{i•}f_{•j} $</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># df = df.reset_index()  # make sure indexes pair with number of rows</span>
