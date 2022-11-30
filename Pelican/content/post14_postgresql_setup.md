@@ -23,8 +23,18 @@ CREATE ROLE alex LOGIN PASSWORD 'usesafeone' CREATEDB;
 Schemas is attribute of Postgresql where one schema may be shared by multiple tables.
 That way several tables may be grouped into schemas. Schemas are nice cause otherwise you are froced to alwaya rely on public schema and run the risk of name clashes since objects within schema must be unique.
 Schemas can be toherwise organized by roles.
-### Doing via psql
 
+### form URI
+Here you can find an awesome article about connecting to postgresql using url. <https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING>
+Your possible connection to dummy db may look like that. 
+```pyhton 
+
+# here is how your connection uri looks like
+# postgresql://[user[:password]@][netloc][:port][/dbname][?param1=value1&...]
+# followed by a concrete example
+DATABASE_URL = "postgresql://postgres:my_super_hard_pw@localhost:5432/python_db"
+
+```
 
 ### Sources 
 1. Obe, Regina O.; Hsu, Leo S.. PostgreSQL: Up and Running. O'Reilly Media. Kindle Edition. 
