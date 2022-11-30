@@ -3,9 +3,9 @@
 <head>
         <meta charset="utf-8" />
         <meta name="generator" content="Pelican" />
-        <title>My First Converted Jupyter notebook</title>
+        <title>Statistical Distributions (Common ones)</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
-        <meta name="description" content="Write Blog Using Jupyter Notebooks and Pelican¶Here is a quick reviev on how to write blog using Jupyter Notebook and python module..." />
+        <meta name="description" content="Introduction¶Given a random variable Z you can get different values. Think of your values that variable Z can take as a output from some model...." />
 </head>
 
 <body id="index" class="home">
@@ -23,21 +23,21 @@
   <article>
     <header>
       <h1 class="entry-title">
-        <a href="/my-first-converted-jupyter-notebook.html" rel="bookmark"
-           title="Permalink to My First Converted Jupyter notebook">My First Converted Jupyter notebook</a></h1>
+        <a href="/statistical-distributions-common-ones.html" rel="bookmark"
+           title="Permalink to Statistical Distributions (Common ones)">Statistical Distributions (Common ones)</a></h1>
     </header>
 
     <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2022-03-07T00:00:00+01:00">
-                Published: Mon 07 March 2022
+        <abbr class="published" title="2022-10-17T00:00:00+02:00">
+                Published: Mon 17 October 2022
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="/author/alex.html">Alex</a>
         </address>
 <p>In <a href="/category/python.html">python</a>.</p>
-<p>tags: <a href="/tag/jupyter.html">jupyter</a> </p>
+
 </footer><!-- /.post-info -->      <style type="text/css">/*!
 *
 * IPython notebook
@@ -1157,99 +1157,68 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
  .highlight pre  .il { color: #666666 } /* Literal.Number.Integer.Long */</style><body><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Write-Blog-Using-Jupyter-Notebooks-and-Pelican">Write Blog Using Jupyter Notebooks and Pelican<a class="anchor-link" href="#Write-Blog-Using-Jupyter-Notebooks-and-Pelican">&#182;</a></h3><p>Here is a quick reviev on how to write blog using Jupyter Notebook and python module pelican-jupyter. Not so much to write about, pelican-jupyter's docs are great. They may be read here: <a href="https://github.com/danielfrg/pelican-jupyter">https://github.com/danielfrg/pelican-jupyter</a>.</p>
+<h3 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h3><p>Given a random variable Z you can get different values. Think of your values that variable Z can take as a output from some model. You can estimate probability of different outcomes for variable Z. A probability distribution function assigns probabilies to values that Z can possibly take.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Classification-of-Variables">Classification of Variables<a class="anchor-link" href="#Classification-of-Variables">&#182;</a></h3><p>Random variables Z are random in different ways:</p>
+<ul>
+<li>discrete is a specified collection of values: count of  two Fair Coins/Dices.</li>
+<li>continuous (arbitrarily exact values): time, speed.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Normal-Distribution">Normal Distribution<a class="anchor-link" href="#Normal-Distribution">&#182;</a></h3><p>Gaussian distribution (as it is also called) is attributed to several measues for stuff around, it's  everywhere. Weight of apples of same variety, height of people you stumble upon. The values that that registered for these attributes are normally distributed.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="c1"># Rule 1</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-
-<span class="c1">#Rule 1 &amp; 2</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>  
-<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># [0 1 2]</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">a is:</span>
-<span class="sd">[[0]</span>
-<span class="sd"> [1]</span>
-<span class="sd"> [2]]</span>
-<span class="sd">&quot;&quot;&quot;</span>
-
-<span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-<span class="c1">#  array([[0, 1, 2],  [1, 2, 3],  [2, 3, 4]])</span>
-
-
-<span class="c1">#Example 3</span>
-<span class="c1">#Rule 3</span>
-
-<span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> 
-<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-
-<span class="n">shp_M</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> 
-<span class="n">shp_a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,)</span>
-<span class="c1">#rule 1 pad the shape of a with ones at its leading side: a.shape -&gt; (1, 3)</span>
-
-
-<span class="c1"># Example 3 workaround</span>
-
-<span class="c1"># reshaping the array with right side padding</span>
-
-<span class="n">M</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-<span class="n">a</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">b</span><span class="o">=</span><span class="n">a</span><span class="p">[:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
-
-<span class="c1"># shape of a, a.shape&gt;&gt;&gt; (3,)</span>
-<span class="c1"># shape of b, b.shape &gt;&gt;&gt;  (3,1)</span>
-
-<span class="c1"># Practical broadcasting</span>
-
-<span class="c1">## 1. Centering an array: compute mean across first axis</span>
-
-
-<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-
-<span class="n">Xmean</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="c1"># array([ 0.53514715, 0.66567217, 0.44385899])</span>
-<span class="n">Xcentered</span> <span class="o">=</span> <span class="n">X</span> <span class="o">-</span><span class="n">Xmean</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">Xcentered</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 
     </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="References">References<a class="anchor-link" href="#References">&#182;</a></h3><ol>
+<li><p><a href="https://towardsdatascience.com/seven-must-know-statistical-distributions-and-their-simulations-for-data-science-681c5ac41e32">https://towardsdatascience.com/seven-must-know-statistical-distributions-and-their-simulations-for-data-science-681c5ac41e32</a></p>
+</li>
+<li><p>Davidson-Pilon, Cameron. Bayesian Methods for Hackers (Addison-Wesley Data &amp; Analytics) (p. 35). Pearson Education. Kindle Edition.</p>
+</li>
+<li><p><a href="https://en.wikipedia.org/wiki/List_of_probability_distributions">https://en.wikipedia.org/wiki/List_of_probability_distributions</a></p>
+</li>
+</ol>
 
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[[-0.0269058   0.39160873  0.17928672]
- [ 0.24797966 -0.39697382 -0.35499573]
- [ 0.30967847  0.32730359  0.30842749]
- [ 0.1528266   0.49989816  0.34428994]
- [ 0.29634302 -0.21905434  0.18902373]
- [-0.34851145 -0.12763465  0.26871769]
- [-0.3859855  -0.26051812  0.16394675]
- [ 0.03022932 -0.00579362 -0.55509157]
- [-0.29696686 -0.37009246 -0.39711054]
- [ 0.02131254  0.16125654 -0.14649449]]
-</pre>
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
 
+    </div>
 </div>
 </div>
 

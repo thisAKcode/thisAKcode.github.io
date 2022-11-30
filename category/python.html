@@ -12,6 +12,7 @@
                 <h1><a href="/">PrettyLagom</a></h1>
                 <nav><ul>
                     <li><a href="/pages/about.html">About</a></li>
+                    <li><a href="/category/art.html">art</a></li>
                     <li><a href="/category/misc.html">misc</a></li>
                     <li class="active"><a href="/category/python.html">python</a></li>
                     <li><a href="/category/stats.html">stats</a></li>
@@ -20,10 +21,10 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/jump-in-pymc.html">Jump In pymc</a></h1>
+                    <h1 class="entry-title"><a href="/statistical-distributions-common-ones.html">Statistical Distributions (Common ones)</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2022-07-10T00:00:00+02:00">
-                Published: Sun 10 July 2022
+        <abbr class="published" title="2022-10-17T00:00:00+02:00">
+                Published: Mon 17 October 2022
         </abbr>
 
         <address class="vcard author">
@@ -1150,9 +1151,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
  .highlight pre  .il { color: #666666 } /* Literal.Number.Integer.Long */</style><body><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Install">Install<a class="anchor-link" href="#Install">&#182;</a></h3><p>To simply install pymc was not enough on my computer, neither on Google Colab it worked to simply use library after <code>!pip install</code>. Apparently my laptop hadn't a working fortran of C compiler- the message that I got was:
-<code>Aesara will be unable to compile C-implementations and will default to Python. Performance may be severely degraded. To remove this warning, set Aesara flags cxx to an empty string.</code></p>
-<p>To be able to run pymc on Windows I needed to use miniconda and then open up Anaconda Prompt and execute <code>conda install -c conda-forge pymc</code>. Installation took me 20 minutes.</p>
+<h3 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h3><p>Given a random variable Z you can get different values. Think of your values that variable Z can take as a output from some model. You can estimate probability of different outcomes for variable Z. A probability distribution function assigns probabilies to values that Z can possibly take.</p>
 
 </div>
 </div>
@@ -1160,65 +1159,63 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="First-example">First example<a class="anchor-link" href="#First-example">&#182;</a></h3><p>First code snippet is pulled from official documentation to the version of pymc, data was included in installation of pymc module:
-<a href="https://www.pymc.io/projects/examples/en/latest/case_studies/log-gaussian-cox-process.html">https://www.pymc.io/projects/examples/en/latest/case_studies/log-gaussian-cox-process.html</a></p>
+<h3 id="Classification-of-Variables">Classification of Variables<a class="anchor-link" href="#Classification-of-Variables">&#182;</a></h3><p>Random variables Z are random in different ways:</p>
+<ul>
+<li>discrete is a specified collection of values: count of  two Fair Coins/Dices.</li>
+<li>continuous (arbitrarily exact values): time, speed.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Normal-Distribution">Normal Distribution<a class="anchor-link" href="#Normal-Distribution">&#182;</a></h3><p>Gaussian distribution (as it is also called) is attributed to several measues for stuff around, it's  everywhere. Weight of apples of same variety, height of people you stumble upon. The values that that registered for these attributes are normally distributed.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pymc</span> <span class="k">as</span> <span class="nn">pm</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
-
-<span class="kn">import</span> <span class="nn">arviz</span> <span class="k">as</span> <span class="nn">az</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">pm</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s2">&quot;anemones.csv&quot;</span><span class="p">))</span>
-<span class="n">n</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 
     </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>231
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Sources">Sources<a class="anchor-link" href="#Sources">&#182;</a></h3><p>-article 1 <a href="https://jakevdp.github.io/blog/2014/06/14/frequentism-and-bayesianism-4-bayesian-in-python/">https://jakevdp.github.io/blog/2014/06/14/frequentism-and-bayesianism-4-bayesian-in-python/</a>
--article 2 <a href="https://github.com/CamDavidsonPilon/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers">https://github.com/CamDavidsonPilon/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers</a></p>
+<h3 id="References">References<a class="anchor-link" href="#References">&#182;</a></h3><ol>
+<li><p><a href="https://towardsdatascience.com/seven-must-know-statistical-distributions-and-their-simulations-for-data-science-681c5ac41e32">https://towardsdatascience.com/seven-must-know-statistical-distributions-and-their-simulations-for-data-science-681c5ac41e32</a></p>
+</li>
+<li><p>Davidson-Pilon, Cameron. Bayesian Methods for Hackers (Addison-Wesley Data &amp; Analytics) (p. 35). Pearson Education. Kindle Edition.</p>
+</li>
+<li><p><a href="https://en.wikipedia.org/wiki/List_of_probability_distributions">https://en.wikipedia.org/wiki/List_of_probability_distributions</a></p>
+</li>
+</ol>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>C:\книги<em>питон\Bayes' Theorem Examples</em> A Visual Introduction For Beginners - Dan Morris &amp; Mark Koning.pdf</p>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
 
+    </div>
 </div>
 </div>
+
 </div>
  
 
@@ -1257,6 +1254,32 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
                     <h1>Other articles</h1>
                     <hr />
                     <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/jump-in-pymc.html" rel="bookmark"
+                           title="Permalink to Jump In pymc">Jump In pymc</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2022-07-10T00:00:00+02:00">
+                Published: Sun 10 July 2022
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/alex.html">Alex</a>
+        </address>
+<p>In <a href="/category/python.html">python</a>.</p>
+
+</footer><!-- /.post-info -->                <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Install">Install<a class="anchor-link" href="#Install">&#182;</a></h3><p>To simply install pymc was not enough on my computer, neither on Google Colab it worked to simply use library after <code>!pip install</code>. Apparently my laptop hadn't a working fortran of C compiler- the message that I got was:
+<code>Aesara will be unable to compile C-implementations and will default to Python. Performance may be severely degraded. To remove this warning, set Aesara flags cxx to an empty string.</code>
+                <a class="readmore" href="/jump-in-pymc.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>

@@ -13,6 +13,7 @@
                 <h1><a href="/">PrettyLagom</a></h1>
                 <nav><ul>
                     <li><a href="/pages/about.html">About</a></li>
+                    <li><a href="/category/art.html">art</a></li>
                     <li class="active"><a href="/category/misc.html">misc</a></li>
                     <li><a href="/category/python.html">python</a></li>
                     <li><a href="/category/stats.html">stats</a></li>
@@ -54,7 +55,15 @@ pgAdmin has a gui for creating user roles. Otherwise write following code:</p>
 <p>Schemas is attribute of Postgresql where one schema may be shared by multiple tables.
 That way several tables may be grouped into schemas. Schemas are nice cause otherwise you are froced to alwaya rely on public schema and run the risk of name clashes since objects within schema must be unique.
 Schemas can be toherwise organized by roles.</p>
-<h3>Doing via psql</h3>
+<h3>form URI</h3>
+<p>Here you can find an awesome article about connecting to postgresql using url. <a href="https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING">https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING</a>
+Your possible connection to dummy db may look like that. </p>
+<div class="highlight"><pre><span></span><code><span class="err">#</span><span class="w"> </span><span class="n">here</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="k">connection</span><span class="w"> </span><span class="n">uri</span><span class="w"> </span><span class="n">looks</span><span class="w"> </span><span class="ow">like</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="nl">postgresql</span><span class="p">:</span><span class="o">//[</span><span class="n">user[:password</span><span class="o">]</span><span class="err">@]</span><span class="o">[</span><span class="n">netloc</span><span class="o">][</span><span class="n">:port</span><span class="o">][</span><span class="n">/dbname</span><span class="o">][</span><span class="n">?param1=value1&amp;...</span><span class="o">]</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">followed</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">concrete</span><span class="w"> </span><span class="n">example</span><span class="w"></span>
+<span class="n">DATABASE_URL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;postgresql://postgres:my_super_hard_pw@localhost:5432/python_db&quot;</span><span class="w"></span>
+</code></pre></div>
+
 <h3>Sources</h3>
 <ol>
 <li>Obe, Regina O.; Hsu, Leo S.. PostgreSQL: Up and Running. O'Reilly Media. Kindle Edition. </li>

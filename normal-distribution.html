@@ -5,7 +5,7 @@
         <meta name="generator" content="Pelican" />
         <title>Normal Distribution</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
-        <meta name="description" content="Normal Distribution Populations in nature tend to be of average measurement unit for a normally distributed attribute (weight, height etc) with..." />
+        <meta name="description" content="Normal Distribution There is a pymc library wich gives you access to all kind of distributions:..." />
 </head>
 
 <body id="index" class="home">
@@ -13,6 +13,7 @@
                 <h1><a href="/">PrettyLagom</a></h1>
                 <nav><ul>
                     <li><a href="/pages/about.html">About</a></li>
+                    <li><a href="/category/art.html">art</a></li>
                     <li class="active"><a href="/category/misc.html">misc</a></li>
                     <li><a href="/category/python.html">python</a></li>
                     <li><a href="/category/stats.html">stats</a></li>
@@ -38,9 +39,27 @@
 <p>In <a href="/category/misc.html">misc</a>.</p>
 
 </footer><!-- /.post-info -->      <h3>Normal Distribution</h3>
-<p>Populations in nature tend to be of average measurement unit for a normally distributed attribute (weight, height etc) with ocasionally occuring exceptions.</p>
+<p>There is a pymc library wich gives you access to all kind of distributions: <a href="https://www.pymc.io/projects/docs/en/stable/api/distributions.html">https://www.pymc.io/projects/docs/en/stable/api/distributions.html</a>.</p>
+<p>Populations in nature tend to be of average measurement unit for a normally distributed attribute (weight, height etc) with ocasionally occuring exceptions. This attribute can take on any real number but the value is ofther close to average(mean).</p>
 <p>If a distribution of values occillates around an average then it is normal distribution.
-Normal distribution is opposed to uniform distribution.</p>
+Normal distribution is of continuous type and is opposed to uniform distribution.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">arviz</span> <span class="k">as</span> <span class="nn">az</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;arviz-darkgrid&#39;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">ls</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">us</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">l</span><span class="p">,</span> <span class="n">u</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ls</span><span class="p">,</span> <span class="n">us</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+    <span class="n">y</span><span class="p">[(</span><span class="n">x</span><span class="o">&lt;</span><span class="n">u</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span><span class="o">&gt;</span><span class="n">l</span><span class="p">)]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="n">u</span><span class="o">-</span><span class="n">l</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;lower = </span><span class="si">{}</span><span class="s1">, upper = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">u</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;f(x)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
     </div><!-- /.entry-content -->
 
   </article>

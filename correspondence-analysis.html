@@ -13,6 +13,7 @@
                 <h1><a href="/">PrettyLagom</a></h1>
                 <nav><ul>
                     <li><a href="/pages/about.html">About</a></li>
+                    <li><a href="/category/art.html">art</a></li>
                     <li><a href="/category/misc.html">misc</a></li>
                     <li class="active"><a href="/category/python.html">python</a></li>
                     <li><a href="/category/stats.html">stats</a></li>
@@ -1560,7 +1561,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In contingency table each cell holds a number of individuals posessing the category i of V1 and j of V2 (see image below). The sums of the table are the margins. 
-As you might have noticed it is hard and sometimes impossible to distinguish differences in frequencies of combinations by just looking at the data. For that <em>Correspondence Analysis</em> uses $\chi^2$ statistic. We continue with the third example of Nobel Prize data. Examine relationship with the variables in dataset in this example is as usual not easy.</p>
+As you might have noticed it is hard and sometimes impossible to distinguish differences in frequencies of combinations by just looking at the data. For that <em>Correspondence Analysis</em> uses $\chi^2$ statistic. We continue with the third example of Nobel Prize data. Examine and visualize relationship/its absence with the variables in dataset in this example is as usual not easy.</p>
 
 </div>
 </div>
@@ -1606,7 +1607,11 @@ width=600
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Recipe:-take-one-way-cross-table,-ask-a-question,-compute-conditional-probability,-apply-$\chi^2$-test,-etc.">Recipe: take one way cross-table, ask a question, compute conditional probability, apply $\chi^2$ test, etc.<a class="anchor-link" href="#Recipe:-take-one-way-cross-table,-ask-a-question,-compute-conditional-probability,-apply-$\chi^2$-test,-etc.">&#182;</a></h3><p>For Noble prize data $\chi^2$ help to find differences in the winnings by country in each Nobel Price category.
-The  $\chi^2$ test is about saying how significantly the distribution of categories differs from one country to another. Question to answer: is there a relationship between country and type of Nobel prize (are some countries tend to get prize of certain disciplines, are prize cathegories more likely to go to one country than another)?</p>
+The  $\chi^2$ test is about saying how significantly the distribution of categories differs from one country to another.</p>
+<p>Question to answer:</p>
+<ul>
+<li>is there a relationship between country and type of Nobel prize: are some countries tend to get prize of certain disciplines/  are prize cathegories more likely to go to one country than another)?</li>
+</ul>
 
 </div>
 </div>
@@ -1616,7 +1621,6 @@ The  $\chi^2$ test is about saying how significantly the distribution of categor
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The image above shows how contingency table is built. The sums of the table along rows and across columns (margins) are denoted by  $x_{i•}$ , $x_{•j} $ or $x_{••} $ depending on dimension(s) on which calculation is carried:
 $ x_{i•} = \sum \limits _{j=1} ^{J} x_{ij} $,    $ x_{•j} = \sum \limits _{i=1} ^{I} x_{ij} $,    $ n = x_{••} = \sum \limits _{i,j}  x_{ij} $.</p>
-<p>Same in Python-code instead of math notation:</p>
 
 </div>
 </div>
@@ -1681,7 +1685,7 @@ or same in another notation:
 $P(A, B) = P(A)P(B) $.</p>
 <p>Independence model is applicable to the categorical variables in a contingency table. Two events are independent if the probability that they both happen is the product of the probabilities that each one happens.
 Two categorical variables are considered independent if they verify:<br>
-$ ∀_{i,j}   f_{ij} = f_{i•}f_{•j} $</p>
+$ ∀_{i},  ∀_{j},   f_{ij} = f_{i•}f_{•j} $</p>
 <p>In accordance to the independence model the joint probability  $f_{ij}$ is dependent on the marginal probabilities $ (f_{i•} and f_{•j}) $ alone:</p>
 <p>$\frac{f_{ij}}{f_{i•}} = f_{•j} $</p>
 <p>$\frac{f_{ij}}{f_{•j}} = f_{i•} $</p>
@@ -1693,6 +1697,7 @@ $ ∀_{i,j}   f_{ij} = f_{i•}f_{•j} $</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Python-Code-For-CA-instead-of-math">Python Code For CA instead of math<a class="anchor-link" href="#Python-Code-For-CA-instead-of-math">&#182;</a></h3><p>Before we spent som time to look at math notation, here is the  Python-code instead of it.</p>
 <p>The probability matrix as well as the marginal probabilities for Nobel Prize data in Python are computed as follows. Code is pulled from this article <a href="https://codefying.com/2018/12/21/introduction-to-correspondence-analysis/">Introduction to Correspondence Analysis</a>:</p>
 
 </div>
@@ -1700,7 +1705,7 @@ $ ∀_{i,j}   f_{ij} = f_{i•}f_{•j} $</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -1711,9 +1716,10 @@ $ ∀_{i,j}   f_{ij} = f_{i•}f_{•j} $</p>
 <span class="n">crosstab_orig</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
 <span class="n">countries</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 <span class="n">prize_categories</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<span class="c1"># xi.</span>
-<span class="n">row_totals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">crosstab_orig</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
 <span class="c1"># x.j</span>
+<span class="n">row_totals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">crosstab_orig</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># xi.</span>
 <span class="n">column_totals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">crosstab_orig</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="c1"># x..</span>
 <span class="n">grand_total</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">crosstab_orig</span><span class="p">)</span>
@@ -1726,25 +1732,80 @@ $ ∀_{i,j}   f_{ij} = f_{i•}f_{•j} $</p>
                      <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">countries</span><span class="p">))</span>
 <span class="n">proba_grand_total</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">proba_matrix</span><span class="p">)</span>  <span class="c1"># equals one </span>
 
-<span class="c1"># margin row holds the sums at the bottom rowp </span>
-<span class="c1"># f.j</span>
+<span class="c1"># f.j margin row profile holds the sums at the bottom rowp  </span>
 <span class="n">margin_row</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">proba_matrix</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="c1"># margin column holds the sums placed at the right </span>
-<span class="c1"># fi.</span>
+<span class="c1"># fi. margin column profile holds the sums placed at the right </span>
 <span class="n">margin_col</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">proba_matrix</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="c1"># print(&#39;conditional probabilities&#39;,u&#39;\n&#39;, proba_matrix,&#39;\n&#39;, &#39;margin row f.j&#39;,&#39;\n&#39;, margin_row,&#39;\n&#39;, &#39;margin col fi.&#39;,&#39;\n&#39;, margin_col)</span>
 
 <span class="n">independence_model</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">margin_col</span><span class="p">,</span> <span class="n">margin_row</span><span class="p">)</span>  <span class="c1"># fi.f.j</span>
 <span class="n">inde_dot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">grand_total</span><span class="p">,</span> <span class="n">independence_model</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">decimals</span> <span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># nfi.f.j where grand_total is n</span>
-<span class="c1"># print(&#39;values according to independence model&#39;,&#39;\n&#39;, inde_dot, &#39;\n&#39;, &#39;original values&#39;,&#39;\n&#39;, df.round(decimals=0))</span>
 <span class="n">independenceX</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-                 <span class="n">data</span><span class="o">=</span>
-                     <span class="n">independence_model</span><span class="p">,</span>
+                     <span class="n">data</span><span class="o">=</span><span class="n">independence_model</span><span class="p">,</span>
                      <span class="n">columns</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">prize_categories</span><span class="p">),</span>
-                     <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">countries</span><span class="p">))</span>
+                     <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">countries</span><span class="p">)</span>
+                            <span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The same parameters to deal with CA comes right out of the box if you use scipy. For instance you can see how you can get data as per independence model.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">chi2_contingency</span> <span class="k">as</span> <span class="n">chi2</span>
+<span class="n">statistic</span><span class="p">,</span> <span class="n">prob</span><span class="p">,</span> <span class="n">dof</span><span class="p">,</span> <span class="n">indep_sample</span> <span class="o">=</span> <span class="n">chi2</span><span class="p">(</span><span class="n">crosstab_orig</span><span class="p">)</span>
+
+<span class="n">indep_sample</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[26]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[16.98245614,  8.42105263,  6.87719298, 19.64912281,  7.15789474,
+        20.9122807 ],
+       [ 3.82105263,  1.89473684,  1.54736842,  4.42105263,  1.61052632,
+         4.70526316],
+       [11.25087719,  5.57894737,  4.55614035, 13.01754386,  4.74210526,
+        13.85438596],
+       [19.74210526,  9.78947368,  7.99473684, 22.84210526,  8.32105263,
+        24.31052632],
+       [ 4.03333333,  2.        ,  1.63333333,  4.66666667,  1.7       ,
+         4.96666667],
+       [ 4.88245614,  2.42105263,  1.97719298,  5.64912281,  2.05789474,
+         6.0122807 ],
+       [ 5.73157895,  2.84210526,  2.32105263,  6.63157895,  2.41578947,
+         7.05789474],
+       [54.55614035, 27.05263158, 22.09298246, 63.12280702, 22.99473684,
+        67.18070175]])</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -1759,15 +1820,14 @@ $ ∀_{i,j}   f_{ij} = f_{i•}f_{•j} $</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">prince</span>
-<span class="c1"># from sklearn import datasets</span>
+
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.float_format&#39;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">{:.6f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 
-<span class="n">data_ca</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;C:\thisAKcode.github.io\Pelican\content\other\CSV.csv&#39;</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_ca</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
 <span class="n">crosstab_orig</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
@@ -1775,11 +1835,9 @@ $ ∀_{i,j}   f_{ij} = f_{i•}f_{•j} $</p>
 <span class="n">prize_categories</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 
 <span class="c1"># continue from here https://pypi.org/project/prince/     Correspondence analysis (CA)</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-                 <span class="n">data</span><span class="o">=</span>
-                     <span class="n">crosstab_orig</span><span class="p">,</span>
-                     <span class="n">columns</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">prize_categories</span><span class="p">),</span>
-                     <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">countries</span><span class="p">))</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">crosstab_orig</span><span class="p">,</span>
+                 <span class="n">columns</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">prize_categories</span><span class="p">),</span>
+                 <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">countries</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -1790,7 +1848,7 @@ $ ∀_{i,j}   f_{ij} = f_{i•}f_{•j} $</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Below you can see how the actual values looks like compared to values calculated for independence model:
+<h3 id="Zoom-in-to-independence-model">Zoom in to independence model<a class="anchor-link" href="#Zoom-in-to-independence-model">&#182;</a></h3><p>Below you can see how the input data looks like compared to values calculated for independence model.
 First your can look at the actual input data.</p>
 
 </div>
@@ -1798,7 +1856,7 @@ First your can look at the actual input data.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
@@ -1814,7 +1872,7 @@ First your can look at the actual input data.</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[37]:</div>
+    <div class="prompt output_prompt">Out[28]:</div>
 
 
 
@@ -1836,22 +1894,13 @@ First your can look at the actual input data.</p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th>Category</th>
+      <th></th>
       <th>Chemistry</th>
       <th>Economic sciences</th>
       <th>Literature</th>
       <th>Medicin</th>
       <th>Peace</th>
       <th>Physics</th>
-    </tr>
-    <tr>
-      <th>Country</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -1941,14 +1990,14 @@ First your can look at the actual input data.</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Below the hypothetical values as per independence model make it possible to see distribution of prizes that not differs from one country to another.</p>
+<p>Below the hypothetical values as per independence model make it possible to see distribution of prizes that not differs from one country to another.  Here probabilities were calculated as product of marginal probabilities.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">independenceX</span><span class="o">*</span><span class="n">grand_total</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
@@ -1964,7 +2013,7 @@ First your can look at the actual input data.</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[38]:</div>
+    <div class="prompt output_prompt">Out[7]:</div>
 
 
 
@@ -2079,9 +2128,32 @@ First your can look at the actual input data.</p>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We still face the problem of being unable to spot difference between those two tables is there reasonable difference between observed values and independence model?
+That's where CA recurs to chi squared test.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Use-Chi-square-to-detect-a-deviation-from-independence">Use Chi-square to detect a deviation from independence<a class="anchor-link" href="#Use-Chi-square-to-detect-a-deviation-from-independence">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Prince-comes-in">Prince comes in<a class="anchor-link" href="#Prince-comes-in">&#182;</a></h3>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ca</span> <span class="o">=</span> <span class="n">prince</span><span class="o">.</span><span class="n">CA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
@@ -2089,8 +2161,7 @@ First your can look at the actual input data.</p>
      <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
      <span class="n">check_input</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
      <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
-     <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
- <span class="p">)</span>
+     <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 <span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;Category&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">X</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;Country&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ca</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
@@ -2103,7 +2174,7 @@ First your can look at the actual input data.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ca</span><span class="o">.</span><span class="n">row_coordinates</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
@@ -2119,7 +2190,7 @@ First your can look at the actual input data.</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[24]:</div>
+    <div class="prompt output_prompt">Out[9]:</div>
 
 
 
@@ -2200,7 +2271,7 @@ First your can look at the actual input data.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ca</span><span class="o">.</span><span class="n">column_coordinates</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
@@ -2216,7 +2287,7 @@ First your can look at the actual input data.</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[21]:</div>
+    <div class="prompt output_prompt">Out[10]:</div>
 
 
 
@@ -2287,7 +2358,7 @@ First your can look at the actual input data.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">plot_coordinates</span><span class="p">(</span>
@@ -2368,13 +2439,33 @@ First your can look at the actual input data.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">ca</span><span class="o">.</span><span class="n">eigenvalues_</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[35]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -2421,71 +2512,6 @@ In independence model values in rows are distributed proportionally to the total
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
