@@ -90,6 +90,8 @@ git push origin master
 ```    
 Your very own blog is available at `thisAKcode.github.io`! 
 
+### Write!
+
 # Sources:
 + <https://docs.getpelican.com/en/3.0/getting_started.html>
 + <https://opensource.com/article/19/5/run-your-blog-github-pages-python>
