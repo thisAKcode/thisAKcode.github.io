@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>Wrangling the Beatles song writing using Python in FME(Safe Software)</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="Take a look at the input I will use Python Caller to manipulate attributes in FME and as input I want to take data that make sense to me: the..." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">PrettyLagom</a></h1>
+                <nav><ul>
+                    <li><a href="/pages/about.html">About</a></li>
+                    <li><a href="/category/art.html">art</a></li>
+                    <li class="active"><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/python.html">python</a></li>
+                    <li><a href="/category/stats.html">stats</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/wrangling-the-beatles-song-writing-using-python-in-fmesafe-software.html" rel="bookmark"
+           title="Permalink to Wrangling the Beatles song writing using Python in FME(Safe Software)">Wrangling the Beatles song writing using Python in FME(Safe Software)</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2022-01-01T22:22:00+01:00">
+                Published: Sat 01 January 2022
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/alex.html">Alex</a>
+        </address>
+<p>In <a href="/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info -->      <h3>Take a look at the input</h3>
+<p>I will use Python Caller to manipulate attributes in FME and as input I want to take data that make sense to me: the Beatles!</p>
+<p>Below you se my input that I pulled from here: <a href="https://ultimateclassicrock.com/who-wrote-the-most-beatles-songs/">https://ultimateclassicrock.com/who-wrote-the-most-beatles-songs/</a> </p>
+<div class="highlight"><pre><span></span><code><span class="o">|</span> <span class="nv">Song</span> <span class="nv">title</span>                     <span class="o">|</span> <span class="nv">George</span> <span class="nv">Harrison</span>  <span class="o">|</span> <span class="nv">John</span> <span class="nv">Lennon</span>  <span class="o">|</span> <span class="nv">Paul</span> <span class="nv">McCartney</span>  <span class="o">|</span> <span class="nv">Ringo</span> <span class="nv">Starr</span>  <span class="o">|</span>
+<span class="o">|--------------------------------|------------------|--------------|-----------------|--------------|</span>
+<span class="o">|</span> <span class="s2">&quot;</span><span class="s">Please Please Me</span><span class="s2">&quot;</span>             <span class="o">|</span>                  <span class="o">|</span> <span class="mi">1</span>            <span class="o">|</span>                 <span class="o">|</span>              <span class="o">|</span>
+<span class="o">|</span> <span class="s2">&quot;</span><span class="s">Love Me Do</span><span class="s2">&quot;</span>                   <span class="o">|</span>                  <span class="o">|</span>              <span class="o">|</span> <span class="mi">1</span>               <span class="o">|</span>              <span class="o">|</span>
+<span class="o">|</span> <span class="s2">&quot;</span><span class="s">Strawberry Fields Forever</span><span class="s2">&quot;</span>    <span class="o">|</span>                  <span class="o">|</span> <span class="mi">1</span>            <span class="o">|</span>                 <span class="o">|</span>              <span class="o">|</span>
+<span class="o">|</span> <span class="s2">&quot;</span><span class="s">Octopus&#39; Garden</span><span class="s2">&quot;</span>              <span class="o">|</span> <span class="mi">1</span>                <span class="o">|</span>              <span class="o">|</span>                 <span class="o">|</span> <span class="mi">1</span>            <span class="o">|</span>
+<span class="o">|</span> <span class="s2">&quot;</span><span class="s">Don&#39;t Pass Me By</span><span class="s2">&quot;</span>             <span class="o">|</span>                  <span class="o">|</span>              <span class="o">|</span>                 <span class="o">|</span> <span class="mi">1</span>            <span class="o">|</span>
+<span class="o">|</span> <span class="s2">&quot;</span><span class="s">While My Guitar Gently Weeps</span><span class="s2">&quot;</span> <span class="o">|</span> <span class="mi">1</span>                <span class="o">|</span>              <span class="o">|</span>                 <span class="o">|</span>              <span class="o">|</span>
+<span class="o">|</span> <span class="s2">&quot;</span><span class="s">I Want to Hold Your Hand      |                  | 1            | 1               |              |</span>
+</code></pre></div>
+
+<p>First I use PythonCreator to instantiate FME objects that I then will be able to manipulate:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">attr_names</span> <span class="o">=</span> [<span class="s1">&#39;</span><span class="s">Song title</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">George Harrison</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">John Lennon</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">Paul McCartney</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">Ringo Starr</span><span class="s1">&#39;</span>]
+<span class="nv">data_raw</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span><span class="s">&quot;Please Please Me&quot;, None, 1, None, None</span>
+<span class="s2">&quot;</span><span class="s">Love Me Do</span><span class="s2">&quot;</span>, <span class="nv">None</span>, <span class="nv">None</span>, <span class="mi">1</span>,<span class="nv">None</span>
+<span class="s2">&quot;</span><span class="s">Strawberry Fields Forever</span><span class="s2">&quot;</span>, <span class="nv">None</span>, <span class="mi">1</span>, <span class="nv">None</span>, <span class="nv">None</span>
+<span class="s2">&quot;</span><span class="s">Octopus&#39; Garden</span><span class="s2">&quot;</span>, <span class="mi">1</span>,<span class="nv">None</span>, <span class="nv">None</span>, <span class="mi">1</span>
+<span class="s2">&quot;</span><span class="s">Don&#39;t Pass Me By</span><span class="s2">&quot;</span>, <span class="nv">None</span>, <span class="nv">None</span>, <span class="nv">None</span>, <span class="mi">1</span>
+<span class="s2">&quot;</span><span class="s">While My Guitar Gently Weeps</span><span class="s2">&quot;</span>, <span class="mi">1</span>, <span class="nv">None</span>, <span class="nv">None</span>, <span class="nv">None</span>
+<span class="s2">&quot;</span><span class="s">I Want to Hold Your Hand, None, 1,1, None&#39;&#39;&#39;</span>
+
+<span class="nv">data_clean</span> <span class="o">=</span> [[<span class="nv">ii</span> 
+          <span class="k">for</span> <span class="nv">ii</span> <span class="nv">in</span> <span class="nv">i</span>.<span class="nv">split</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">,</span><span class="s1">&#39;</span><span class="ss">)</span>
+          ] 
+          <span class="k">for</span> <span class="nv">i</span> <span class="nv">in</span> <span class="nv">data_raw</span>.<span class="nv">split</span><span class="ss">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="ss">)</span>]
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">where_beatles</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;C:\thisAKcode.github.io\Pelican\content\other\beatles_auth.csv&#39;</span>
+</code></pre></div>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://getpelican.com/">Pelican</a></li>
+                            <li><a href="https://www.python.org/">Python.org</a></li>
+                            <li><a href="https://palletsprojects.com/p/jinja/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
