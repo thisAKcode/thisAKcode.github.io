@@ -1175,7 +1175,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pymc</span> <span class="k">as</span> <span class="nn">pm</span>
@@ -1185,6 +1185,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <span class="kn">import</span> <span class="nn">arviz</span> <span class="k">as</span> <span class="nn">az</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">pm</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s2">&quot;anemones.csv&quot;</span><span class="p">))</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1200,8 +1201,68 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
     <div class="prompt"></div>
 
 
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>WARNING (aesara.configdefaults): g++ not available, if using conda: `conda install m2w64-toolchain`
+WARNING (aesara.configdefaults): g++ not detected!  Aesara will be unable to compile C-implementations and will default to Python. Performance may be severely degraded. To remove this warning, set Aesara flags cxx to an empty string.
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>231
+<pre>Could not locate executable g77
+Could not locate executable f77
+Could not locate executable ifort
+Could not locate executable ifl
+Could not locate executable f90
+Could not locate executable DF
+Could not locate executable efl
+Could not locate executable gfortran
+Could not locate executable f95
+Could not locate executable g95
+Could not locate executable efort
+Could not locate executable efc
+Could not locate executable flang
+don&#39;t know how to compile Fortran code on platform &#39;nt&#39;
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>WARNING (aesara.tensor.blas): Using NumPy C-API based implementation for BLAS functions.
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>       x    y  marks
+0     27    7      6
+1    197    5      4
+2     74   15      4
+3    214   18      6
+4    121   22      3
+..   ...  ...    ...
+226   28  160      3
+227  120  167      3
+228   22  178      7
+229  134  171      5
+230  230  172      4
+
+[231 rows x 3 columns]
 </pre>
 </div>
 </div>

@@ -13,8 +13,9 @@ IPYNB_MARKUP_USE_FIRST_CELL = True
 
 IGNORE_FILES = [".ipynb_checkpoints"]
 
-STATIC_PATHS = ['images', 'extra/CNAME']
-EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}
+STATIC_PATHS = ['images','extra/p5_stuff.html', 'extra/CNAME']
+EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},
+                       'extra/p5_stuff.html': {'path': 'p5_stuff.html'},}
 
 PATH = 'content'
 
@@ -43,3 +44,5 @@ DEFAULT_PAGINATION = 10
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
+
+# ARTICLE_EXCLUDES = ['extra/p5_stuff.html']
