@@ -13,9 +13,10 @@ IPYNB_MARKUP_USE_FIRST_CELL = True
 
 IGNORE_FILES = [".ipynb_checkpoints"]
 
-STATIC_PATHS = ['images','extra/p5_stuff.html', 'extra/CNAME']
+STATIC_PATHS = ['images','extra/p5_stuff.html', 'extra/CNAME', 'html']
 EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},
-                       'extra/p5_stuff.html': {'path': 'p5_stuff.html'},}
+                       'extra/p5_stuff.html': {'path': 'p5_stuff.html'},
+                       'html/p5_stuff.html' : {'path' : 'p5_stuff.html'},}
 
 PATH = 'content'
 
