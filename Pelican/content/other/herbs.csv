@@ -1,0 +1,5 @@
+treatement,Herb1,Herb2,Placebo,Total
+outcome,,,,
+sick,20,30,30,80
+not sick,100,110,90,300
+Total,120,140,120,380
