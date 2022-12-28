@@ -5,7 +5,7 @@
         <meta name="generator" content="Pelican" />
         <title>Chi-Square Test</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
-        <meta name="description" content="Chi-Square Test¶When to use Chi-Squared test: 1. n discrete classes put into contingency table. Sal Khan’s video..." />
+        <meta name="description" content="Chi-Square Test¶Use Chi-Squared test if you have n discrete classes put into contingency table. Sal Khan’s tutorial on YouTube demonstrates how to..." />
 </head>
 
 <body id="index" class="home">
@@ -1157,36 +1157,51 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
  .highlight pre  .il { color: #666666 } /* Literal.Number.Integer.Long */</style><body><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Chi-Square-Test">Chi-Square Test<a class="anchor-link" href="#Chi-Square-Test">&#182;</a></h3><p>When to use Chi-Squared test:</p>
-
-<pre><code>1. n discrete classes put into contingency table. 
-</code></pre>
-<p>Sal Khan’s video <a href="https://www.youtube.com/watch?v=hpWdDmgsIRE&amp;t=20s">https://www.youtube.com/watch?v=hpWdDmgsIRE&amp;t=20s</a> demonstrates how to check whether two herbs are really helping a group of people to prevent the flu.</p>
-<p>You see a contingency table with total numbers at row and column margins.</p>
-<p>As per Null Hypothesis we assume that the herbs does nothing, alternativ Hypothesis is that it does something (increase/decrease a likelihood of getting the flu).
-We decide that a  significance level to care about is 5%.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
-<span class="n">Image</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;C:\thisAKcode.github.io\Pelican\content\images\chi_square.PNG&#39;</span><span class="p">,</span>  <span class="n">width</span> <span class="o">=</span> <span class="mi">600</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="To-Do-Calculate-a-chi-square-statistic-for-the-contingency-table">To Do Calculate a chi-square statistic for the contingency table<a class="anchor-link" href="#To-Do-Calculate-a-chi-square-statistic-for-the-contingency-table">&#182;</a></h3><p>We first want to assuming the null hypothesis figure out what the expected value would have been.</p>
+<h3 id="Chi-Square-Test">Chi-Square Test<a class="anchor-link" href="#Chi-Square-Test">&#182;</a></h3><p>Use Chi-Squared test if you have n discrete classes put into contingency table. 
+Sal Khan’s <a href="https://www.youtube.com/watch?v=hpWdDmgsIRE&amp;t=20s">tutorial on YouTube</a> demonstrates how to check whether two herbs are really helping a group of people to prevent the flu.</p>
+<table>
+<thead><tr>
+<th>treatement</th>
+<th>Herb1</th>
+<th>Herb2</th>
+<th>Placebo</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>outcome</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>sick</td>
+<td>20</td>
+<td>30</td>
+<td>30</td>
+<td>80</td>
+</tr>
+<tr>
+<td>not sick</td>
+<td>100</td>
+<td>110</td>
+<td>90</td>
+<td>300</td>
+</tr>
+<tr>
+<td>Total</td>
+<td>120</td>
+<td>140</td>
+<td>120</td>
+<td>380</td>
+</tr>
+</tbody>
+</table>
+<p>Can you see any difference in the effect of herbs on protection against the flu? As per Null Hypothesis he assumes that the herbs does nothing.
+An alternativ Hypothesis is that it does something (increase/decrease a likelihood of getting the flu).</p>
+<p>In this example a significance level to care about is 10%. We will see what it is lately.</p>
 
 </div>
 </div>
@@ -1197,10 +1212,33 @@ We decide that a  significance level to care about is 5%.</p>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
-<span class="n">Image</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;C:\thisAKcode.github.io\Pelican\content\images\chi_sick.PNG&#39;</span><span class="p">,</span>  <span class="n">width</span> <span class="o">=</span> <span class="mi">600</span><span class="p">)</span>
+<span class="n">Image</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;C:\thisAKcode.github.io\Pelican\content\images\chi_sick.PNG&#39;</span><span class="p">,</span>  <span class="n">width</span> <span class="o">=</span> <span class="mi">400</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[2]:</div>
+
+
+
+
+<div class="output_png output_subarea output_execute_result">
+<img src="data:image/png;base64,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
+"
+width=400
+>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -1214,12 +1252,121 @@ $$\chi^2 = \sum \frac {(O - E)^2}{E}$$
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Hands-on-chi-square-statistic-for-the-contingency-table">Hands on chi-square statistic for the contingency table<a class="anchor-link" href="#Hands-on-chi-square-statistic-for-the-contingency-table">&#182;</a></h3><p>We assumed the null hypothesis and figured out what the expected value would have been. To illustrate the chi squared statistic using a dataset of herbs, we will first need to import the necessary libraries and load in our data.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">scipy</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">chi2_contingency</span>
+<span class="n">data</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;C:\thisAKcode.github.io\Pelican\content\other\herbs.csv&#39;</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[4]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>treatement</th>
+      <th>Herb1</th>
+      <th>Herb2</th>
+      <th>Placebo</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>outcome</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>sick</td>
+      <td>20.0</td>
+      <td>30.0</td>
+      <td>30.0</td>
+      <td>80.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>not sick</td>
+      <td>100.0</td>
+      <td>110.0</td>
+      <td>90.0</td>
+      <td>300.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Total</td>
+      <td>120.0</td>
+      <td>140.0</td>
+      <td>120.0</td>
+      <td>380.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#&#39;slice&#39; a df to only get counts</span>
+<span class="n">subdf</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">subdf</span>
 </pre></div>
 
     </div>
@@ -1230,61 +1377,20 @@ $$\chi^2 = \sum \frac {(O - E)^2}{E}$$
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>François Husson takes a particular example to approach using chi-squared test. This example is about perception/attitude toward feminin work seen by women.</p>
-<p>see table below.</p>
-<table>
-<thead><tr>
-<th></th>
-<th>rester au foyer</th>
-<th>trav. a</th>
-<th>trav. plein temps</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>2 conj. tr. egalement</td>
-<td>13</td>
-<td>142</td>
-<td>106</td>
-</tr>
-<tr>
-<td>trav. mari + absorbant</td>
-<td>30</td>
-<td>408</td>
-<td>117</td>
-</tr>
-<tr>
-<td>seul le mari trav.</td>
-<td>241</td>
-<td>573</td>
-<td>94</td>
-</tr>
-</tbody>
-</table>
-<p>the code is almost completely unchanged pulled from <a href="https://codefying.com/2018/12/21/introduction-to-correspondence-analysis/">Introduction to Correspondence Analysis</a></p>
-<p>answer = '''
-rester au foyer,
-trav. a mi-temps,
-trav. plein temps,
-'''</p>
-<p>actual_role= '''
-2 conj. tr. egalement,
-trav. mari + absorbant,
-seul le mari trav.
-'''</p>
+<p>The code is almost completely unchanged pulled from <a href="https://codefying.com/2018/12/21/introduction-to-correspondence-analysis/">Introduction to Correspondence Analysis</a></p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">chi2_contingency</span>
-
+<span class="n">np_sub</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">subdf</span><span class="p">)</span>
 <span class="n">femin_in</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">13</span><span class="p">,</span> <span class="mi">142</span><span class="p">,</span> <span class="mi">106</span><span class="p">],</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">408</span><span class="p">,</span> <span class="mi">117</span><span class="p">],</span> <span class="p">[</span><span class="mi">241</span><span class="p">,</span> <span class="mi">573</span><span class="p">,</span> <span class="mi">94</span><span class="p">]],</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
 <span class="n">gt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">femin_in</span><span class="p">)</span> <span class="c1"># grand total</span>
 <span class="n">corresp_mtx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">femin_in</span><span class="p">,</span><span class="n">gt</span><span class="p">)</span>
@@ -1309,10 +1415,13 @@ seul le mari trav.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create contingency table</span>
+<span class="n">table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Drug&quot;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Outcome&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+<span class="n">This</span> <span class="n">will</span> <span class="n">give</span> <span class="n">us</span> <span class="n">a</span> <span class="n">table</span> <span class="k">with</span> <span class="n">the</span> <span class="n">counts</span> <span class="n">of</span> <span class="n">successful</span> <span class="ow">and</span> <span class="n">unsuccessful</span> <span class="n">outcomes</span> <span class="k">for</span> <span class="n">each</span> <span class="n">drug</span><span class="o">.</span> <span class="n">We</span> <span class="n">can</span> <span class="n">then</span> <span class="n">use</span> <span class="n">this</span> <span class="n">table</span> <span class="k">as</span> <span class="nb">input</span> <span class="n">to</span> <span class="n">the</span> <span class="n">chi2_contingency</span> <span class="n">function</span> <span class="n">to</span> <span class="n">perform</span> <span class="n">the</span> <span class="n">chi</span> <span class="n">squared</span> <span class="n">test</span><span class="o">.</span>
 </pre></div>
 
     </div>
@@ -1325,63 +1434,32 @@ seul le mari trav.
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[7]:</div>
+    <div class="prompt"></div>
 
 
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>rester au foyer</th>
-      <th>trav. ami-temps</th>
-      <th>trav. plein temps</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2 conj. tr. egalement</th>
-      <td>13</td>
-      <td>142</td>
-      <td>106</td>
-    </tr>
-    <tr>
-      <th>trav. mari + absorbant</th>
-      <td>30</td>
-      <td>408</td>
-      <td>117</td>
-    </tr>
-    <tr>
-      <th>seul le mari trav.</th>
-      <td>241</td>
-      <td>573</td>
-      <td>94</td>
-    </tr>
-  </tbody>
-</table>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-cyan-intense-fg ansi-bold">  File </span><span class="ansi-green-intense-fg ansi-bold">&#34;&lt;ipython-input-1-592747697afd&gt;&#34;</span><span class="ansi-cyan-intense-fg ansi-bold">, line </span><span class="ansi-green-intense-fg ansi-bold">4</span>
+<span class="ansi-yellow-intense-fg ansi-bold">    This will give us a table with the counts of successful and unsuccessful outcomes for each drug. We can then use this table as input to the chi2_contingency function to perform the chi squared test.</span>
+<span class="ansi-white-intense-fg ansi-bold">            ^</span>
+<span class="ansi-red-intense-fg ansi-bold">SyntaxError</span><span class="ansi-red-intense-fg ansi-bold">:</span> invalid syntax
+</pre>
 </div>
-</div>
-
 </div>
 
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can create a contingency table by grouping the data by the Drug and Outcome columns, and counting the number of patients in each group:</p>
+<p>The resulting output will be the chi squared statistic, the p-value, and the degrees of freedom. If the p-value is below a certain threshold (typically 0.05), we can conclude that there is a significant difference between the observed and expected counts, indicating that the drug has a significant effect on the outcome.</p>
+<p>Regenerate response</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
