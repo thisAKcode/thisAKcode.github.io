@@ -5,8 +5,7 @@ AUTHOR = 'Alex'
 SITENAME = 'PrettyLagom'
 SITEURL = ''
 MARKUP = ("md", "ipynb")
-
-
+THEME = 'C:/blog_depend/venv/lib/site-packages/pelican/themes/notmyidea' # notmyidea
 from pelican_jupyter import markup as nb_markup
 PLUGINS = [nb_markup]
 IPYNB_MARKUP_USE_FIRST_CELL = True

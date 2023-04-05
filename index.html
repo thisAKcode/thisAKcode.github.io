@@ -14,23 +14,25 @@
                     <li><a href="/pages/about.html">About</a></li>
                     <li><a href="/category/art.html">art</a></li>
                     <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/p5js.html">p5js</a></li>
                     <li><a href="/category/python.html">python</a></li>
+                    <li><a href="/category/sql.html">sql</a></li>
                     <li><a href="/category/stats.html">stats</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/statistical-distributions-common-ones.html">Statistical Distributions (Common ones)</a></h1>
+                    <h1 class="entry-title"><a href="/some-sql-commands-i-use-as-a-template.html">Some SQL commands I use as a template.</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2022-10-17T00:00:00+02:00">
-                Published: Mon 17 October 2022
+        <abbr class="published" title="2023-01-02T00:00:00+01:00">
+                Published: Mon 02 January 2023
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="/author/alex.html">Alex</a>
         </address>
-<p>In <a href="/category/python.html">python</a>.</p>
+<p>In <a href="/category/sql.html">sql</a>.</p>
 
 </footer><!-- /.post-info --><style type="text/css">/*!
 *
@@ -1151,7 +1153,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
  .highlight pre  .il { color: #666666 } /* Literal.Number.Integer.Long */</style><body><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h3><p>Given a random variable Z you can get different values. Think of your values that variable Z can take as a output from some model. You can estimate probability of different outcomes for variable Z. A probability distribution function assigns probabilies to values that Z can possibly take.</p>
+<h3 id="Joins">Joins<a class="anchor-link" href="#Joins">&#182;</a></h3><p>Here is an example of how you can use a JOIN clause in SQL to join a table called orders with 6 other tables:</p>
 
 </div>
 </div>
@@ -1159,53 +1161,22 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Classification-of-Variables">Classification of Variables<a class="anchor-link" href="#Classification-of-Variables">&#182;</a></h3><p>Random variables Z are random in different ways:</p>
-<ul>
-<li>discrete is a specified collection of values: count of  two Fair Coins/Dices.</li>
-<li>continuous (arbitrarily exact values): time, speed.</li>
-<li>mixed.</li>
-</ul>
-<p><em>Discrete</em> variables are taking count values on a specified list (pixels, coins, votes) Think of light bulb, you can buy one or many, but can't buy half a bulb, neither 0.3. If you one day buy less than one or one and a half, please email me, because I then will need to update this article!</p>
-<p><em>Continuous</em> variables are taking precise  values from a range of values that are pecise (temperature, time, height). The trick to remembering the continuous is like when you take away from you swedish language the value of 3.141592, it will still CONTINUE to lie on a range between 0.000001 and 10.00000 for example.</p>
-<p>As in the example of Pi value, continuous variables progressively take the values more and more precise- each value from range of descriptive values must exist in order to arrive at the next one. Like when I drink some water the volume of my glass is a perfectly continuous variable even if I am not aware of every floating point value of volume that I am swallowing, wich is fine.</p>
-<p>Chances are good we can become best friends if you are still reading this- email me, buddy!</p>
-<p>Mixed variable are having discrete component and continuous component.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Normal-Distribution">Normal Distribution<a class="anchor-link" href="#Normal-Distribution">&#182;</a></h3><p>Gaussian distribution (as it is also called) is attributed to several measues for stuff around, it's  everywhere. Weight of apples of same variety, height of people you stumble upon. The values that that registered for these attributes are normally distributed.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">orders</span><span class="p">.</span><span class="o">*</span><span class="p">,</span> <span class="n">customers</span><span class="p">.</span><span class="o">*</span><span class="p">,</span> <span class="n">products</span><span class="p">.</span><span class="o">*</span><span class="p">,</span> <span class="n">shippers</span><span class="p">.</span><span class="o">*</span><span class="p">,</span> <span class="n">suppliers</span><span class="p">.</span><span class="o">*</span><span class="p">,</span> <span class="n">categories</span><span class="p">.</span><span class="o">*</span>
+<span class="k">FROM</span> <span class="n">orders</span>
+<span class="k">JOIN</span> <span class="n">customers</span> <span class="k">ON</span> <span class="n">orders</span><span class="p">.</span><span class="n">customer_id</span> <span class="o">=</span> <span class="n">customers</span><span class="p">.</span><span class="n">customer_id</span>
+<span class="k">JOIN</span> <span class="n">products</span> <span class="k">ON</span> <span class="n">orders</span><span class="p">.</span><span class="n">product_id</span> <span class="o">=</span> <span class="n">products</span><span class="p">.</span><span class="n">product_id</span>
+<span class="k">JOIN</span> <span class="n">shippers</span> <span class="k">ON</span> <span class="n">orders</span><span class="p">.</span><span class="n">shipper_id</span> <span class="o">=</span> <span class="n">shippers</span><span class="p">.</span><span class="n">shipper_id</span>
+<span class="k">JOIN</span> <span class="n">suppliers</span> <span class="k">ON</span> <span class="n">products</span><span class="p">.</span><span class="n">supplier_id</span> <span class="o">=</span> <span class="n">suppliers</span><span class="p">.</span><span class="n">supplier_id</span>
+<span class="k">JOIN</span> <span class="n">categories</span> <span class="k">ON</span> <span class="n">products</span><span class="p">.</span><span class="n">category_id</span> <span class="o">=</span> <span class="n">categories</span><span class="p">.</span><span class="n">category_id</span>
 </pre></div>
 
-    </div>
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="References">References<a class="anchor-link" href="#References">&#182;</a></h3><ol>
-<li><p><a href="https://towardsdatascience.com/seven-must-know-statistical-distributions-and-their-simulations-for-data-science-681c5ac41e32">https://towardsdatascience.com/seven-must-know-statistical-distributions-and-their-simulations-for-data-science-681c5ac41e32</a></p>
-</li>
-<li><p>Davidson-Pilon, Cameron. Bayesian Methods for Hackers (Addison-Wesley Data &amp; Analytics) (p. 35). Pearson Education. Kindle Edition.</p>
-</li>
-<li><p><a href="https://en.wikipedia.org/wiki/List_of_probability_distributions">https://en.wikipedia.org/wiki/List_of_probability_distributions</a></p>
-</li>
-</ol>
+<p>This query will select all columns from the orders table, as well as all columns from the customers, products, shippers, suppliers, and categories tables. The JOIN clauses specify how the tables are related to each other. In this example, the orders table is related to the customers table by the customer_id column, the orders table is related to the products table by the product_id column, and so on.</p>
 
 </div>
 </div>
@@ -1263,6 +1234,32 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
             <li><article class="hentry">
                 <header>
+                    <h1><a href="/statistical-distributions-common-ones.html" rel="bookmark"
+                           title="Permalink to Statistical Distributions (Common ones)">Statistical Distributions (Common ones)</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2022-10-17T00:00:00+02:00">
+                Published: Mon 17 October 2022
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/alex.html">Alex</a>
+        </address>
+<p>In <a href="/category/python.html">python</a>.</p>
+
+</footer><!-- /.post-info -->                <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h3><p>A probability distribution in statistics is a function that returns the possible values for a variable with different occurence rate (how often values occur). Distribution in nature and society tend to fit pattern with ocasionally occuring exceptions.</p>
+<h4 id="Probability-Mass-Function">Probability Mass Function<a class="anchor-link" href="#Probability-Mass-Function">&#182;</a></h4><p>Discrete random variable has probability mass function (PMF) being a particular type of <em>probability distribution</em>
+                <a class="readmore" href="/statistical-distributions-common-ones.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
                     <h1><a href="/edit-text-productively-in-vim.html" rel="bookmark"
                            title="Permalink to Edit Text Productively in Vim">Edit Text Productively in Vim</a></h1>
                 </header>
@@ -1316,30 +1313,6 @@ I omit some that I already get used to. </p>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/normal-distribution.html" rel="bookmark"
-                           title="Permalink to Normal Distribution">Normal Distribution</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2022-05-26T21:22:00+02:00">
-                Published: Thu 26 May 2022
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/alex.html">Alex</a>
-        </address>
-<p>In <a href="/category/misc.html">misc</a>.</p>
-
-</footer><!-- /.post-info -->                <h3>Normal Distribution</h3>
-<p>There is a pymc library wich gives you access to all kind of distributions: <a href="https://www.pymc.io/projects/docs/en/stable/api/distributions.html">https://www.pymc.io/projects/docs/en/stable/api/distributions.html</a>.</p>
-<p>Populations in nature tend to be of average measurement unit for a normally distributed attribute (weight, height etc) with ocasionally occuring exceptions. This …</p>
-                <a class="readmore" href="/normal-distribution.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
                     <h1><a href="/truchet-tiles.html" rel="bookmark"
                            title="Permalink to Truchet Tiles">Truchet Tiles</a></h1>
                 </header>
@@ -1386,17 +1359,8 @@ I omit some that I already get used to. </p>
         </address>
 <p>In <a href="/category/stats.html">stats</a>.</p>
 <p>tags: <a href="/tag/jupyter.html">jupyter</a> </p>
-</footer><!-- /.post-info -->                <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Chi-Square-Test">Chi-Square Test<a class="anchor-link" href="#Chi-Square-Test">&#182;</a></h3><p>When to use Chi-Squared test:</p>
-
-<pre><code>1. n discrete classes put into contingency table. 
-</code></pre>
-<p>Sal Khan’s video <a href="https://www.youtube.com/watch?v=hpWdDmgsIRE&amp;t=20s">https://www.youtube.com/watch?v=hpWdDmgsIRE&amp;t=20s</a> demonstrates how to check whether two herbs are really helping a group of people to prevent the flu.</p>
-<p>You see a contingency table with total numbers at row and column margins.</p>
-<p>As per Null Hypothesis we assume that the herbs does nothing, alternativ Hypothesis is that it does something (increase/decrease a likelihood of getting the flu).
-We decide that a  significance level to care about is 5%.</p>
+</footer><!-- /.post-info -->                <div class="cell border-box-sizing code_cell rendered">
+<div class="input">
                 <a class="readmore" href="/chi-square-test.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
@@ -1428,8 +1392,7 @@ We decide that a  significance level to care about is 5%.</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Correspondence-Analysis">Correspondence Analysis<a class="anchor-link" href="#Correspondence-Analysis">&#182;</a></h3><h3 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h3><p>An introduction to correspondence analysis in a book "Exploratory Multivariate Analysis by Example Using R" by François Husson is worth to read. Along with the <a href="https://www.youtube.com/playlist?list=PLnZgp6epRBbTgO-l-6hLAKTstW7WSGh8A">tutorial series on YouTube</a> it is great source that can make basics about Correspondence Analysis clear for you.</p>
-<p>If you prefer Python then <a href="https://codefying.com/2018/12/21/introduction-to-correspondence-analysis/">Introduction to Correspondence Analysis</a>
+<h3 id="Correspondence-Analysis">Correspondence Analysis<a class="anchor-link" href="#Correspondence-Analysis">&#182;</a></h3><h3 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h3><p>An introduction to correspondence analysis can be found in the book "Exploratory Multivariate Analysis by Example Using R" by François Husson. It is worth reading and, along with the tutorial series on YouTube <a href="https://www.youtube.com/playlist?list=PLnZgp6epRBbTgO-l-6hLAKTstW7WSGh8A">tutorial series on YouTube</a> , it is a great source that can help make the basics of correspondence analysis clear to you.</p>
                 <a class="readmore" href="/correspondence-analysis.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
@@ -1491,30 +1454,32 @@ Wizard suggest to install some additional applications (pgAdmin etc.), let you c
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/may-js-be-understood-through-python.html" rel="bookmark"
-                           title="Permalink to May JS be understood through Python">May JS be understood through Python</a></h1>
+                    <h1><a href="/pandas-useful-tricks.html" rel="bookmark"
+                           title="Permalink to Pandas Useful Tricks">Pandas Useful Tricks</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2022-01-29T23:00:00+01:00">
-                Published: Sat 29 January 2022
+        <abbr class="published" title="2022-02-20T00:00:00+01:00">
+                Published: Sun 20 February 2022
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="/author/alex.html">Alex</a>
         </address>
-<p>In <a href="/category/misc.html">misc</a>.</p>
+<p>In <a href="/category/python.html">python</a>.</p>
+<p>tags: <a href="/tag/jupyter.html">jupyter</a> </p>
+</footer><!-- /.post-info -->                <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h3><p>Here I want to share some useful pandas methods. The input data comes from module pydataset that comes with a bunch of popular dataset.</p>
 
-</footer><!-- /.post-info -->                <h1>How I Learn JS</h1>
-<ul>
-<li>codecademy.com</li>
-<li>100 days of web with Python</li>
-</ul>
-<h3>Shrotly about problem</h3>
-<p>I once read a great article about JavaScript on realpython.com 
-While learning JS you often think about how this portion of JS code could be written in Python. So I decided to white chunks …</p>
-                <a class="readmore" href="/may-js-be-understood-through-python.html">read more</a>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+                <a class="readmore" href="/pandas-useful-tricks.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->
@@ -1531,7 +1496,6 @@ While learning JS you often think about how this portion of JS code could be wri
                             <li><a href="https://getpelican.com/">Pelican</a></li>
                             <li><a href="https://www.python.org/">Python.org</a></li>
                             <li><a href="https://palletsprojects.com/p/jinja/">Jinja2</a></li>
-                            <li><a href="#">You can modify those links in your config file</a></li>
                         </ul>
                 </div><!-- /.blogroll -->
                 <div class="social">
