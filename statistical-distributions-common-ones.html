@@ -1159,7 +1159,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
  .highlight pre  .il { color: #666666 } /* Literal.Number.Integer.Long */</style><body><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h3><p>A probability distribution in statistics is a function that returns the possible values for a variable with different occurence rate (how often values occur). Distribution in nature and society tend to fit pattern with ocasionally occuring exceptions.</p>
+<h3 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h3><p>A probability distribution in statistics is a function that returns the possible values for a variable with different occurence rate (how often values occur). Distribution in nature and society tend to fit pattern with ocasionally occuring exceptions (isn't absence of pattern is a pattern too?).</p>
 <h4 id="Probability-Mass-Function">Probability Mass Function<a class="anchor-link" href="#Probability-Mass-Function">&#182;</a></h4><p>Discrete random variable has probability mass function (PMF) being a particular type of <em>probability distribution</em> that defines the probability of observing some value given particular parameter. Random variables and corresponding probability distributions may be applied on many different kinds of problems.</p>
 <p>Probability distributions have parameters that make them adaptable for different situations. Here I named a few common distributions:</p>
 <ul>
@@ -1178,7 +1178,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -1196,38 +1196,19 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[2 1 5 6 1 6 2 3 5 2 6 1]
-[&#39;g&#39; &#39;g&#39; &#39;g&#39; &#39;b&#39; &#39;g&#39; &#39;b&#39; &#39;b&#39; &#39;b&#39; &#39;b&#39; &#39;b&#39; &#39;b&#39; &#39;g&#39;]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Classification-of-Variables">Classification of Variables<a class="anchor-link" href="#Classification-of-Variables">&#182;</a></h3><p>Random variables are random in different ways:</p>
 <ul>
-<li>discrete is a specified collection of values: count of  two Fair Coins/Dices.</li>
+<li>discrete variables are assigned one of a specified collection of values: count of two Fair Coins/Dices.</li>
 <li>continuous (arbitrarily exact values): time, speed.</li>
 <li>mixed.</li>
 </ul>
 <p><em>Discrete</em> variables are taking count values on a specified list (pixels, coins, votes) Think of light bulb, you can buy one or many, but can't buy half a bulb, neither 0.3 because these are uncountable. In this case, the values must be countable in that they are limited to whole numbers.If you one day buy less than one or one and a half, I then will need to update this article!</p>
 <p><em>Continuous</em> variables are taking precise  values from a range of values that are pecise (temperature, time, height). The value of 3.141592, as well as more precise values of pi are uncountable. Continuous variables progressively take the values more and more precise- each value from range of descriptive values must exist in order to arrive at the next one.</p>
-<p>When I drink some water (which I really do sometimes) the volume of my randomly chosen glass is a perfectly continuous variable even if I am not aware of every floating point value of volume that I am swallowing, wich is fine - measurements can always be more precise but I do not have time to think about all of them. Chances are good my drinking example made you thinking about <em>mixed</em> variables always having discrete component and continuous component.</p>
+<p>When I drink some water (which I really do sometimes) the volume of my randomly chosen glass is a perfectly continuous variable taking values all the time even if I am not aware of every floating point value of volume that I am swallowing, wich is fine - measurements can always be more precise but I do not have time to think about all of them. Chances are good my drinking example made you thinking about <em>mixed</em> variables always having discrete component and continuous component.</p>
 
 </div>
 </div>
@@ -1237,11 +1218,12 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Binomial-Distribution">Binomial Distribution<a class="anchor-link" href="#Binomial-Distribution">&#182;</a></h3><p>The binomial distribution is the probability mass function that describes the likelihood of each possible outcome (eg., 0 heads, 1 head, 2 heads, etc.). The parameters for the binomial distribution are:</p>
 
-<pre><code>n for the number of trials (eg., n=10 if we flip a coin 10 times)
+<pre><code>n for the number of events/ trials (eg., n=10 if we flip a coin 10 times)
 p for the probability of success in each trial (probability of observing a particular outcome in each trial).
 
 </code></pre>
 <p>In this example, p= 0.5 because the probability of observing heads on a fair coin flip is 0.5.</p>
+<p>If we observe 10 events and multiply it by the chance of getting success (one-half) then we apply the equation for the expected value of the binomial distribution.</p>
 <h4 id="PMF-Probability-Mass-Function-for-Discrete-Case">PMF Probability Mass Function for Discrete Case<a class="anchor-link" href="#PMF-Probability-Mass-Function-for-Discrete-Case">&#182;</a></h4><p>For discrete variable its distribution is called a probability mass function, and it describes how discrete variable should behave.</p>
 <p>Davidson-Pilon, Cameron. Bayesian Methods for Hackers (Addison-Wesley Data &amp; Analytics) (p. 34). Pearson Education. Kindle Edition. 
 Let’s say we flip a fair coin 10 times. Below is the code to compute probablity of observing one value of interest (heads) using probability mass function and find the probability of observing a range of values for a discrete random variable.
@@ -1252,11 +1234,10 @@ We get the probability of getting between 2 and 4 heads. We can visualize this s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># import necessary library</span>
-<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
@@ -1280,58 +1261,12 @@ We get the probability of getting between 2 and 4 heads. We can visualize this s
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[0.0009765625, 0.009765625000000002, 0.04394531250000004, 0.1171875, 0.2050781249999999, 0.24609375000000003, 0.2050781249999999, 0.11718749999999999, 0.04394531249999997, 0.009765625000000002]
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[20]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[&lt;matplotlib.lines.Line2D at 0x15570da0470&gt;]</pre>
-</div>
-
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-<div class="output_png output_subarea ">
-<img src="data:image/png;base64,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
-"
->
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We can calculate the probability of observing 3 successes (heads in this case) using the <strong>following equation</strong>:</p>
-<p><code>P(2&lt;=heads&lt;=4heads)=P(X=2)+P(X=3)+P(X=4)</code></p>
+<p><code>P(2&lt;=heads&lt;=4)=P(X=2)+P(X=3)+P(X=4)</code></p>
 <p>P(2to4heads)=0.0439 + 0.1172 + 0.2051 = 0.3662
 The probability of between 2 and 4 Heads : 36.62%</p>
 <p><strong>Or Python</strong></p>
@@ -1341,19 +1276,342 @@ The probability of between 2 and 4 Heads : 36.62%</p>
 <span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">([</span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]]))</span> <span class="c1"># 0.36621093749999994</span>
 </pre></div>
 <p>pmf for many possible values of interest</p>
-<h1 id="calculate-P(0&lt;=heads&lt;=8-heads)-for-10-flips">calculate P(0&lt;=heads&lt;=8 heads) for 10 flips<a class="anchor-link" href="#calculate-P(0&lt;=heads&lt;=8-heads)-for-10-flips">&#182;</a></h1><p>print(sum([stats.binom.pmf(i, n=10, p=.5) for i in range(0,9)]))
-Instead, we can also use the fact that the sum of the probabilities for all possible values is equal to 1:</p>
+<div class="highlight"><pre><span></span><span class="c1"># calculate P(0&lt;=heads&lt;=8 heads) for 10 flips</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">([</span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">9</span><span class="p">)]))</span>
+<span class="c1"># we refactor is as follows: the sum of the probabilities for all possible values = 1:</span>
+<span class="c1"># less than or equal to 8</span>
+<span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="nb">sum</span><span class="p">([</span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">11</span><span class="p">)]))</span>
+<span class="c1"># similarly the probability of observing more than 2 heads from 10 coin flips, notice 0 is included.</span>
+<span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="nb">sum</span><span class="p">([</span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">)]))</span>
+</pre></div>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">([</span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]]))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="CDF-Cumulative-Distribution-Function-for-Discrete-Case">CDF Cumulative Distribution Function for Discrete Case<a class="anchor-link" href="#CDF-Cumulative-Distribution-Function-for-Discrete-Case">&#182;</a></h4><p>Cumulative Distribution Function
+: CDF is a function that computes the probability of observing a specific value or less. For ordered sequence of values the output of the CDF function will always be greater for the larger input. Plotted CDF on the graph shows how each y-axis value is the sum of the probabilities less than or equal to it in the PMF.</p>
+<p>Each y-axis value of CDF is the sum of the probabilities less than or equal to it in the PMF.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">7.50</span><span class="p">,</span> <span class="mf">3.50</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.autolayout&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+
+
+<span class="n">pmf</span> <span class="o">=</span> <span class="p">[</span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">11</span><span class="p">)]</span>
+<span class="n">cdf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">pmf</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">11</span><span class="p">),</span> <span class="n">cdf</span><span class="p">,</span> <span class="s1">&#39;k-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;pdf&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="c1"># data to plot</span>
+<span class="n">n</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span>
+<span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>  <span class="c1"># 0.24609375000000003</span>
+<span class="n">_cumulative_pmf</span> <span class="o">=</span> <span class="p">[</span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+<span class="n">cdf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">_cumulative_pmf</span><span class="p">)</span>
+
+<span class="c1"># Create a 2x2 grid of subplots</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Plot the data on the subplots</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">_cumulative_pmf</span><span class="p">,</span> <span class="s1">&#39;k-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;pdf&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">cdf</span><span class="p">,</span> <span class="s1">&#39;k-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;pdf&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add titles to the subplots</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;pdf&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;cdf&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add a main title to the figure</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;cdf-vs-pmf&#39;</span><span class="p">)</span>
+
+<span class="c1"># Show the figure</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="CDF-for-a-Specific-Range-by-Substraction">CDF for a Specific Range by Substraction<a class="anchor-link" href="#CDF-for-a-Specific-Range-by-Substraction">&#182;</a></h3><p>The difference between two values from the cumulative distribution function is the probability of getting values from a specific range.</p>
+<p>The probability of observing between 3 and 6 heads is computed like follows: <code>CDF(x=6) - CDF(x=2) = P(3&lt;=x&lt;=6)</code>, which is identical to
+probability to observe 6 or fewer heads minus probability of observing 2 or fewer heads <code>P(x&lt;=6) - P(x&lt;=2)</code> = 0.828-0.054 = 0.773</p>
+<p>Cumulative Distribution Function in Python computed as follows:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+ 
+<span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span> <span class="c1"># 0.828125  is probability that given probability of single event 0.5 it is observed 5 or fewer heads from 10 fair coin flips</span>
+<span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span> <span class="c1"># [0.0546875  0.171875   0.37695312 0.62304688 0.828125]</span>
+<span class="nb">print</span><span class="p">((</span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span> <span class="o">-</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)))</span> <span class="c1"># 0.7734375</span>
+
+<span class="c1"># If we wanted to calculate the probability of observing between 2 and 5 heads from 10 fair coin flips, we could use the following code:</span>
+<span class="n">prob_2to5</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This method takes 3 values:</p>
+
+<pre><code>x: the value of interest, looking for the probability of this value or less
+n: the sample size
+p: the probability of success
+</code></pre>
+<p>As always some useful and detailed explanation is accessible via help():</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="PDF-for-Continuous-Case">PDF for Continuous Case<a class="anchor-link" href="#PDF-for-Continuous-Case">&#182;</a></h3><p>A continuous random variable has a probability density function wich is different from pmf since it can compute probability of getting any positive values, including  for example a non-integral 3.14. The pdf define the probability distributions of continuous random variables and span across all possible values of a variable.</p>
+<p>pdf graph is a bell shaped curve of probabilities that values can take. The total area for the plot of probabilities for the whole range of values add up to 1. Since variable is continuous it is impossible to quantify probability at a single point (since area under the point is always zero). For narrow interval the area under the curve is small: the area under the curve at a specific point, the width of that area becomes 0.
+Some type of probability distribution consistently appear like for instance  very common one - normal distribution. For example, human heights fall under a normal distribution with its parameters: Normal(mean, standard deviation) as shorthand. Let's see how you compute area using cdf (cumulative distribution function) for a normal distribution. We can calculate the area under the curve using the cumulative distribution function for the given probability distribution.</p>
+<p>To know the probability that a randomly chosen woman is less than 158 or 175 cm tall(158 and 175 are the value of interest here) we pass another parameters to norm.cdf function: a mean of 167.64 cm and a standard deviation of 8 cm:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+
+<span class="c1"># probability that a randomly chosen woman is less than 158 cm </span>
+<span class="c1"># given following parameters stats.norm.cdf(x, loc, scale)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">158</span><span class="p">,</span> <span class="mf">167.64</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>  <span class="c1"># 0.1141</span>
+<span class="c1"># or the probability that a randomly chosen woman is less than 175 cm tall.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">175</span><span class="p">,</span> <span class="mf">167.64</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span> <span class="c1"># 0.8212</span>
+</pre></div>
+<p>Given women’s heights have:
+  a mean of 167.64 cm,<br>
+  a standard deviation of 8 cm, 
+Here is the cumulative distribution function used to calculate the area under the probability density function curve from 0 to 158 to find that probability.</p>
+<p>Below I plot cumulative density function (CDF) for human height using value of interest 175 and the probability density function (PDF).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+
+<span class="c1"># Generate some random data for human height</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">heights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">167.64</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>  <span class="c1"># Mean = 170, Standard Deviation = 10</span>
+<span class="n">value_of_interest</span> <span class="o">=</span> <span class="mi">175</span>
+<span class="c1"># (CDF)</span>
+<span class="n">sorted_heights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">heights</span><span class="p">)</span>
+<span class="n">cdf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sorted_heights</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">sorted_heights</span><span class="p">)</span>
+<span class="n">cdf_value_of_interest</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">value_of_interest</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">heights</span><span class="p">),</span> <span class="n">scale</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">heights</span><span class="p">))</span>
+<span class="c1">#  (PDF)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">130</span><span class="p">,</span> <span class="mi">210</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>  <span class="c1"># Range of realistic values</span>
+<span class="n">pdf</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">heights</span><span class="p">),</span> <span class="n">scale</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">heights</span><span class="p">))</span>
+<span class="n">pdf_value_of_interest</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">value_of_interest</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">heights</span><span class="p">),</span> <span class="n">scale</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">heights</span><span class="p">))</span>
+<span class="c1"># instantiate two subplots</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="c1"># CDF on the first subplot</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sorted_heights</span><span class="p">,</span> <span class="n">cdf</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;CDF&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">value_of_interest</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="n">cdf_value_of_interest</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">cdf_value_of_interest</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="n">value_of_interest</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">value_of_interest</span><span class="p">,</span> <span class="n">cdf_value_of_interest</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Value of Interest&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Height&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Cumulative Probability&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;CDF of Human Height&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># PDF on the second subplot</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">pdf</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;PDF&#39;</span><span class="p">)</span>
+
+<span class="c1"># Highlight the range 165 to 175</span>
+<span class="n">range_start</span> <span class="o">=</span> <span class="mi">165</span>
+<span class="n">range_end</span> <span class="o">=</span> <span class="mi">175</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">pdf</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="p">((</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="n">range_start</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="n">range_end</span><span class="p">)),</span>
+                 <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;165-175&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">pdf</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="p">((</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="n">range_start</span><span class="p">)),</span>
+                 <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;&lt;165&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">pdf</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="p">((</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="n">range_end</span><span class="p">)),</span>
+                 <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;&gt;175&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">value_of_interest</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="n">pdf_value_of_interest</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">value_of_interest</span><span class="p">,</span> <span class="n">pdf_value_of_interest</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Value of Interest&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Height&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Probability Density&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;PDF of Human Height&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The difference between y axis of those two plots is that the one on the right side is actually having the whole range of probablitiy stored under the bell-shaped polygon - the total area for the plot of probabilities for the whole range of values add up to 1. So imagine you need to get the probability of meet person between 165 and 175 cm height or simply more than 175. You see the area in green? That is the probability presented visually, run the code below to get the actual value of 0.45. The blue one is computed as 1 - p(175).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Poisson-Distribution">Poisson Distribution<a class="anchor-link" href="#Poisson-Distribution">&#182;</a></h3><p>Here I documented how to use pmf to Calculate the Probability of Exact Values</p>
+<p>The Poisson distribution is a discrete probability distribution, described by cdf and pmf. Poisson distribution comes out of the box with scipy.
+Given expected parameter of a distribution (something is true 10 days of 31) you can get a probability of observing a specific count of expected outcome (is true 6  days).</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="c1"># given expected 10, get probability of getting 6</span>
+<span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+<p>To find the probability of observing a value in a range the individual probabilities sum up.</p>
+<div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="c1"># P(165 &lt; X &lt; 175) = P(X &lt; 175) - P(X &lt; 165)</span>
+<span class="c1"># stats.norm.cdf(x, loc, scale) - stats.norm.cdf(x, loc, scale)</span>
+<span class="c1"># where loc and scale are the mean and standard deviation</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">175</span><span class="p">,</span> <span class="mf">167.74</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">165</span><span class="p">,</span> <span class="mf">167.74</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="c1"># P(X &gt; 165) = 1 - P(X &lt;165)</span>
+<span class="c1"># 1 - stats.norm.cdf(x, loc, scale)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">165</span><span class="p">,</span> <span class="mf">167.74</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Calculate-Probabilities-Using-Poisson-CDF">Calculate Probabilities Using Poisson CDF<a class="anchor-link" href="#Calculate-Probabilities-Using-Poisson-CDF">&#182;</a></h3><p>Poisson distribution is a discrete probability distribution and the  details are beyond the scope of this article. I am glad that Wikipedia is run by enthusiastic content creators and I can check any details here <a href="https://en.wikipedia.org/wiki/Poisson_distribution">https://en.wikipedia.org/wiki/Poisson_distribution</a>.</p>
+<p>Imagine I want to compute chances that it will be maximum 6 rainy days in June given fact that it tend to be 10 rainy days (average number of rainy days in June over years). The parameter that takes the value 6 in cdf is the parameter lambda (λ) or expected value. The parameter of average estimate 10 is a known constant mean rate.</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="c1"># expected value = 10, compute probability of getting upp untill 6</span>
+<span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+<p>Summing individual probabilities from probability mass function (<a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.poisson.html">https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.poisson.html</a>) over a range can be skipped by means of substracting cdf.</p>
+<div class="highlight"><pre><span></span><span class="c1"># given a range take the difference between the CDF of the larger endpoint</span>
+<span class="c1"># and the CDF of the smaller endpoint - 1</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+
+<span class="c1"># expected value = 10, probability of observing between 12 and 18</span>
+<span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">12</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">poisson</span>
+
+<span class="c1"># Define the average rate (λ) for the Poisson distribution</span>
+<span class="n">average_rate</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="c1"># Define the range of expected values</span>
+<span class="n">range_start</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">range_end</span> <span class="o">=</span> <span class="mi">18</span>
+<span class="c1"># substraction way using CDF</span>
+<span class="n">probability_range</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">range_end</span><span class="p">,</span> <span class="n">average_rate</span><span class="p">)</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">range_start</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">average_rate</span><span class="p">)</span>
+<span class="c1"># addition way using the PMF</span>
+<span class="n">probability_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">range_start</span><span class="p">,</span> <span class="n">range_end</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">average_rate</span><span class="p">))</span>
+
+<span class="c1"># Print the result</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The probability of getting an expected value between </span><span class="si">{</span><span class="n">range_start</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">range_end</span><span class="si">}</span><span class="s2"> is: </span><span class="si">{</span><span class="n">probability_range</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1370,7 +1628,7 @@ Instead, we can also use the fact that the sum of the probabilities for all poss
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>0.36621093749999994
+<pre>The probability of getting an expected value between 12 and 18 is: 0.29603734909303986
 </pre>
 </div>
 </div>
@@ -1382,9 +1640,183 @@ Instead, we can also use the fact that the sum of the probabilities for all poss
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="PDF-for-Continuous-Case">PDF for Continuous Case<a class="anchor-link" href="#PDF-for-Continuous-Case">&#182;</a></h1><p>A continuous random variable has a probability density function wich is different from pmf since it can compute probability of getting any positive values, including non-integral 3.14.</p>
-<p>Davidson-Pilon, Cameron. Bayesian Methods for Hackers (Addison-Wesley Data &amp; Analytics) (p. 36). Pearson Education. Kindle Edition.</p>
+<h3 id="Parameter-Lambda">Parameter Lambda<a class="anchor-link" href="#Parameter-Lambda">&#182;</a></h3><p>Expected value of the Poisson distribution means that on average, across given period of time (or in space), we expect our average to equal about 10 items per time. If we do not have a survey we can get it another way: generate sample of 1000 random values from the Poisson distribution with the expected value of 10 using <code>scipy.stats.poisson.rvs()</code>. You set parameter size equal to 1000, to generate that many random variates from the Poisson distribution with lambda equal to 10.</p>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span>  <span class="nn">np</span>
+
+<span class="c1"># Generate random variable from Poisson distribution</span>
+<span class="c1"># lambda = 10, 10000 random draws </span>
+<span class="n">rvs</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">rvs</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="c1"># 10.0291 notice expected value 10 is NOT EXACTLY but almost equal to this mean value </span>
+<span class="c1"># Plot the histogram</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rvs</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">rvs</span><span class="p">)))</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">rwidth</span><span class="o">=</span><span class="mf">0.85</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram of Random Variable&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Dispersion-of-Poisson">Dispersion of Poisson<a class="anchor-link" href="#Dispersion-of-Poisson">&#182;</a></h3><p>If values spread wider,then we have a larger variance.
+For the Poisson distribution, the variance is simply the value of lambda (λ), the expected value is equivalent to variance. Increasing of expected value makes spread of distribution (variance of possible values) also increase.
+Given the samples with different variance it is easy to compute variance using the numpy.var() method:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="c1"># for 4000 draws compute values of Poisson distribution </span>
+<span class="n">rand_vars</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">4000</span><span class="p">)</span> <span class="c1"># array([2, 4, 6, ..., 2, 5, 1])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">rand_vars</span><span class="p">))</span> <span class="c1"># 4.0836440000000005</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">rand_vars</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">rand_vars</span><span class="p">))</span> <span class="c1"># 0, 12</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>4.038991
+0 12
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>'One useful property of the Poisson distribution is that its expected value is equal to its parameter... ' The code below that illustrates the spread of Poisson distribution is pulled from 
+Davidson-Pilon, Cameron. Bayesian Methods for Hackers (Addison-Wesley Data &amp; Analytics) (p. 36). Pearson Education. Kindle Edition.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">poi</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span>
+<span class="n">lambda_</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">4.25</span><span class="p">]</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">poi</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">lambda_</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+<span class="n">label</span><span class="o">=</span><span class="s2">&quot;$\lambda = </span><span class="si">%.1f</span><span class="s2">$&quot;</span> <span class="o">%</span> <span class="n">lambda_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.60</span><span class="p">,</span>
+<span class="n">edgecolor</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="s2">&quot;3&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">poi</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">lambda_</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+<span class="n">label</span><span class="o">=</span><span class="s2">&quot;$\lambda = </span><span class="si">%.1f</span><span class="s2">$&quot;</span> <span class="o">%</span> <span class="n">lambda_</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.60</span><span class="p">,</span>
+<span class="n">edgecolor</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="s2">&quot;3&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Probability of $k$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$k$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Probability mass function of a Poisson random variable,</span><span class="se">\</span>
+<span class="s2">differing \$\lambda$ values&quot;</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Binomial-Distribution">Binomial Distribution<a class="anchor-link" href="#Binomial-Distribution">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -1397,7 +1829,7 @@ Instead, we can also use the fact that the sum of the probabilities for all poss
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -1414,7 +1846,7 @@ Instead, we can also use the fact that the sum of the probabilities for all poss
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">uniform</span>
@@ -1425,28 +1857,6 @@ Instead, we can also use the fact that the sum of the probabilities for all poss
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-<div class="output_png output_subarea ">
-<img src="data:image/png;base64,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
-"
->
-</div>
-
-</div>
-
 </div>
 </div>
 

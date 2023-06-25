@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>Setup a Docker container</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="Short Notes on Docker Before you dive deep you need to figure out whether you need a Docker container and how it would be useful in your project...." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">PrettyLagom</a></h1>
+                <nav><ul>
+                    <li><a href="/pages/about.html">About</a></li>
+                    <li><a href="/category/art.html">art</a></li>
+                    <li class="active"><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/python.html">python</a></li>
+                    <li><a href="/category/sql.html">sql</a></li>
+                    <li><a href="/category/stats.html">stats</a></li>
+                    <li></li><li><a href="/p5serve/index.html">p5.js Sketches</a></li></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/setup-a-docker-container.html" rel="bookmark"
+           title="Permalink to Setup a Docker container">Setup a Docker container</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2023-05-22T12:00:00+02:00">
+                Published: Mon 22 May 2023
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/alex.html">Alex</a>
+        </address>
+<p>In <a href="/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info -->      <h3>Short Notes on Docker</h3>
+<p>Before you dive deep you need to figure out whether you need a Docker container and how it would be useful in your project.
+To figure out how docker would be useful this Fireship video might be good place to start: <a href="https://www.youtube.com/watch?v=Gjnup-PuquQ">https://www.youtube.com/watch?v=Gjnup-PuquQ</a>.</p>
+<h3>Docker nomenclature</h3>
+<p>An image : hard drive for virtual machine. Start up with base image. Image is a structure having plenty of parameters but it is not an execution of a container. Docker image - a private file system just for your container. It provides all the files and code your container needs.</p>
+<p>A container: Is instance where you run an image almost like virtual machine. Example: you run uWSGI to serve up web content. Only thing you run in the container is uWSGI. Start a container based on the image you built in the previous step. Running a container launches your application with private resources, securely isolated from the rest of your machine.</p>
+<p>A volume: Container is stateless meaning its content disappears. Map folders inside of the container to real folders on the host. Changes to particular folder (also called volume) will stay across executions of the containers. They are persistent.  </p>
+<p>The ports: Like the file system is isolated so is the networking around these containers. Containers can talk out to the network but can't listen on a port(not exposed). In web server | db situation you need to connect. Need to expose some ports. </p>
+<p>The entry points: When I run container entry point into container is a procedure pointed at your app files, config, etc. </p>
+<p>Dockerfile: Way we build an image is to create a dockerfile. Dockerfile - series of commands to execute on Linux machine starting from the base image to obtain the configured image. All commands apt install things are copy config file etc. are put into a Docker file and all these commands are layered. </p>
+<h3>Set up Docker container</h3>
+<p>First time I struggled with enable docker wich was resolved by turning on windows features.</p>
+<h4>Clone</h4>
+<p>I executed this command as per Docker quickstart tutorial:
+<code>docker run --name repo alpine/git clone https://github.com/docker/getting-started.git docker cp repo:/git/getting-started/ .</code>
+It created the folder here: <code>C:\Users\Aleks\getting-started</code></p>
+<h4>Build the Image</h4>
+<p>Look at the definition at the top.
+ To create one <code>cd C:\Users\Aleks\getting-started</code>. 
+ <code>bash
+ cd getting-started
+ docker build -t docker101tutorial .</code></p>
+<h3>Run Your First Container</h3>
+<p>Start a container based on the image you built in the previous step. Running a container launches your application with private resources, securely isolated from the rest of your machine.</p>
+<div class="highlight"><pre><span></span><code>docker run -d -p <span class="m">80</span>:80 --name docker-tutorial docker101tutorial
+</code></pre></div>
+
+<p>You'll notice a few flags being used. Here's some more info on them:</p>
+<div class="highlight"><pre><span></span><code>-d - run the container in detached mode (in the background)
+-p 80:80 - map port 80 of the host to port 80 in the container
+docker101tutorial - the image to use
+</code></pre></div>
+
+<h4>Save and Share Your Image</h4>
+<p>Save and share requires you:
+1. Being owner of Docker ID (create at hub.docker.com) 
+2. Once you have Docker ID make sure you signed in to Docker Hub. </p>
+<p>Benifits of sharing: 
+Other users can easily download and run the image on any destination machine.</p>
+<p>Sharing instructions:</p>
+<div class="highlight"><pre><span></span><code>docker tag docker101tutorial alekseikupiakov1docker1user/docker101tutorial
+docker push alekseikupiakov1docker1user/docker101tutorial
+</code></pre></div>
+
+<p>After that you can see what you've saved on <a href="https://hub.docker.com/repository/docker/alekseikupiakov1docker1user/docker101tutorial">Hub</a></p>
+<h3>This is how you would run a Docker container</h3>
+<p>Once Docker installed you can try to run:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># all the processes</span>
+docker ps               
+<span class="c1"># all docker images </span>
+docker images
+</code></pre></div>
+
+<p>If everything runs then you can  your first container:
+<code>docker run ubuntu:latest</code> or docker run ubuntu:18.04
+This downloads ubuntu latest first. once done you can try to run it again and you will see that it run a short while then it shuts down. </p>
+<p><code>docker run -it ubuntu:latest bash</code> interactive mode.
+Then test to check <code>hostname</code>, <code>ls</code>, and <code>ps</code> of your image:</p>
+<div class="highlight"><pre><span></span><code> λ  docker run -it ubuntu:latest bash
+root@2fe6d723b3d7:/# ls
+bin   dev  home  lib32  libx32  mnt  proc  run   srv  tmp  var
+boot  etc  lib   lib64  media   opt  root  sbin  sys  usr
+root@2fe6d723b3d7:/# hostname
+2fe6d723b3d7
+root@2fe6d723b3d7:/# ps
+  PID TTY          TIME CMD
+    <span class="m">1</span> pts/0    <span class="m">00</span>:00:00 bash
+   <span class="m">12</span> pts/0    <span class="m">00</span>:00:00 ps
+root@2fe6d723b3d7:/#exit
+</code></pre></div>
+
+<p>As you saw for now you just run bash.</p>
+<div class="highlight"><pre><span></span><code>docker ps -a
+CONTAINER ID   IMAGE           COMMAND       CREATED         STATUS                          PORTS     NAMES
+2fe6d723b3d7   ubuntu:latest   <span class="s2">&quot;bash&quot;</span>        <span class="m">6</span> minutes ago   Exited <span class="o">(</span><span class="m">0</span><span class="o">)</span> About a minute ago             zen_rubin
+4ec825b2520c   ubuntu:latest   <span class="s2">&quot;/bin/bash&quot;</span>   <span class="m">7</span> minutes ago   Exited <span class="o">(</span><span class="m">0</span><span class="o">)</span> <span class="m">7</span> minutes ago                  charming_dijkstra
+22d88344ccd1   ubuntu:latest   <span class="s2">&quot;-v&quot;</span>          <span class="m">7</span> minutes ago   Created                                   magical_stonebraker
+400667abc080   ubuntu:latest   <span class="s2">&quot;-v&quot;</span>          <span class="m">8</span> minutes ago   Created                                   stoic_wu
+b583732ec820   ubuntu:latest   <span class="s2">&quot;/bin/bash&quot;</span>   <span class="m">9</span> minutes ago   Exited <span class="o">(</span><span class="m">0</span><span class="o">)</span> <span class="m">9</span> minutes ago                  upbeat_allen
+</code></pre></div>
+
+<p>Things you might want to pay attention  are CONTAINER ID and otherwise funky NAMES. You can reference your container by using either id or name.</p>
+<h3>Cheat Sheet</h3>
+<div class="highlight"><pre><span></span><code>docker -v
+docker pull postgres:alpine
+docker run --name fastapi-postgres -e POSTGRES_PASSWORD=password -d -p 5432:5432 postgres:alpine
+docker ps
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="nv">docker</span> <span class="k">exec</span> <span class="o">-</span><span class="nv">it</span> <span class="nv">fastapi</span><span class="o">-</span><span class="nv">postgres</span> <span class="nv">bash</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>psql -U postgres
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>create database python_db;
+create user postgres with encrypted password &#39;ljlkd%fFDFw12?Dg0vRiF&#39;;
+ grant all privileges on database python_db to postgres_v2;
+\c python_db;
+ psql -h localhost -p 5432 postgres;
+
+ \dt
+</code></pre></div>
+
+<p>ctrl d to quit</p>
+<h3>Sources</h3>
+<p>Instructions to install docker on <a href="https://docs.docker.com/engine/install/ubuntu/">ubuntu</a>.</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://getpelican.com/">Pelican</a></li>
+                            <li><a href="https://www.python.org/">Python.org</a></li>
+                            <li><a href="https://palletsprojects.com/p/jinja/">Jinja2</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

@@ -1159,13 +1159,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
  .highlight pre  .il { color: #666666 } /* Literal.Number.Integer.Long */</style><body><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Correspondence-Analysis">Correspondence Analysis<a class="anchor-link" href="#Correspondence-Analysis">&#182;</a></h3><h3 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h3><p>An introduction to correspondence analysis can be found in the book "Exploratory Multivariate Analysis by Example Using R" by François Husson. It is worth reading and, along with the tutorial series on YouTube <a href="https://www.youtube.com/playlist?list=PLnZgp6epRBbTgO-l-6hLAKTstW7WSGh8A">tutorial series on YouTube</a> , it is a great source that can help make the basics of correspondence analysis clear to you.</p>
 <p>If you prefer Python, then two sources to start with Correspondence Analysis (CA) are <a href="https://codefying.com/2018/12/21/introduction-to-correspondence-analysis/">Introduction to Correspondence Analysis</a> and <a href="https://github.com/MaxHalford/prince">Prince - Python factor analysis library</a>.</p>
 <h3 id="Main-Idea">Main Idea<a class="anchor-link" href="#Main-Idea">&#182;</a></h3><p>When working with dataset of n items described using two categorical variables <code>V_1</code> and <code>V_2</code> you need to find their interconnectedness. Technically you need to caculate how far away relationship between <code>V_1</code> and <code>V_2</code> is from independence. The data for this analysis is prepared as a "contingency table" including sum of therms for each row (column margin) and sum of terms for each column (row margin).</p>
@@ -1296,7 +1289,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
@@ -1313,7 +1306,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[3]:</div>
+    <div class="prompt output_prompt">Out[1]:</div>
 
 
 
@@ -1333,7 +1326,7 @@ width=500
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;C:\thisAKcode.github.io\Pelican\content\images\ca_col_profile.PNG&#39;</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">600</span><span class="p">)</span>
@@ -1349,7 +1342,7 @@ width=500
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[4]:</div>
+    <div class="prompt output_prompt">Out[2]:</div>
 
 
 
@@ -1378,7 +1371,7 @@ As you might have noticed it is hard and sometimes impossible to distinguish dif
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;C:\thisAKcode.github.io\Pelican\content\images\ca_contingency.png&#39;</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">600</span><span class="p">)</span>
@@ -1394,7 +1387,7 @@ As you might have noticed it is hard and sometimes impossible to distinguish dif
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[1]:</div>
+    <div class="prompt output_prompt">Out[3]:</div>
 
 
 
@@ -1450,7 +1443,7 @@ The marginal probabilities (marginal column and row) of this table are computed 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;C:\thisAKcode.github.io\Pelican\content\images\ca_probabilities.PNG&#39;</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">600</span><span class="p">)</span>
@@ -1466,7 +1459,7 @@ The marginal probabilities (marginal column and row) of this table are computed 
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[8]:</div>
+    <div class="prompt output_prompt">Out[4]:</div>
 
 
 
@@ -1514,7 +1507,7 @@ $ ∀_{i},  ∀_{j},   f_{ij} = f_{i•}f_{•j} $</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -1525,6 +1518,8 @@ $ ∀_{i},  ∀_{j},   f_{ij} = f_{i•}f_{•j} $</p>
 <span class="n">crosstab_orig</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
 <span class="n">countries</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 <span class="n">prize_categories</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+
 
 <span class="c1"># x.j</span>
 <span class="n">row_totals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">crosstab_orig</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -1556,6 +1551,64 @@ $ ∀_{i},  ∀_{j},   f_{ij} = f_{i•}f_{•j} $</p>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Here I would like to quickly show how to plot cross table</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">pd_</span> <span class="o">=</span> <span class="n">crosstab_orig</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">/</span><span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">),</span><span class="mi">2</span>
+<span class="n">cumulative_percent</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">pd_</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">cumulative_percent</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[48]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([   Chemistry  Economic sciences  Literature    Medicin      Peace    Physics
+       1  19.834711           1.666667   16.326531  12.857143   9.803922  16.107383
+       2   3.305785           5.000000    4.081633   2.857143   1.960784   2.684564
+       3   6.611570           5.000000   22.448980   8.571429  19.607843   6.040268
+       4  19.008264          10.000000   14.285714  18.571429  21.568627  13.422819
+       5   0.826446           1.666667   12.244898   3.571429   1.960784   3.355705
+       6   4.958678           0.000000    4.081633   2.142857   1.960784   7.382550
+       7   3.305785           5.000000   10.204082   1.428571   5.882353   6.711409
+       8  42.148760          71.666667   16.326531  50.000000  37.254902  44.295302,
+          Chemistry  Economic sciences  Literature    Medicin      Peace    Physics
+       1  21.834711           3.666667   18.326531  14.857143  11.803922  18.107383
+       2   5.305785           7.000000    6.081633   4.857143   3.960784   4.684564
+       3   8.611570           7.000000   24.448980  10.571429  21.607843   8.040268
+       4  21.008264          12.000000   16.285714  20.571429  23.568627  15.422819
+       5   2.826446           3.666667   14.244898   5.571429   3.960784   5.355705
+       6   6.958678           2.000000    6.081633   4.142857   3.960784   9.382550
+       7   5.305785           7.000000   12.204082   3.428571   7.882353   8.711409
+       8  44.148760          73.666667   18.326531  52.000000  39.254902  46.295302],
+      dtype=object)</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
