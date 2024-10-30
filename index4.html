@@ -15,12 +15,72 @@
                     <li><a href="/category/art.html">art</a></li>
                     <li><a href="/category/misc.html">misc</a></li>
                     <li><a href="/category/python.html">python</a></li>
+                    <li><a href="/category/sql.html">sql</a></li>
                     <li><a href="/category/stats.html">stats</a></li>
+                    <li><a href="/p5serve/index.html">p5.js Sketches</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
                 <section id="content" class="body">
                     <ol id="posts-list" class="hfeed" start="9">
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/md-converted-thing.html" rel="bookmark"
+                           title="Permalink to md converted thing.">md converted thing.</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2020-12-19T22:30:00+01:00">
+                Published: Sat 19 December 2020
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/alex.html">Alex</a>
+        </address>
+<p>In <a href="/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">ceil</span>
+
+<span class="n">VNR</span> <span class="o">=</span> <span class="mi">892</span>
+
+<span class="k">def</span> <span class="nf">roundup</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="c1">#  round up ticks to next hundred</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">ceil</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="mf">100.0</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="c1"># inject input data as pd dataframes</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">VNR</span><span class="si">}</span><span class="s2">_tsd_parameters.csv …</span></code></pre></div>
+                <a class="readmore" href="/md-converted-thing.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/git.html" rel="bookmark"
+                           title="Permalink to Git">Git</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2020-06-12T12:00:00+02:00">
+                Published: Fri 12 June 2020
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/alex.html">Alex</a>
+        </address>
+<p>In <a href="/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info -->                <h3>Intro</h3>
+<p>To begin with you'll need to have a computer to store a folder with content (local repo). After you are happy with you content you can 'send' it to remote repo. Sometimes it is vice versa from remote you get some code into your computer. Anyway computer and github …</p>
+                <a class="readmore" href="/git.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
             <li><article class="hentry">
                 <header>
                     <h1><a href="/fme-pythoncaller-combo.html" rel="bookmark"

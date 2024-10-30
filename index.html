@@ -15,7 +15,9 @@
                     <li><a href="/category/art.html">art</a></li>
                     <li><a href="/category/misc.html">misc</a></li>
                     <li><a href="/category/python.html">python</a></li>
+                    <li><a href="/category/sql.html">sql</a></li>
                     <li><a href="/category/stats.html">stats</a></li>
+                    <li><a href="/p5serve/index.html">p5.js Sketches</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
@@ -1426,10 +1428,10 @@ def mean_squared_error(y_true, y_pred):
 <p><strong>Usage in Layers</strong>:</p>
 <ul>
 <li>Apply regularization to layers like Dense, Conv2D.<div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
-          <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span>
-          <span class="n">kernel_regularizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">regularizers</span><span class="o">.</span><span class="n">L2</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)),</span>
-          <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">)</span>
-  <span class="p">])</span>
+      <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span>
+      <span class="n">kernel_regularizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">regularizers</span><span class="o">.</span><span class="n">L2</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)),</span>
+      <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">)</span>
+<span class="p">])</span>
 </pre></div>
 </li>
 </ul>
@@ -1650,6 +1652,32 @@ $$ \mathbf{x} \in \mathbb{R}^{784} $$
 
             <li><article class="hentry">
                 <header>
+                    <h1><a href="/some-dl-pt2-back-propagation.html" rel="bookmark"
+                           title="Permalink to Some DL Pt2. Back Propagation.">Some DL Pt2. Back Propagation.</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2024-10-21T00:00:00+02:00">
+                Published: Mon 21 October 2024
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/alex.html">Alex</a>
+        </address>
+<p>In <a href="/category/python.html">python</a>.</p>
+
+</footer><!-- /.post-info -->                <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Backpropagation">Backpropagation<a class="anchor-link" href="#Backpropagation">&#182;</a></h3><p>When in ml you get the error you need to update parameters (weights and biases) in order to minimize it. This is done by using the gradient of the error with respect to the parameters. This is done by using the chain rule of calculus:
+function f(g(x)) has partial derivatives with respect to x f'(g(x)) * g'(x).</p>
+                <a class="readmore" href="/some-dl-pt2-back-propagation.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
                     <h1><a href="/regression.html" rel="bookmark"
                            title="Permalink to Regression">Regression</a></h1>
                 </header>
@@ -1864,33 +1892,6 @@ In my favorite book about Data Science Jake says "provides an efficient interfac
 <p>Before you dive deep you need to figure out whether you need a Docker container and how it would be useful in your project.
 To figure out how docker would be useful this Fireship video might be good place to start: <a href="https://www.youtube.com/watch?v=Gjnup-PuquQ">https://www.youtube.com/watch …</a></p>
                 <a class="readmore" href="/setup-a-docker-container.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/understanding-probability-with-python.html" rel="bookmark"
-                           title="Permalink to Understanding Probability With Python">Understanding Probability With Python</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2022-12-09T00:00:00+01:00">
-                Published: Fri 09 December 2022
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/alex.html">Alex</a>
-        </address>
-<p>In <a href="/category/python.html">python</a>.</p>
-
-</footer><!-- /.post-info -->                <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Probability is a branch of mathematics that is often used to make decisions and is concerned with measuring uncertainty.</p>
-<h3 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h3><h4 id="Sets">Sets<a class="anchor-link" href="#Sets">&#182;</a></h4><p>Set data types in Python have rules similar to set in mathematics: collections are unordered, unchangeable (only removal or addition is applicable), store unique items, and are unindexed.</p>
-<h4 id="Experiments-and-Event">Experiments and Event<a class="anchor-link" href="#Experiments-and-Event">&#182;</a></h4><p>Experiment return values for observation(s), and observations have some level of uncertainty. Single possible outcome of an experiment is a sample point in a set called sample space. Set sample space stores all possible sample points for one experiment. If your experiment is a set of n sample points the full sample space is written as follows for example of coin flip:</p>
-                <a class="readmore" href="/understanding-probability-with-python.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->

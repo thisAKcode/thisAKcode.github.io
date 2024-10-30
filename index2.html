@@ -15,12 +15,79 @@
                     <li><a href="/category/art.html">art</a></li>
                     <li><a href="/category/misc.html">misc</a></li>
                     <li><a href="/category/python.html">python</a></li>
+                    <li><a href="/category/sql.html">sql</a></li>
                     <li><a href="/category/stats.html">stats</a></li>
+                    <li><a href="/p5serve/index.html">p5.js Sketches</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
                 <section id="content" class="body">
                     <ol id="posts-list" class="hfeed" start="9">
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/some-sql-commands-i-use-as-a-template.html" rel="bookmark"
+                           title="Permalink to Some SQL commands I use as a template.">Some SQL commands I use as a template.</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2023-01-02T00:00:00+01:00">
+                Published: Mon 02 January 2023
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/alex.html">Alex</a>
+        </address>
+<p>In <a href="/category/sql.html">sql</a>.</p>
+
+</footer><!-- /.post-info -->                <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Joins">Joins<a class="anchor-link" href="#Joins">&#182;</a></h3><p>Here is an example of how you can use a JOIN clause in SQL to join a table called orders with 6 other tables:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">orders</span><span class="p">.</span><span class="o">*</span><span class="p">,</span> <span class="n">customers</span><span class="p">.</span><span class="o">*</span><span class="p">,</span> <span class="n">products</span><span class="p">.</span><span class="o">*</span><span class="p">,</span> <span class="n">shippers</span><span class="p">.</span><span class="o">*</span><span class="p">,</span> <span class="n">suppliers</span><span class="p">.</span><span class="o">*</span><span class="p">,</span> <span class="n">categories</span><span class="p">.</span><span class="o">*</span>
+<span class="k">FROM</span> <span class="n">orders</span>
+<span class="k">JOIN</span> <span class="n">customers</span> <span class="k">ON</span> <span class="n">orders</span><span class="p">.</span><span class="n">customer_id</span> <span class="o">=</span> <span class="n">customers</span><span class="p">.</span><span class="n">customer_id</span>
+<span class="k">JOIN</span> <span class="n">products</span> <span class="k">ON</span> <span class="n">orders</span><span class="p">.</span><span class="n">product_id</span> <span class="o">=</span> <span class="n">products</span><span class="p">.</span><span class="n">product_id</span>
+<span class="k">JOIN</span> <span class="n">shippers</span> <span class="k">ON</span> <span class="n">orders</span><span class="p">.</span><span class="n">shipper_id</span> <span class="o">=</span> <span class="n">shippers</span><span class="p">.</span><span class="n">shipper_id</span>
+<span class="k">JOIN</span> <span class="n">suppliers</span> <span class="k">ON</span> <span class="n">products</span><span class="p">.</span><span class="n">supplier_id</span> <span class="o">=</span>
+                <a class="readmore" href="/some-sql-commands-i-use-as-a-template.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/understanding-probability-with-python.html" rel="bookmark"
+                           title="Permalink to Understanding Probability With Python">Understanding Probability With Python</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2022-12-09T00:00:00+01:00">
+                Published: Fri 09 December 2022
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/alex.html">Alex</a>
+        </address>
+<p>In <a href="/category/python.html">python</a>.</p>
+
+</footer><!-- /.post-info -->                <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Probability is a branch of mathematics that is often used to make decisions and is concerned with measuring uncertainty.</p>
+<h3 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h3><h4 id="Sets">Sets<a class="anchor-link" href="#Sets">&#182;</a></h4><p>Set data types in Python have rules similar to set in mathematics: collections are unordered, unchangeable (only removal or addition is applicable), store unique items, and are unindexed.</p>
+<h4 id="Experiments-and-Event">Experiments and Event<a class="anchor-link" href="#Experiments-and-Event">&#182;</a></h4><p>Experiment return values for observation(s), and observations have some level of uncertainty. Single possible outcome of an experiment is a sample point in a set called sample space. Set sample space stores all possible sample points for one experiment. If your experiment is a set of n sample points the full sample space is written as follows for example of coin flip:</p>
+                <a class="readmore" href="/understanding-probability-with-python.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
             <li><article class="hentry">
                 <header>
                     <h1><a href="/statistical-distributions-common-ones.html" rel="bookmark"
@@ -226,68 +293,6 @@ Consider an event A occuring given that another event B (evidence that B) has oc
 <p>I donwnloaded installer from EDB and followed instructions from PostgreSQL Setup Wizard. 
 Wizard suggest to install some additional applications (pgAdmin etc.), let you choose directory, suggest the port number to listen 5432 or to use something else for security or if you are running multiple PostgreSQL services on …</p>
                 <a class="readmore" href="/setup-a-postgresql-db.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/my-first-converted-jupyter-notebook.html" rel="bookmark"
-                           title="Permalink to My First Converted Jupyter notebook">My First Converted Jupyter notebook</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2022-03-07T00:00:00+01:00">
-                Published: Mon 07 March 2022
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/alex.html">Alex</a>
-        </address>
-<p>In <a href="/category/python.html">python</a>.</p>
-<p>tags: <a href="/tag/jupyter.html">jupyter</a> </p>
-</footer><!-- /.post-info -->                <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Write-Blog-Using-Jupyter-Notebooks-and-Pelican">Write Blog Using Jupyter Notebooks and Pelican<a class="anchor-link" href="#Write-Blog-Using-Jupyter-Notebooks-and-Pelican">&#182;</a></h3><p>Here is a quick reviev on how to write blog using Jupyter Notebook and python module pelican-jupyter. Not so much to write about, pelican-jupyter's docs are great. They may be read here: <a href="https://github.com/danielfrg/pelican-jupyter">https://github.com/danielfrg/pelican-jupyter</a>.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-                <a class="readmore" href="/my-first-converted-jupyter-notebook.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/pandas-useful-tricks.html" rel="bookmark"
-                           title="Permalink to Pandas Useful Tricks">Pandas Useful Tricks</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2022-02-20T00:00:00+01:00">
-                Published: Sun 20 February 2022
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/alex.html">Alex</a>
-        </address>
-<p>In <a href="/category/python.html">python</a>.</p>
-<p>tags: <a href="/tag/jupyter.html">jupyter</a> </p>
-</footer><!-- /.post-info -->                <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h3><p>Here I want to write a little about pandas that I play with sometimes and share some useful pandas methods. Notice the input data comes from module pydataset that comes with a bunch of popular dataset.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-                <a class="readmore" href="/pandas-useful-tricks.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->

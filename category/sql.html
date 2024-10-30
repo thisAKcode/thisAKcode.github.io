@@ -17,7 +17,7 @@
                     <li><a href="/category/python.html">python</a></li>
                     <li class="active"><a href="/category/sql.html">sql</a></li>
                     <li><a href="/category/stats.html">stats</a></li>
-                    <li></li><li><a href="/p5serve/index.html">p5.js Sketches</a></li></li>
+                    <li><a href="/p5serve/index.html">p5.js Sketches</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
@@ -1177,6 +1177,137 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This query will select all columns from the orders table, as well as all columns from the customers, products, shippers, suppliers, and categories tables. The JOIN clauses specify how the tables are related to each other. In this example, the orders table is related to the customers table by the customer_id column, the orders table is related to the products table by the product_id column, and so on.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Samples-from-SQL-Cookbook">Samples from SQL Cookbook<a class="anchor-link" href="#Samples-from-SQL-Cookbook">&#182;</a></h3><h3 id="Information-retrieval">Information retrieval<a class="anchor-link" href="#Information-retrieval">&#182;</a></h3><p>In this article will be used two tables, EMP and DEPT.</p>
+<p>The EMP table (14-row table, numeric, string, and date fields).</p>
+<p>The DEPT table is a simple four-row table with only numeric and string fields.</p>
+<p>Besides we are facing the T1, T10, T100, and T500 pivot tables. The pivot tables are a useful shortcut when we need to create a series of rows to facilitate a query.</p>
+<h4 id="Subqueries-FROM-FROM">Subqueries FROM FROM<a class="anchor-link" href="#Subqueries-FROM-FROM">&#182;</a></h4><p>Many solutions make use of inline views, or subqueries in the FROM clause with mandatory table aliases for such view.</p>
+<div class="highlight"><pre><span></span><span class="k">select</span> <span class="n">job</span><span class="p">,</span> <span class="n">sal</span> <span class="k">from</span> <span class="p">(</span><span class="k">select</span> <span class="n">job</span><span class="p">,</span> <span class="k">max</span><span class="p">(</span> <span class="n">sal</span><span class="p">)</span> <span class="n">sal</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">group</span> <span class="k">by</span> <span class="n">job</span><span class="p">)</span> <span class="n">x</span><span class="p">;</span>
+</pre></div>
+<h4 id="Retrieve-records">Retrieve records<a class="anchor-link" href="#Retrieve-records">&#182;</a></h4><h5 id="several-conditions-satisfied">several conditions satisfied<a class="anchor-link" href="#several-conditions-satisfied">&#182;</a></h5><p>Recipy:
+Multiple conditions after WHERE separated by the OR and AND clauses are true for any row.</p>
+<h3 id="FROM-executed-before-WHERE">FROM executed before WHERE<a class="anchor-link" href="#FROM-executed-before-WHERE">&#182;</a></h3><p>The results from the query below are generated before the outermost WHERE clause, and your outermost WHERE clause "sees" the alias names.</p>
+<div class="highlight"><pre><span></span><span class="k">select</span> <span class="o">*</span>
+<span class="k">from</span> <span class="p">(</span> 
+<span class="k">select</span> <span class="n">sal</span> <span class="k">as</span> <span class="n">salary</span><span class="p">,</span> <span class="n">comm</span> <span class="k">as</span> <span class="n">commission</span> 
+<span class="k">from</span> <span class="n">emp</span>
+ <span class="p">)</span> <span class="n">x</span>
+<span class="k">where</span> <span class="n">salary</span> <span class="o">&lt;</span> <span class="mi">5000</span>
+</pre></div>
+<h3 id="IF-ELSE-logic-in-a-SELECT">IF-ELSE logic in a SELECT<a class="anchor-link" href="#IF-ELSE-logic-in-a-SELECT">&#182;</a></h3><p>produce a result set such that if an employee is paid 2,000 or less, a message of 'UNDERPAID' is returned; if an employee is paid 4,000 or more, a message of 'OVERPAID' is returned; and if they make somewhere in between, then 'OK' is returned. The result set should look like this:</p>
+<p>CASE expression is used to perform conditional logic.</p>
+
+<pre><code>select ename, sal, 
+    case when sal &lt; = 2000 then 'UNDERPAID' 
+            when sal &gt; = 4000 then 
+'OVERPAID'
+            else 
+'OK'
+    end as status 
+from emp</code></pre>
+<h3 id="Query-limited-number-of-rows">Query limited number of rows<a class="anchor-link" href="#Query-limited-number-of-rows">&#182;</a></h3><p>Postgresql</p>
+<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> 
+<span class="k">FROM</span> <span class="n">my_table</span> <span class="k">limit</span> <span class="mi">5</span>
+</pre></div>
+<p>SQLServer</p>
+<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">ename</span><span class="p">,</span> <span class="n">job</span>
+<span class="k">FROM</span> <span class="n">my_table</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">random</span><span class="p">()</span> <span class="k">limit</span> <span class="mi">5</span>
+</pre></div>
+<h3 id="Query-n-random-records">Query n random records<a class="anchor-link" href="#Query-n-random-records">&#182;</a></h3><p>Return n random records from a table.
+In postgresql you chain <code>ORDER BY RANDOM LIMIT</code></p>
+<p>Postgresql</p>
+<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> 
+<span class="k">FROM</span> <span class="n">my_table</span> <span class="k">limit</span> <span class="mi">5</span>
+</pre></div>
+<p>SQLServer uses combination of <code>TOP ORDER BY NEWID</code>.</p>
+<div class="highlight"><pre><span></span><span class="k">select</span> <span class="n">top</span> <span class="mi">5</span> <span class="n">ename</span><span class="p">,</span> <span class="n">job</span> 
+<span class="k">from</span> <span class="n">emp</span> 
+<span class="k">order</span> <span class="k">by</span> <span class="n">newid</span><span class="p">()</span>
+</pre></div>
+<h3 id="Managing-NULL">Managing NULL<a class="anchor-link" href="#Managing-NULL">&#182;</a></h3><p>You can filter records whose particular column is NULL and even return non-null values in place of NULL.</p>
+
+<pre><code>select * 2 from emp 3 where comm is null
+
+select coalesce( comm, 0) 2 from emp</code></pre>
+<p>There the value of COMM is returned whenever COMM is not null.</p>
+<h3 id="Pattern-Matching">Pattern Matching<a class="anchor-link" href="#Pattern-Matching">&#182;</a></h3><p>A particular substring or pattern. Consider the following need: get record with int value within a given range, or why not find substring in a string.</p>
+
+<pre><code>select ename, job from emp where deptno in (10,20)</code></pre>
+<p>Of the employees in departments 10 and 20, you want to return only those that have either an "I" somewhere in their name or a job title ending with "ER":</p>
+
+<pre><code>select ename, job 2 from emp 3 where deptno in (10,20) 4 and (ename like '% I%' or job like '%ER')</code></pre>
+<h3 id="Specify-Order">Specify Order<a class="anchor-link" href="#Specify-Order">&#182;</a></h3><p>You want to display the names, jobs etc of n random records in order based on their registered date (from oldest to newest).</p>
+
+<pre><code>select * from (
+select top 5 ename, job, edited
+from emp 
+order by newid())
+order by edited
+ename, job, sal from emp where deptno = 10 order by sal desc</code></pre>
+<h3 id="Return-Ordered-by-Multiple-Columns">Return Ordered by Multiple Columns<a class="anchor-link" href="#Return-Ordered-by-Multiple-Columns">&#182;</a></h3><p>You want to sort the rows from SAMPLE_TABLE first by non unique DEPT_ID ascending, then by EDITED descending.</p>
+<p>This may be achieved in one query by including different sort columns in the ORDER BY clause, separated by commas: 
+``` select empno, dept_id, sal, ename, job 
+from emp 
+order by deptno, edited desc</p>
+
+<pre><code>
+### SQL Joins with Countries
+
+I want to describe an example of using SQL JOIN clauses to retrieve data from two tables: the countries table and the nobel_prizes table.
+
+The countries table contains information about different countries, including their names and populations. It has the following structure:
+
+
+countries
+
++------------+-------------+
+| country_id | country     |
++------------+-------------+
+| 1          | USA         |
+| 2          | Canada      |
+| 3          | France      |
+| 4          | Germany     |
+| 5          | UK          |
++------------+-------------+
+
+The nobel_prizes table contains information about Nobel Prize winners, including their names, the year they won the prize, and the country they are from. It has the following structure:
+
+nobel_prizes
+
++------------+-----------------+------+------------+
+| prize_id   | winner          | year | country_id |
++------------+-----------------+------+------------+
+| 1          | Albert Einstein | 1921 | 1          |
+| 2          | Marie Curie     | 1903 | 3          |
+| 3          | Albert Einstein | 1922 | 1          |
+| 4          | Marie Curie     | 1904 | 3          |
+| 5          | Niels Bohr      | 1922 | 4          |
++------------+-----------------+------+------------+
+
+To retrieve the names of the Nobel Prize winners and the countries they are from, we can use a JOIN clause like this:</code></pre>
+<p>SELECT winner, countries.country
+FROM nobel_prizes
+JOIN countries ON nobel_prizes.country_id = countries.country_id</p>
+
+<pre><code>This would return the following result:
++-----------------+---------+
+| winner          | country |
++-----------------+---------+
+| Albert Einstein | USA     |
+| Marie Curie     | France  |
+| Albert Einstein | USA     |
+| Marie Curie     | France  |
+| Niels Bohr      | Germany |
++-----------------+---------+</code></pre>
+<p>There are several different types of JOIN clauses that you can use, including INNER JOIN, OUTER JOIN, LEFT JOIN, and RIGHT JOIN. The type of JOIN you use will depend on the specific requirements of your query.</p>
 
 </div>
 </div>
