@@ -1670,8 +1670,9 @@ $$ \mathbf{x} \in \mathbb{R}^{784} $$
 </footer><!-- /.post-info -->                <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Backpropagation">Backpropagation<a class="anchor-link" href="#Backpropagation">&#182;</a></h3><p>When in ml you get the error you need to update parameters (weights and biases) in order to minimize it. This is done by using the gradient of the error with respect to the parameters. This is done by using the chain rule of calculus:
-function f(g(x)) has partial derivatives with respect to x f'(g(x)) * g'(x).</p>
+<h3 id="Backpropagation">Backpropagation<a class="anchor-link" href="#Backpropagation">&#182;</a></h3><p>to unrderstand backpropagation we need to understand the forward propagation: the process of moving the input data through the net to get the output.
+On the contrary, backpropagation is the process of moving the error back through the net to adjust the weights and biases.
+Backpropagation involves calculating the gradient of the error with respect to the weights and biases of the neural network.</p>
                 <a class="readmore" href="/some-dl-pt2-back-propagation.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>

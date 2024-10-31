@@ -5,7 +5,7 @@
         <meta name="generator" content="Pelican" />
         <title>Some DL Pt2. Back Propagation.</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
-        <meta name="description" content="Backpropagation¶When in ml you get the error you need to update parameters (weights and biases) in order to minimize it. This is done by using the..." />
+        <meta name="description" content="Backpropagation¶to unrderstand backpropagation we need to understand the forward propagation: the process of moving the input data through the net..." />
 </head>
 
 <body id="index" class="home">
@@ -1159,18 +1159,91 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
  .highlight pre  .il { color: #666666 } /* Literal.Number.Integer.Long */</style><body><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Backpropagation">Backpropagation<a class="anchor-link" href="#Backpropagation">&#182;</a></h3><p>When in ml you get the error you need to update parameters (weights and biases) in order to minimize it. This is done by using the gradient of the error with respect to the parameters. This is done by using the chain rule of calculus:
+<h3 id="Backpropagation">Backpropagation<a class="anchor-link" href="#Backpropagation">&#182;</a></h3><p>to unrderstand backpropagation we need to understand the forward propagation: the process of moving the input data through the net to get the output.
+On the contrary, backpropagation is the process of moving the error back through the net to adjust the weights and biases.
+Backpropagation involves calculating the gradient of the error with respect to the weights and biases of the neural network.</p>
+<h3 id="Chain-Rule-in-Calculus">Chain Rule in Calculus<a class="anchor-link" href="#Chain-Rule-in-Calculus">&#182;</a></h3><p>When in ml you get the error you need to update parameters (weights and biases) in order to minimize it. This is done by using the gradient of the error with respect to the parameters. This is done by using the chain rule of calculus:
 function f(g(x)) has partial derivatives with respect to x f'(g(x)) * g'(x).</p>
-<p>The error is a function of the output of the neural network and the output of the neural network is a function of the weights and biases. So the derivative of the error with respect to the weights and biases is the derivative of the error with respect to the output of the neural network times the derivative of the output of the neural network with respect to the weights and biases. Psst... chain rule. Alltogehter this is called backpropagation, pesudo code looks like this:</p>
+<p>Let's apply the chain rule of calculus to the given context.
+The error is a function of the output of the neural network and the output of the neural network is a function of the weights and biases.</p>
+<ol>
+<li>Identify the outer function  f  and the inner function ( g ).</li>
+<li>Replace f with "derivative of the error with respect to the weights and biases".</li>
+<li>Replace g with "derivative of the error with respect to the output of the neural network".</li>
+<li>Apply the chain rule: $$ f(g(x))' = f'(g(x)) \cdot g'(x) $$.</li>
+</ol>
+<h3 id="Chain-Rule-Applied-to-Backpropagation">Chain Rule Applied to Backpropagation<a class="anchor-link" href="#Chain-Rule-Applied-to-Backpropagation">&#182;</a></h3><p>Given:</p>
+<ul>
+<li>( f ) = "derivative of the error with respect to the weights and biases"</li>
+<li>( g ) = "derivative of the error with respect to the output of the neural network"</li>
+</ul>
+<p>The chain rule states:
+$[ \frac{d}{dx} f(g(x)) = f'(g(x)) \cdot g'(x) ]$</p>
+<p>So, the chain rule in this context is:
+$[ \frac{dE}{dW} = \frac{dE}{dO} \cdot \frac{dO}{dW} ]$</p>
+<p>Where:</p>
+<ul>
+<li>( E ) is the error.</li>
+<li>( O ) is the output of the neural network.</li>
+<li><p>( W ) represents the weights and biases.</p>
+<p>So the derivative of the error with respect to the weights and biases is the derivative of the error with respect to the output of the neural network times the derivative of the output of the neural network with respect to the weights and biases. Psst... chain rule. Alltogehter this is called backpropagation, pesudo code looks like this:</p>
+</li>
+</ul>
 <div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="n">neural_network</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">biases</span><span class="p">)</span>
 <span class="n">error</span> <span class="o">=</span> <span class="n">loss</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
 <span class="n">gradient</span> <span class="o">=</span> <span class="n">error_gradient</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
 <span class="n">weights</span><span class="p">,</span> <span class="n">biases</span> <span class="o">=</span> <span class="n">backpropagate</span><span class="p">(</span><span class="n">gradient</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">biases</span><span class="p">)</span>
 </pre></div>
-<p>We calculate our error by taking the diff (actual - expected) and getting back along the net at small learning rates adjusting each of the matrices of weights and biases.</p>
+<h3 id="In-short">In short<a class="anchor-link" href="#In-short">&#182;</a></h3><p>We calculate our error by taking the diff (actual - expected) and getting back along the net at small learning rates adjusting each of the matrices of weights and biases in a Net.</p>
+<p>But looking at this you see that it just follows Chain Rule - multiplying the derivative of the function by the derivative of the inside.</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>in this article I tried to get gradient descent <a href="https://www.prettylagom.me/regression.html">https://www.prettylagom.me/regression.html</a> in python. The implementation of gradient descent in logistic regression is highly relevant here since it is algorithm used to minimize the loss function in various machine learning models, including deep learning models.</p>
+<p>The process below iterated over multiple epochs to minimize the loss function and improve the model's performance.
+``````python<br>
+import numpy as np</p>
+<h1 id="Predict">Predict<a class="anchor-link" href="#Predict">&#182;</a></h1><h1 id="Compute-the-linear-combination-of-the-weights-and-input-features">Compute the linear combination of the weights and input features<a class="anchor-link" href="#Compute-the-linear-combination-of-the-weights-and-input-features">&#182;</a></h1><p>linear_combination = np.dot(weights.T, input_features) + bias</p>
+<h1 id="Apply-the-sigmoid-activation-function-to-get-the-predicted-probabilities">Apply the sigmoid activation function to get the predicted probabilities<a class="anchor-link" href="#Apply-the-sigmoid-activation-function-to-get-the-predicted-probabilities">&#182;</a></h1><p>activation_output = sigmoid(linear_combination)</p>
+<h1 id="Gradient-descent">Gradient descent<a class="anchor-link" href="#Gradient-descent">&#182;</a></h1><h1 id="Compute-the-difference-between-the-predicted-probabilities-and-the-actual-labels">Compute the difference between the predicted probabilities and the actual labels<a class="anchor-link" href="#Compute-the-difference-between-the-predicted-probabilities-and-the-actual-labels">&#182;</a></h1><p>error = activation_output - true_labels</p>
+<h1 id="Compute-the-gradient-of-the-loss-with-respect-to-the-weights">Compute the gradient of the loss with respect to the weights<a class="anchor-link" href="#Compute-the-gradient-of-the-loss-with-respect-to-the-weights">&#182;</a></h1><p>gradient_weights = (1/num_samples) * np.dot(input_features, error.T)</p>
+<h1 id="Compute-the-gradient-of-the-loss-with-respect-to-the-bias">Compute the gradient of the loss with respect to the bias<a class="anchor-link" href="#Compute-the-gradient-of-the-loss-with-respect-to-the-bias">&#182;</a></h1><p>gradient_bias = (1/num_samples) * np.sum(error)</p>
+<h1 id="Update">Update<a class="anchor-link" href="#Update">&#182;</a></h1><h1 id="Update-the-weights-by-subtracting-the-product-of-the-learning-rate-and-the-gradient">Update the weights by subtracting the product of the learning rate and the gradient<a class="anchor-link" href="#Update-the-weights-by-subtracting-the-product-of-the-learning-rate-and-the-gradient">&#182;</a></h1><p>weights = weights - learning_rate * gradient_weights</p>
+<h1 id="Update-the-bias-similarly">Update the bias similarly<a class="anchor-link" href="#Update-the-bias-similarly">&#182;</a></h1><p>bias = bias - learning_rate * gradient_bias
+```</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
 </div>
  
 
