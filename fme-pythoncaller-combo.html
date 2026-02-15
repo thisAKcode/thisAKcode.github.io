@@ -6,7 +6,7 @@
         <meta name="google-site-verification" content="i-2LgSowoaEqE3Ai41mTMkzQqsG9PW2Gb46enP80aaE" />
         <title>FME & PythonCaller combo</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
-        <meta name="description" content="FME & PythonCaller combo. The main goal with that article is justify my use of FME as valuable experience for becoming a Python developer. Shortly..." />
+        <meta name="description" content="FME & PythonCaller combo. The main goal with that article is to understand my use of FME and how Python can manipulate fmeobjects. Shortly about..." />
 </head>
 
 <body id="index" class="home">
@@ -15,7 +15,6 @@
                 <nav><ul>
                     <li><a href="/pages/about.html">About</a></li>
                     <li><a href="/category/art.html">art</a></li>
-                    <li><a href="/category/life.html">life</a></li>
                     <li class="active"><a href="/category/misc.html">misc</a></li>
                     <li><a href="/category/python.html">python</a></li>
                     <li><a href="/category/sql.html">sql</a></li>
@@ -44,19 +43,18 @@
 <p>In <a href="/category/misc.html">misc</a>.</p>
 
 </footer><!-- /.post-info -->      <h1>FME &amp; PythonCaller combo.</h1>
-<p>The main goal with that article is justify my use of FME as valuable experience for becoming a Python developer. </p>
+<p>The main goal with that article is to understand my use of FME and how Python can manipulate fmeobjects.</p>
 <h2>Shortly about FME (Feature Manipulation Engine)</h2>
-<p>The main desktop application of Safe Software is FME Workbench. The inteface consist of, among other, canvas. Here user Alex graphically define a translation called a "workspace" wich can be saved for re-use later (fme workspace files on that regard are similar to script files).
+<p>The main desktop application of Safe Software is FME Workbench. The inteface consist of, among other, canvas. Here user graphically define a translation called a "workspace" wich can be saved for re-use later (fme workspace files on that regard are similar to script files).
 <a href="https://docs.safe.com/fme/html/FME_Desktop_Documentation/FME_Coordinate_Systems/!FME_Terminology/terminology.htm">https://docs.safe.com/fme/html/FME_Desktop_Documentation/FME_Coordinate_Systems/!FME_Terminology/terminology.htm</a></p>
 <p>FME Desktop is like a mindmap: you are using canvas to graphically define a translation with transformers. Transformers are "the building blocks used in FME Workbench, each having a specific function. They can be used alone in a simple workspace, or combined to create complicated processes".</p>
-<p>A classical simple workspace looks like that:
-picture1</p>
+<p>A classical simple workspace contains:</p>
 <ol>
 <li>Create features (an individual item within the translation) OR read the source dataset (many formats accessible in FME).</li>
 <li>Directing the items into individual port based on result of evaluation of 'if-elif-else' condition statement &gt; you can then write the items to different files for each resulting port.</li>
 </ol>
 <h2>PythonCaller</h2>
-<p>PythonCaller transformer used to perform tasks within FME, which are not possible with standard FME transformers.
+<p>PythonCaller transformer used to perform tasks within FME, which are not as smooth with standard FME transformers.
 Transformer PythonCaller executes a user-supplied Python script (3.7+) to manipulate features.
 <a href="https://knowledge.safe.com/articles/60319/pythoncaller-transformer.html">https://knowledge.safe.com/articles/60319/pythoncaller-transformer.html</a>
 PythonCaller can interface with a Python script in two different ways - by a function or by a class.</p>
@@ -65,7 +63,7 @@ PythonCaller can interface with a Python script in two different ways - by a fun
 <h3>usecase 1 collection.Counter()</h3>
 <p>Prior to use of PythonCaller you need to accomplish the following:
 1. Create some dummy items to use as input for Python function.
-2. Add a PythoCaller Transfromer.
+2. Add a PythonCaller Transformer.
 3. Inside it make a count of items having some particular attribute value for 'attribute1'. 
 4. Output values containing in Counter() object as its own attribute called 'attribute2' counted values.</p>
 <p>When you use function to process features, all features will enter the function one by one for processing.</p>
@@ -86,7 +84,7 @@ PythonCaller can interface with a Python script in two different ways - by a fun
 </ol>
 <p>In the same pane, set the Class or Function to Process Feature parameter to the name of the function: timestampFeature. Because we have added a new attribute we can expose it by entering its name in the Attributes to Expose parameter: type in the new attribute name in the Enter Values for Attributes to Expose window.</p>
 <h2>Python Classes within PythonCaller.</h2>
-<p>If you need to process all values of given attribute for a bunch of features then you may need use classes. </p>
+<p>If you need to process all values of given attribute for a bunch of features then you may need use classes. But it is not the only use case.</p>
 <p>Use the Class Interface for more flexibility. The Class Interface is useful when you want to operate on a group of features together, such as collecting all the features received and then outputting them in a specific sort order. Another common use case is to accumulate all the features, perform an operation on the whole set, and then output all of the features with a calculated value as a new attribute.</p>
 <p>You can use Python Classes to accumulate values between features (GIS items)
 PythonCaller will output one single feature containing a list attribute. 
@@ -110,6 +108,7 @@ Code is from safe community <a href="https://knowledge.safe.com/questions/52168/
         <span class="bp">self</span><span class="o">.</span><span class="n">pyoutput</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 </code></pre></div>
 
+<h3>Python in FME, FME in Python</h3>
 <p>If you wish to dig deep then you can find fun reads e.g.
 Maybe you can find this article useful. 
 <a href="https://www.slideshare.net/DanielaPerri2/when-to-use-python-in-fme">https://www.slideshare.net/DanielaPerri2/when-to-use-python-in-fme</a></p>
