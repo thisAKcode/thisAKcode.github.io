@@ -25,7 +25,7 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/datasets-for-data-science.html">Datasets for Data Science.</a></h1>
+                    <h1 class="entry-title"><a href="/datasets-for-geospatial-data-science.html">Datasets for Geospatial Data science</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2026-03-15T00:00:00+01:00">
                 Published: Sun 15 March 2026
@@ -1155,15 +1155,15 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
  .highlight pre  .il { color: #666666 } /* Literal.Number.Integer.Long */</style><body><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Datasets-for-Data-Science">Datasets for Data Science<a class="anchor-link" href="#Datasets-for-Data-Science">&#182;</a></h3><h4 id="intro">intro<a class="anchor-link" href="#intro">&#182;</a></h4><p>A quick resource guide for satellite imagery, object detection, and geospatial ML.</p>
+<h3 id="Datasets-for-Geospatial-Data-science">Datasets for Geospatial Data science<a class="anchor-link" href="#Datasets-for-Geospatial-Data-science">&#182;</a></h3><p>A quick resource guide for satellite imagery, object detection, and geospatial ML.</p>
 <p>In an ideal world for geospatial machine learning, you have three things:</p>
 <p>A good model zoo to start quickly.</p>
 <p>A training environment that runs without heavy setup.</p>
 <p>Datasets to practice on.</p>
 <p>Like:</p>
 <p>Hugging Face == model zoo and datasets.</p>
-<p>Google Colab == training environment.
-Data == I do not know yet.</p>
+<p>Google Colab == training environment.</p>
+<p>Data == I do not know yet.</p>
 <h4 id="Platforms-to-Practice-Geospatial-ML">Platforms to Practice Geospatial ML<a class="anchor-link" href="#Platforms-to-Practice-Geospatial-ML">&#182;</a></h4><p>These platforms provide datasets, competitions, or model sharing useful for computer vision and satellite imagery tasks.</p>
 <p>Hugging Face – datasets and pretrained models</p>
 <p>CodaLab – popular competition platform (widely used in China)</p>
@@ -1172,16 +1172,23 @@ Data == I do not know yet.</p>
 <p>Papers With Code – tasks, datasets, and model leaderboards</p>
 <p>Roboflow Universe – community datasets for computer vision</p>
 <p>OpenML – open datasets for machine learning experiments</p>
-<h4 id="Satellite-Imagery-Sources-(Raster-Data)">Satellite Imagery Sources (Raster Data)<a class="anchor-link" href="#Satellite-Imagery-Sources-(Raster-Data)">&#182;</a></h4><h5 id="Reddit...">Reddit...<a class="anchor-link" href="#Reddit...">&#182;</a></h5><p>Ready-to-use aerial and satellite imagery datasets are not easy to find. This Reddit thread is a good resource for finding countries with NAIP-level aerial imagery coverage:
-<a href="https://www.reddit.com/r/gis/comments/1eowe3f/countries_with_naiplevel_imagery/">https://www.reddit.com/r/gis/comments/1eowe3f/countries_with_naiplevel_imagery/</a></p>
+<h4 id="Satellite-Imagery-Sources-(Raster-Data)">Satellite Imagery Sources (Raster Data)<a class="anchor-link" href="#Satellite-Imagery-Sources-(Raster-Data)">&#182;</a></h4><p>For georeferenced rasters for GIS or Deep Learning (CNNs) there is specialized SpatioTemporal Asset Catalog (STAC) repositories.
+<a href="https://developmentseed.org/scaling_science/docs/Open_data_code.html">https://developmentseed.org/scaling_science/docs/Open_data_code.html</a>
+OR 
+<a href="https://stacspec.org/en/about/datasets/">https://stacspec.org/en/about/datasets/</a></p>
+<h5 id="Reddit...">Reddit...<a class="anchor-link" href="#Reddit...">&#182;</a></h5><p>Ready-to-use aerial and satellite imagery datasets are not easy to find. This Reddit thread is a good resource for finding countries with NAIP-level aerial imagery coverage:
+<a href="https://www.reddit.com/r/gis/comments/1eowe3f/countries_with_naiplevel_imagery/">https://www.reddit.com/r/gis/comments/1eowe3f/countries_with_naiplevel_imagery/</a>
+AND THIS IS AWESOME: <a href="https://geoservices.ign.fr/bdortho">https://geoservices.ign.fr/bdortho</a></p>
 <h5 id="Building-&amp;-Urban-Detection">Building &amp; Urban Detection<a class="anchor-link" href="#Building-&amp;-Urban-Detection">&#182;</a></h5><p>SpaceNet – Building Segmentation
 Satellite imagery for building footprint extraction.</p>
-<h5 id="Other-nodes">Other nodes<a class="anchor-link" href="#Other-nodes">&#182;</a></h5><p>iSAID (Instance Segmentation in Aerial Images Dataset)
+<h5 id="Other-nodes">Other nodes<a class="anchor-link" href="#Other-nodes">&#182;</a></h5><p>USDA Gateway: Provides free access to high-quality aerial ortho-imagery (NAIP) for the United States.
+EarthData (NASA): For global satellite-based raster datasets.</p>
+<p>Radiant MLHub: Specifically designed for georeferenced training data and raw imagery for Earth observation.
+<a href="https://registry.opendata.aws/radiant-mlhub/">https://registry.opendata.aws/radiant-mlhub/</a></p>
+<p>iSAID (Instance Segmentation in Aerial Images Dataset)
 <a href="https://captain-whu.github.io/iSAID/">https://captain-whu.github.io/iSAID/</a></p>
 <p>Large Remote Sensing Object Detection</p>
-<p>xView
-One of the largest satellite object detection datasets.</p>
-<p><a href="https://xviewdataset.org/">https://xviewdataset.org/</a></p>
+<p>xView <a href="https://xviewdataset.org/">https://xviewdataset.org/</a> is one of the largest satellite object detection datasets.</p>
 <p>European Land Data</p>
 <p>Copernicus Urban Atlas
 Detailed land use and land cover maps for European cities.
@@ -1197,7 +1204,14 @@ Detailed land use and land cover maps for European cities.
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Conclusion</span>
+<span class="n">Reddit</span> <span class="n">was</span> <span class="n">best</span> <span class="n">to</span> <span class="n">find</span> <span class="n">dataset</span> <span class="n">to</span> <span class="n">start</span> <span class="n">using</span> <span class="n">directly</span><span class="o">.</span> 
+
+<span class="n">You</span> <span class="n">can</span> <span class="n">user</span> <span class="n">clever</span> <span class="n">keywords</span> <span class="k">for</span> <span class="n">Target</span> <span class="n">Remote</span> <span class="n">Sensing</span> <span class="n">Tags</span><span class="p">:</span> <span class="n">Use</span> <span class="n">the</span> <span class="n">search</span> <span class="n">bar</span> <span class="k">for</span> <span class="n">terms</span> <span class="n">like</span> <span class="n">remote_sensing</span><span class="p">,</span> <span class="n">satellite</span><span class="p">,</span> <span class="ow">or</span> <span class="n">landcover</span><span class="o">.</span>
+
+<span class="n">USDA</span> <span class="n">Gateway</span><span class="p">:</span> <span class="n">Provides</span> <span class="n">free</span> <span class="n">access</span> <span class="n">to</span> <span class="n">high</span><span class="o">-</span><span class="n">quality</span> <span class="n">aerial</span> <span class="n">ortho</span><span class="o">-</span><span class="n">imagery</span> <span class="p">(</span><span class="n">NAIP</span><span class="p">)</span> <span class="k">for</span> <span class="n">the</span> <span class="n">United</span> <span class="n">States</span><span class="o">.</span>
+<span class="n">EarthData</span> <span class="p">(</span><span class="n">NASA</span><span class="p">):</span> <span class="n">For</span> <span class="k">global</span> <span class="n">satellite</span><span class="o">-</span><span class="n">based</span> <span class="n">raster</span> <span class="n">datasets</span><span class="o">.</span> 
+<span class="n">French</span> <span class="n">source</span> <span class="n">geoservices</span> <span class="ow">is</span> <span class="n">greatest</span> <span class="ow">and</span> <span class="n">easiest</span> <span class="n">to</span> <span class="n">access</span> <span class="n">so</span> <span class="n">far</span><span class="p">:</span>   <span class="o">&lt;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">geoservices</span><span class="o">.</span><span class="n">ign</span><span class="o">.</span><span class="n">fr</span><span class="o">/</span><span class="n">bdortho</span><span class="o">&gt;.</span>
 </pre></div>
 
     </div>
